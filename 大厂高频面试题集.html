@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>大厂高频面试题集 · 软件工程校招备考手册</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#f6f7f9; --card:#ffffff; --ink:#1f2330; --ink-soft:#4a5160; --muted:#7a8194;
+    --line:#e6e8ee; --brand:#2b5fd6; --brand-soft:#eaf0fd; --accent:#e85d4a;
+    --gold:#d9a441; --teal:#1aa39a; --purple:#7b5ea7; --green:#2e9e5b;
+    --shadow:0 1px 3px rgba(31,35,48,.06),0 6px 24px rgba(31,35,48,.05);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;font-size:15.5px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  .hero{background:linear-gradient(135deg,#5a2d8a 0%,#7b3fb0 55%,#9650d0 100%);color:#fff;padding:60px 0 54px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.07)}
+  .hero::before{content:"";position:absolute;left:-70px;bottom:-130px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.05)}
+  .hero h1{font-size:33px;font-weight:800;letter-spacing:.5px;margin-bottom:10px;position:relative}
+  .hero .sub{font-size:16px;opacity:.92;margin-bottom:6px;position:relative}
+  .hero .meta{font-size:13px;opacity:.8;margin-top:14px;position:relative}
+  .hero .tag{display:inline-block;background:rgba(255,255,255,.15);padding:4px 12px;border-radius:20px;font-size:12.5px;margin-right:8px;margin-top:14px;backdrop-filter:blur(4px)}
+  nav.toc{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+  nav.toc .wrap{display:flex;gap:4px;overflow-x:auto;padding:10px 24px;font-size:13px}
+  nav.toc a{color:var(--ink-soft);text-decoration:none;padding:7px 12px;border-radius:8px;white-space:nowrap;transition:.18s;font-weight:500}
+  nav.toc a:hover{background:var(--brand-soft);color:var(--brand)}
+  nav.toc a.sec{color:var(--purple);font-weight:700}
+  section{padding:46px 0 10px}
+  .sec-head{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .sec-num{font-size:13px;font-weight:700;color:#fff;background:var(--purple);width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  h2{font-size:24px;font-weight:800;color:var(--ink)}
+  .sec-desc{color:var(--muted);font-size:14px;margin:4px 0 24px 42px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow);margin-bottom:22px}
+  p{margin-bottom:12px;color:var(--ink-soft)}
+  strong{color:var(--ink)}
+  .hl{background:linear-gradient(transparent 60%,#ffe9a8 60%);padding:0 2px;font-weight:600}
+  h3{font-size:18px;font-weight:700;color:var(--ink);margin:22px 0 12px;display:flex;align-items:center;gap:8px}
+  h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--purple);display:inline-block}
+  h4{font-size:15.5px;font-weight:700;color:var(--ink);margin:16px 0 8px}
+  ul,ol{margin:0 0 14px 4px;padding-left:20px}
+  li{margin-bottom:6px;color:var(--ink-soft)}
+  li strong{color:var(--ink)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+  .tag-pill{font-size:12.5px;padding:4px 11px;border-radius:20px;background:var(--brand-soft);color:var(--brand);font-weight:600;border:1px solid #d4e1fb}
+  .tag-pill.r{background:#fdecea;color:var(--accent);border-color:#f6d4cd}
+  .tag-pill.g{background:#e7f6ef;color:var(--green);border-color:#c8e8d6}
+  .tag-pill.gold{background:#fbf2e0;color:#9a7320;border-color:#f0dca8}
+  .tag-pill.p{background:#f1ecf8;color:var(--purple);border-color:#ddd0ee}
+  table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:13.5px}
+  th{background:#f0f3f8;color:var(--ink);font-weight:700;text-align:left;padding:11px 14px;border-bottom:2px solid var(--line)}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+  tr:hover td{background:#fafbfd}
+  td.center{text-align:center}
+  .freq{display:inline-block;padding:2px 8px;border-radius:6px;font-size:11.5px;font-weight:700}
+  .freq.f5{background:#fdecea;color:var(--accent)}
+  .freq.f4{background:#fbf2e0;color:#9a7320}
+  .freq.f3{background:#eaf0fd;color:var(--brand)}
+  .chart-box{position:relative;height:320px;margin-top:6px}
+  .chart-box.tall{height:360px}
+  .chart-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px}
+  .chart-cap{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+  /* company card */
+  .co{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:0;box-shadow:var(--shadow);margin-bottom:24px;overflow:hidden}
+  .co-head{padding:18px 24px;color:#fff;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .co-head .name{font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px}
+  .co-head .emo{font-size:22px}
+  .co-head .badges{display:flex;gap:8px;flex-wrap:wrap}
+  .co-head .b{font-size:11.5px;background:rgba(255,255,255,.22);padding:3px 10px;border-radius:14px;font-weight:600;backdrop-filter:blur(4px)}
+  .co-body{padding:20px 24px}
+  .co-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:820px){.co-grid{grid-template-columns:1fr}}
+  .blk{background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .blk h4{margin:0 0 8px;font-size:14px;color:var(--purple);display:flex;align-items:center;gap:6px}
+  .blk ul{font-size:13px;padding-left:18px;margin:0}
+  .blk li{margin-bottom:5px}
+  .co-foot{padding:12px 24px 20px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:820px){.co-foot{grid-template-columns:1fr}}
+  .tip-box{border-radius:10px;padding:12px 14px;font-size:13px}
+  .tip-box.mine{background:#fdf0ee;border:1px solid #f3d4cf}
+  .tip-box.win{background:#f3faf6;border:1px solid #cfe9da}
+  .tip-box .t{font-weight:700;margin-bottom:4px;font-size:13px}
+  .tip-box.mine .t{color:var(--accent)}
+  .tip-box.win .t{color:var(--green)}
+  .callout{border-left:4px solid var(--purple);background:#f4eefc;border-radius:0 10px 10px 0;padding:14px 18px;margin:16px 0}
+  .callout.warn{border-color:var(--accent);background:#fdf0ee}
+  .callout.tip{border-color:var(--teal);background:#e7f6f4}
+  .callout.gold{border-color:var(--gold);background:#fbf6ea}
+  .callout .t{font-weight:700;font-size:13.5px;margin-bottom:4px;color:var(--ink)}
+  .callout p{margin-bottom:4px;font-size:13.5px}
+  .footer{border-top:1px solid var(--line);padding:30px 0 50px;text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+  .anchor{scroll-margin-top:64px}
+  .alg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0}
+  .alg{background:#fbfcfe;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:12.5px}
+  .alg b{color:var(--purple);font-size:12px;display:block;margin-bottom:3px}
+  @media(max-width:760px){.alg-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="sub">面向 211 软件工程学院 · 校招备考用</div>
+    <h1>大厂高频面试题集</h1>
+    <div class="sub" style="opacity:.88">字节 · 阿里 · 百度 · 腾讯 · 美团 · 拼多多 · 小红书 · 华为 · 京东 · 网易 · 快手</div>
+    <div>
+      <span class="tag">面试风格对比</span>
+      <span class="tag">高频八股 + 手撕 + 系统设计</span>
+      <span class="tag">真实面经整理</span>
+    </div>
+    <div class="meta">编制说明：综合牛客、面试鸭、CSDN、脉脉等渠道 2025-2026 真实面经整理。标注"重基础/重算法/重项目/重场景"系各厂相对侧重，供学生针对性备考。</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#s1">总览·风格对比</a>
+    <a href="#s2" class="sec">字节</a>
+    <a href="#s3" class="sec">阿里</a>
+    <a href="#s4" class="sec">百度</a>
+    <a href="#s5" class="sec">腾讯</a>
+    <a href="#s6" class="sec">美团</a>
+    <a href="#s7" class="sec">拼多多</a>
+    <a href="#s8" class="sec">小红书</a>
+    <a href="#s9" class="sec">华为</a>
+    <a href="#s10" class="sec">京东·网易·快手</a>
+    <a href="#s11">维度横向对比</a>
+    <a href="#s12">跨厂通用高频</a>
+    <a href="#s13">备考策略</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<!-- ============ S1 总览 ============ -->
+<section id="s1" class="anchor">
+  <div class="sec-head"><div class="sec-num">1</div><h2>大厂面试风格总览：先懂"考什么"，再谈"怎么备"</h2></div>
+  <p class="sec-desc">不同大厂考察侧重差异极大——有的"算法定生死"，有的"八股问到底"，有的"项目拷打三小时"。先看全景。</p>
+
+  <div class="card">
+    <div class="chart-title">图1 · 各大厂四大考察维度侧重指数（满分5）</div>
+    <div class="chart-cap">基于真实面经统计的相对侧重度：基础八股 / 算法手撕 / 项目深挖 / 系统设计场景</div>
+    <div class="chart-box tall"><canvas id="c1"></canvas></div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="dot" style="background:var(--purple)"></span>11 家大厂面试风格一览表</h3>
+    <table>
+      <thead><tr><th style="width:9%">公司</th><th style="width:8%">难度</th><th style="width:24%">核心风格</th><th style="width:30%">重点考察</th><th style="width:14%">挂人雷区</th><th style="width:15%">备考核心</th></tr></thead>
+      <tbody>
+        <tr><td><strong>字节跳动</strong></td><td class="center"><span class="freq f5">★★★★★</span></td><td>算法驱动 · 一面淘汰率最高</td><td>项目深挖 + 并发 + 算法手撕多，要求源码级理解</td><td>项目平淡 / 算法卡壳</td><td>LeetCode 热题 200+</td></tr>
+        <tr><td><strong>阿里巴巴</strong></td><td class="center"><span class="freq f4">★★★★☆</span></td><td>深度广度并重 · 重系统设计</td><td>JVM + 并发 + 项目亮点 + 分布式系统设计</td><td>不会画架构图 / 表达差</td><td>项目讲量化指标</td></tr>
+        <tr><td><strong>百度</strong></td><td class="center"><span class="freq f4">★★★★</span></td><td>基础扎实 · AI 占比高</td><td>计算机基础 + AI 工程化 + 搜索相关</td><td>基础不牢</td><td>夯实四大件</td></tr>
+        <tr><td><strong>腾讯</strong></td><td class="center"><span class="freq f4">★★★★</span></td><td>细节控 · 轮次多容错低</td><td>基础面面俱到 + 手撕 + 软技能（英文自我介绍）</td><td>答不到点 / 表达卡顿</td><td>练英文自我介绍</td></tr>
+        <tr><td><strong>美团</strong></td><td class="center"><span class="freq f4">★★★★☆</span></td><td>场景题多 · Redis/MySQL 重</td><td>缓存 + 数据库 + Kafka + 场景设计</td><td>缓存/DB 原理说不清</td><td>背熟 Redis 六大场景</td></tr>
+        <tr><td><strong>拼多多</strong></td><td class="center"><span class="freq f5">★★★★★</span></td><td>八股深挖 + 算法 Hard</td><td>并发 + Redis + OS/网络底层 + 手撕 Hard</td><td>并发细节说不清</td><td>精读 JUC 源码</td></tr>
+        <tr><td><strong>小红书</strong></td><td class="center"><span class="freq f4">★★★★☆</span></td><td>分布式场景 · 非常规手撕</td><td>项目拷打 + 分布式场景 + 集群/锁/MQ 深挖</td><td>项目经不起追问</td><td>分布式场景题专项</td></tr>
+        <tr><td><strong>华为</strong></td><td class="center"><span class="freq f4">★★★★</span></td><td>机考算法 + OS/网络硬核</td><td>操作系统 + 网络 + 机考算法 + Linux 内核</td><td>计网/OS 基础弱</td><td>背八股 + 项目规范</td></tr>
+        <tr><td><strong>京东</strong></td><td class="center"><span class="freq f3">★★★☆☆</span></td><td>项目导向 · 电商场景绑定</td><td>项目细节 + SpringBoot + Redis + 电商/供应链</td><td>项目没亮点</td><td>1-2 个完整业务项目</td></tr>
+        <tr><td><strong>网易</strong></td><td class="center"><span class="freq f3">★★★☆☆</span></td><td>基础 + 工程能力</td><td>Java 基础 + 集合并发 + 游戏服务器</td><td>基础不扎实</td><td>巩固基础 + 项目</td></tr>
+        <tr><td><strong>快手</strong></td><td class="center"><span class="freq f4">★★★★</span></td><td>高并发项目 · 流程超长</td><td>直播/短视频高并发 + 推荐系统 + 实时计算</td><td>无高并发项目经验</td><td>准备高并发项目</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout gold"><div class="t">一句话看懂各厂</div>
+  <p><strong>字节/拼多多</strong>＝算法定生死（手撕 Hard）；<strong>阿里</strong>＝系统设计 + 项目深度；<strong>腾讯/华为/百度</strong>＝基础硬核（OS/网络/JVM）；<strong>美团/小红书</strong>＝分布式场景 + 中间件深挖；<strong>京东/网易/快手</strong>＝项目与业务场景导向。<strong>共同点</strong>：无论哪家，"项目能扛 30 分钟深挖 + Hot 100 算法熟练 + 核心八股脱口而出"是及格线。</p></div>
+</section>
+
+<!-- ============ S2 字节 ============ -->
+<section id="s2" class="anchor">
+  <div class="sec-head"><div class="sec-num">2</div><h2>字节跳动：算法驱动，一面淘汰率最高</h2></div>
+  <p class="sec-desc">技术驱动型公司，注重算法能力、工程实践与快速学习。一面是"生死关"。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#1a1a2e,#16213e)">
+      <div class="name"><span class="emo">⚡</span>字节跳动 ByteDance</div>
+      <div class="badges">
+        <span class="b">难度 ★★★★★</span><span class="b">重算法</span><span class="b">重项目</span><span class="b">3-4 轮</span>
+      </div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill r">一面淘汰率约 50%</span>
+        <span class="tag-pill">基础 40% + 手撕 35% + 项目 25%</span>
+        <span class="tag-pill p">要求源码级理解</span>
+        <span class="tag-pill gold">研发岗校招 4000+</span>
+      </div>
+      <p><strong>面试风格</strong>：字节面试官不满足于"知道"，要求"理解到源码级别"。一面主要考察基础功力和算法能力，二面更深（并发/JVM/系统设计），三面综合（架构思维 + 场景设计）。几乎每场必出 1-2 道手撕算法，且要求写出可运行代码并分析复杂度。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股</h4><ul>
+          <li><strong>并发</strong>：synchronized vs ReentrantLock 底层实现；volatile 作用与内存语义；ThreadLocal 原理与内存泄漏；线程池参数与拒绝策略；CAS/AQS</li>
+          <li><strong>JVM</strong>：内存结构（哪些线程共享）；GC Roots；CMS vs G1 vs ZGC；Full GC 频繁排查</li>
+          <li><strong>MySQL</strong>：事务隔离级别；B+ 树 vs B 树；MVCC</li>
+          <li><strong>Redis</strong>：缓存三问；分布式锁（红锁）；持久化</li>
+          <li><strong>MQ</strong>：Kafka 顺序性与可靠性；RabbitMQ 死信</li>
+          <li><strong>分布式</strong>：分布式 ID（雪花算法）；CAP；分布式事务</li>
+        </ul></div>
+        <div class="blk"><h4>② 高频手撕算法</h4><ul>
+          <li>手写 LRU 缓存（双向链表 + HashMap，O(1)）★</li>
+          <li>反转链表 / 链表环检测 / 返回环入口节点 ★</li>
+          <li>滑动窗口最大值（要求低复杂度）★</li>
+          <li>前 K 个高频元素</li>
+          <li>岛屿数量（DFS/BFS）</li>
+          <li>完全平方数（BFS/DP）</li>
+          <li>课程表（拓扑排序）</li>
+          <li>无重复字符的最长子串</li>
+        </ul></div>
+      </div>
+      <div class="co-grid">
+        <div class="blk"><h4>③ 系统设计 / 场景题</h4><ul>
+          <li>设计评论系统（高并发写入 + 分页 + 热评 + 防刷）</li>
+          <li>设计秒杀系统</li>
+          <li>分布式 TopK 问题</li>
+          <li>价格计算服务设计</li>
+          <li>线上 CPU 100% / 内存泄漏排查</li>
+        </ul></div>
+        <div class="blk"><h4>④ 项目深挖方向</h4><ul>
+          <li>项目整体架构图（要能画）</li>
+          <li>最难 bug / 性能问题（量化）</li>
+          <li>Redis 为什么不用本地缓存</li>
+          <li>分布式锁/限流/幂等怎么实现</li>
+          <li>多线程/线程池业务场景</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>项目太平淡（无技术挑战）、算法卡壳写不出、八股只背结论不懂原理被追问翻车。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>LeetCode 热题刷 200+，每题能讲思路+复杂度；八股要能讲到源码级（如 HashMap 追问到底层数组+红黑树阈值+扩容过程）。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S3 阿里 ============ -->
+<section id="s3" class="anchor">
+  <div class="sec-head"><div class="sec-num">3</div><h2>阿里巴巴：深度广度并重，系统设计是分水岭</h2></div>
+  <p class="sec-desc">技术深度和广度著称，注重基础深入理解 + 大规模分布式系统设计。AI 岗占比超 60%。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#c7541a,#e8722f)">
+      <div class="name"><span class="emo">🧡</span>阿里巴巴 Alibaba</div>
+      <div class="badges"><span class="b">难度 ★★★★☆</span><span class="b">重系统设计</span><span class="b">重项目</span><span class="b">3 轮技术</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill">一面 项目深挖+基础(60min)</span>
+        <span class="tag-pill">二面 系统设计+场景(45min)</span>
+        <span class="tag-pill">三面 架构思维+深度(30min)</span>
+        <span class="tag-pill p">新增 Java21 虚拟线程/云原生</span>
+      </div>
+      <p><strong>面试风格</strong>：阿里最看重"技术选型的合理性"和"性能优化方案"。一道题会从原理问到工程权衡（如缓存一致性从概念问到多级缓存、从 B+ 树问到优化器、锁机制、隔离级别）。系统设计题是大头，要求画出架构图并讲清权衡。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股</h4><ul>
+          <li><strong>JVM</strong>：内存区域与分代；GC 算法；CMS vs G1；Full GC 调优；OOM 类型；内存泄漏排查</li>
+          <li><strong>并发</strong>：synchronized 锁升级（偏向→轻量→重量）；悲观锁 vs 乐观锁；线程池设计（CPU/IO 密集型）；CountDownLatch/CyclicBarrier/Semaphore</li>
+          <li><strong>集合</strong>：HashMap 1.7 vs 1.8；ConcurrentHashMap；CopyOnWriteArrayList</li>
+          <li><strong>分布式</strong>：缓存一致性；分布式事务（TCC/Seata/最大努力通知）；CAP；消息可靠投递（ACK/事务消息）</li>
+          <li><strong>阿里技术体系</strong>：Dubbo、RocketMQ、Sentinel、Nacos</li>
+        </ul></div>
+        <div class="blk"><h4>② 系统设计高频题</h4><ul>
+          <li>千万级 QPS 短链系统设计 ★</li>
+          <li>秒杀系统（限流/超卖/幂等/扣库存）★</li>
+          <li>分布式锁优化方案对比</li>
+          <li>多活架构设计难点</li>
+          <li>混沌工程实施经验</li>
+          <li>分布式 ID 生成器</li>
+          <li>高并发下缓存一致性处理</li>
+        </ul></div>
+      </div>
+      <div class="co-grid">
+        <div class="blk"><h4>③ 高频手撕</h4><ul>
+          <li>LRU 缓存</li>
+          <li>单例模式（双重检测锁）</li>
+          <li>常见 DP（爬楼梯/背包）</li>
+          <li>链表操作</li>
+          <li>算法难度中等，但更看重场景题</li>
+        </ul></div>
+        <div class="blk"><h4>④ 项目深挖方向</h4><ul>
+          <li>架构图与技术选型合理性</li>
+          <li>高并发如何处理</li>
+          <li>分布式数据一致性</li>
+          <li>微服务调用失败如何处理</li>
+          <li>性能瓶颈与量化优化结果</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>不会画架构图、表达不清晰、项目讲不出量化指标（"提升了性能"而非"QPS 800→3200"）。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>每个项目准备"架构图 + 3 个技术决策 + 量化结果"；系统设计专项训练（短链/秒杀/限流）；分布式事务方案对比要能脱口而出。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S4 百度 ============ -->
+<section id="s4" class="anchor">
+  <div class="sec-head"><div class="sec-num">4</div><h2>百度：基础扎实，AI 方向占比极高</h2></div>
+  <p class="sec-desc">搜索引擎 + AI 公司基因，技术广度深度并重。未来 3 年 2.1 万实习岗，87% 与 AI 相关。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#1d4ed8,#2563eb)">
+      <div class="name"><span class="emo">🔵</span>百度 Baidu</div>
+      <div class="badges"><span class="b">难度 ★★★★</span><span class="b">重基础</span><span class="b">AI 占比高</span><span class="b">实习转正率高</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill">87% 岗位与 AI 相关</span>
+        <span class="tag-pill p">大模型/机器学习/无人驾驶</span>
+        <span class="tag-pill g">实习转正率高，大三尽早投</span>
+      </div>
+      <p><strong>面试风格</strong>：百度是典型的"基础派"，计算机四大件（数据结构/操作系统/网络/数据库）问得细。AI 相关部门会考察机器学习基础、大模型应用、向量检索等。对 C++/C 基础也有一定要求（搜索底层）。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股</h4><ul>
+          <li><strong>基础</strong>：数据结构与算法复杂度；OS 进程/线程/内存；网络 TCP/IP/HTTP/HTTPS</li>
+          <li><strong>Java</strong>：JVM、并发、集合（同通用后端）</li>
+          <li><strong>数据库</strong>：MySQL 索引/事务/锁；SQL 优化</li>
+          <li><strong>搜索相关</strong>：倒排索引原理；ES；分词</li>
+          <li><strong>AI 方向</strong>：ML 基础（LR/SVM/树模型）；DL（CNN/RNN/Transformer）；LLM 应用；RAG；向量数据库</li>
+        </ul></div>
+        <div class="blk"><h4>② 高频手撕 / 场景</h4><ul>
+          <li>LeetCode 中等题为主</li>
+          <li>字符串处理、树遍历、图算法</li>
+          <li>SQL 手写（join/聚合/窗口函数）</li>
+          <li>设计搜索引擎相关模块</li>
+          <li>大模型推理加速（量化/蒸馏/LoRA）</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>计算机基础不牢（尤其 OS/网络）；投 AI 岗但说不清 ML 基础概念。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>夯实四大件；投 AI 部门需补 ML/DL 基础 + 一个 RAG/Agent 项目；实习转正率高，大三尽早投暑期实习。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S5 腾讯 ============ -->
+<section id="s5" class="anchor">
+  <div class="sec-head"><div class="sec-num">5</div><h2>腾讯：细节控，轮次多、容错率低</h2></div>
+  <p class="sec-desc">综合型，基础面面俱到 + 手撕 + 软技能。流程长（最多 7 轮），但单题难度不算极高。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#0d7a5f,#12a47f)">
+      <div class="name"><span class="emo">💚</span>腾讯 Tencent</div>
+      <div class="badges"><span class="b">难度 ★★★★</span><span class="b">细节控</span><span class="b">7 轮拉锯</span><span class="b">容错率低</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill">5 技术面 + GM + HR</span>
+        <span class="tag-pill r">985/211 + 大厂经历优先</span>
+        <span class="tag-pill gold">3 年新增 2.8 万校招岗</span>
+        <span class="tag-pill p">毕业时间放宽至 2 年</span>
+      </div>
+      <p><strong>面试风格</strong>：腾讯以"细节控"著称，八股考得很细，甚至会出现冷门考点（如 ThreadLocalMap 的开放寻址法实现）。轮次多所以面面俱到——编程题、前端/后端基础、项目、设计都涉及。难度不高但容错率低，问题没答到点上就挂。考心态。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股（考得细）</h4><ul>
+          <li><strong>OS</strong>：进程/线程；调度算法；死锁四条件与预防；虚拟内存；页面置换（LRU/FIFO）；Linux 内核（系统调用/中断）</li>
+          <li><strong>网络</strong>：TCP 三次四次（状态迁移/SYN 洪泛/TIME_WAIT 作用）；HTTPS（SSL/TLS 握手）；HTTP/2 多路复用</li>
+          <li><strong>冷门细节</strong>：ThreadLocalMap 开放寻址；C++ 内存模型；protected 作用域</li>
+          <li><strong>Java</strong>：JVM/并发/集合（通用）</li>
+          <li><strong>DB/Redis</strong>：MVCC、索引、缓存一致性</li>
+        </ul></div>
+        <div class="blk"><h4>② 高频手撕</h4><ul>
+          <li>字符串处理（高频）</li>
+          <li>二叉树遍历</li>
+          <li>图算法：Dijkstra 最短路径 / Floyd-Warshall</li>
+          <li>回溯：N 皇后 / 全排列</li>
+          <li>DP：背包 / 最长公共子序列</li>
+          <li>最长无重复子串</li>
+        </ul></div>
+      </div>
+      <div class="co-grid">
+        <div class="blk"><h4>③ 项目 / 设计</h4><ul>
+          <li>项目展开提问（leader 面）</li>
+          <li>技术视野（总监面）</li>
+          <li>职业规划 / 跳槽原因（GM 面）</li>
+          <li>穿插编程题</li>
+        </ul></div>
+        <div class="blk"><h4>④ 软技能</h4><ul>
+          <li>英文自我介绍（高频卡壳点）</li>
+          <li>表达流畅度</li>
+          <li>职业规范</li>
+          <li>抗压心态（轮次间隔随机）</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>英文自我介绍卡壳、表达不流畅、问题答不到点上（容错率低）、心态崩（轮次间隔久）。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>多练英文自我介绍；八股要细（含冷门考点）；图算法/回溯/DP 专项；做好长期作战心态准备。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S6 美团 ============ -->
+<section id="s6" class="anchor">
+  <div class="sec-head"><div class="sec-num">6</div><h2>美团：场景题多，Redis/MySQL 是重头</h2></div>
+  <p class="sec-desc">缓存与数据库原理是核心，场景设计题占比高。校招 6000 人，技术岗持续扩招。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#d9a441,#e8b95e)">
+      <div class="name"><span class="emo">🟡</span>美团 Meituan</div>
+      <div class="badges"><span class="b">难度 ★★★★☆</span><span class="b">重场景</span><span class="b">Redis/MySQL</span><span class="b">校招 6000</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill gold">Redis 六大场景必背</span>
+        <span class="tag-pill">Kafka 高频</span>
+        <span class="tag-pill p">场景设计题多</span>
+        <span class="tag-pill">本地商业/到店/配送</span>
+      </div>
+      <p><strong>面试风格</strong>：美团围绕 Redis、MySQL、Kafka 反复深挖，场景题非常多（秒杀、限流、订单超时）。二面会出现"全程项目 + 手撕"无八股的情况。手撕偏 DP 与限流类。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股</h4><ul>
+          <li><strong>Redis</strong>：集群模式与分片；RedLock；数据类型与底层；缓存三问；内存评估</li>
+          <li><strong>MySQL</strong>：B+ 树；MVCC；索引失效；慢 SQL</li>
+          <li><strong>Kafka</strong>：副本同步与 ISR；消息有序性；广播模式底层</li>
+          <li><strong>并发/JVM</strong>：volatile；CMS vs G1；G1 可预测停顿模型；CAS/ABA</li>
+          <li><strong>分布式</strong>：幂等性；分布式 ID；Service Mesh；CQRS；零信任；无锁队列</li>
+          <li><strong>网络</strong>：HTTP 1.1/2/3；TCP 连接复用；select/poll/epoll</li>
+        </ul></div>
+        <div class="blk"><h4>② 高频手撕</h4><ul>
+          <li>打家劫舍（DP）★</li>
+          <li>最长公共子序列（DP）★</li>
+          <li>反转链表（递归 + 迭代）</li>
+          <li>手撕滑动窗口限流算法 ★</li>
+          <li>滑动窗口线程安全</li>
+          <li>两个有序数组原地合并</li>
+          <li>SQL 手写（分组取最新记录）</li>
+        </ul></div>
+      </div>
+      <div class="co-grid">
+        <div class="blk"><h4>③ 场景设计题</h4><ul>
+          <li>订单超时自动取消（RabbitMQ 死信）</li>
+          <li>多商户订单分配公平性</li>
+          <li>点赞防重复点击 / 并发</li>
+          <li>热门帖子排名算法</li>
+          <li>接口限流与熔断设计</li>
+        </ul></div>
+        <div class="blk"><h4>④ 项目深挖</h4><ul>
+          <li>为什么用 Redis，瓶颈在哪</li>
+          <li>Redis 前后请求时间对比</li>
+          <li>为什么拆微服务</li>
+          <li>查询接口 IO 时间与并发策略</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>缓存/数据库原理说不清（Redis 集群、MVCC、索引失效）；场景题给不出方案。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>背熟 Redis 六大场景（三问/分布式锁/持久化/集群/淘汰/数据结构）；Kafka ISR/顺序性；手撕限流算法；准备 1-2 个带 Redis+MQ 的项目。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S7 拼多多 ============ -->
+<section id="s7" class="anchor">
+  <div class="sec-head"><div class="sec-num">7</div><h2>拼多多：八股深挖 + 算法 Hard，高薪高压</h2></div>
+  <p class="sec-desc">基础为王，八股问得细且深（追问到答不上来）。算法可达 Hard 级别。高薪但工作强度大。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#c0392b,#e74c3c)">
+      <div class="name"><span class="emo">🔴</span>拼多多 PDD</div>
+      <div class="badges"><span class="b">难度 ★★★★★</span><span class="b">算法 Hard</span><span class="b">八股深</span><span class="b">高薪</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill r">笔试算法 Medium-Hard</span>
+        <span class="tag-pill">追问到答不上来为止</span>
+        <span class="tag-pill p">JUC 源码要精读</span>
+        <span class="tag-pill gold">会问加班/工作制度</span>
+      </div>
+      <p><strong>面试风格</strong>：基础为王，八股（OS/网络/DB/数据结构）必问且很细很深——比如 MySQL 索引会从 B+ 树原理一路问到优化器选择、锁机制、隔离级别影响。几乎每轮技术面都含手撕，难度与笔试相当或略高，要求现场写出可运行代码并分析复杂度。项目深挖到技术选型/难点/优化点。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股（深）</h4><ul>
+          <li><strong>OS/并发</strong>：内存管理（页表/段页式）；coredump；多核进程线程；锁（自旋/互斥/CAS）；synchronized vs volatile；死锁四条件；JMM</li>
+          <li><strong>网络</strong>：TCP 三次四次；握手崩溃 vs 建立后崩溃；TIME_WAIT 优化；HTTPS 双重加密；TLS 握手与证书校验</li>
+          <li><strong>MySQL</strong>：事务隔离行为差异；行锁 vs 表锁；分页查询优化；最左前缀；慢 SQL；explain 字段</li>
+          <li><strong>Redis</strong>：数据结构场景；主从一致性；宕机恢复；集群哈希槽；缓存一致性；三问</li>
+          <li><strong>MQ</strong>：RabbitMQ 死信；幂等；重复消费；顺序性；失败补偿</li>
+        </ul></div>
+        <div class="blk"><h4>② 高频手撕（Hard 偏多）</h4><ul>
+          <li>非递归二叉树中序遍历（栈模拟）★</li>
+          <li>单链表检测环 / 链表解环（定位入口）★</li>
+          <li>判断数组能否三等分</li>
+          <li>数组去重排列（排列组合类）</li>
+          <li>反转单链表</li>
+          <li>LRU 缓存</li>
+          <li>括号匹配验证（栈）</li>
+          <li>用队列实现栈 / 栈实现队列</li>
+          <li>线程安全的单例模式 ★</li>
+        </ul></div>
+      </div>
+      <div class="co-grid">
+        <div class="blk"><h4>③ 项目拷打方向</h4><ul>
+          <li>Redis 具体使用方式与选型依据</li>
+          <li>Redis 宕机数据恢复与丢失风险</li>
+          <li>SQL 优化实践与索引效果验证</li>
+          <li>大 offset 分页查询优化</li>
+          <li>MQ 消息丢失/重复消费解决</li>
+          <li>CPU 100% 线上排查流程</li>
+        </ul></div>
+        <div class="blk"><h4>④ 非技术问题</h4><ul>
+          <li>用几个关键词描述自己</li>
+          <li>如何看待加班文化</li>
+          <li>是否了解拼多多工作制度</li>
+          <li>对团队/业务的提问</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>并发细节说不清（JUC 源码级）、算法 Hard 卡壳、八股只背概念不懂底层被追问翻车。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>精读 JUC 源码（AQS/ReentrantLock/线程池）；OS/网络底层（页表/TIME_WAIT/TLS）要细；算法刷到 Hard；项目能扛 30 分钟拷打。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S8 小红书 ============ -->
+<section id="s8" class="anchor">
+  <div class="sec-head"><div class="sec-num">8</div><h2>小红书：分布式场景 + 非常规手撕，深度惊人</h2></div>
+  <p class="sec-desc">爱问分布式场景题，项目拷打狠，手撕题不按套路。面试官技术功底深，难度甚至超部分大厂。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#e8356b,#ff4d6d)">
+      <div class="name"><span class="emo">🌸</span>小红书 REDnote</div>
+      <div class="badges"><span class="b">难度 ★★★★☆</span><span class="b">重分布式</span><span class="b">非常规手撕</span><span class="b">面试官资深</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill r">分布式场景题高频</span>
+        <span class="tag-pill">项目拷打三面</span>
+        <span class="tag-pill p">非常规/构造型手撕</span>
+        <span class="tag-pill gold">流程快（1 周 offer）</span>
+      </div>
+      <p><strong>面试风格</strong>：小红书非常爱分布式相关场景题，会发散追问（说出大致思路即可，面试官会引导）。手撕题不走寻常路——中序表达式求值、回文串构造、数据流中位数、大文件找中位数等。三面偏数据结构与算法深度，要求推导复杂度。C++ 岗会问智能指针缺点、虚函数等反套路题。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股 / 场景</h4><ul>
+          <li><strong>Redis</strong>：挂了怎么办；缓存设计与库存扣减 lua 原子性；集群模式与 hash 槽；哈希环；缓存三问</li>
+          <li><strong>三层缓存</strong>：本地缓存 + Redis + MySQL 更新逻辑；多实例本地缓存同步 ★</li>
+          <li><strong>Spring</strong>：@service 原理；事务实现与失效场景（静态方法）；@Schedule 原理</li>
+          <li><strong>MQ</strong>：可靠性；广播机制多消费者；Kafka 广播底层</li>
+          <li><strong>本地缓存</strong>：Caffeine 更新机制与过期策略</li>
+          <li><strong>JVM</strong>：调优参数；G1 vs CMS；ZGC 为何存在</li>
+        </ul></div>
+        <div class="blk"><h4>② 高频手撕（非常规）</h4><ul>
+          <li>线程安全单例（双重校验锁 + instance 字段 + synchronized 底层）★</li>
+          <li>判断链表是否成环</li>
+          <li>二叉树左视图</li>
+          <li>两个有序数组找第 k 大</li>
+          <li>中序表达式求值（1+2*5-6/2）★</li>
+          <li>无重复字符的最长子串</li>
+          <li>回文串构造（含 '?' 替换）</li>
+          <li>大文件找中位数 ★</li>
+          <li>数据流中位数（O(logn) 插入 + O(1) 查询）★</li>
+          <li>快排对链表排序（仅指针，无值拷贝）</li>
+        </ul></div>
+      </div>
+      <div class="co-grid">
+        <div class="blk"><h4>③ 分布式场景题</h4><ul>
+          <li>订机票多系统分布式事务一致性</li>
+          <li>消息传递失败如何解决</li>
+          <li>MQ 技术选型</li>
+          <li>基于 DB vs Redis 实现分布式锁区别</li>
+          <li>Redis Set 命令为何加 PX</li>
+        </ul></div>
+        <div class="blk"><h4>④ 项目拷打</h4><ul>
+          <li>用几句话总结项目技术难点</li>
+          <li>分布式场景发散追问</li>
+          <li>项目深挖（三面）</li>
+          <li>vector 扩容时间复杂度推导（C++）</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>项目经不起追问、非常规手撕没思路、分布式场景给不出方案、基础复杂度推导卡壳。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>分布式场景题专项（缓存一致性/分布式锁/分布式事务/MQ 可靠性）；手撕练非常规题（中序表达式/数据流中位数/大文件中位数）；项目能讲清技术难点。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S9 华为 ============ -->
+<section id="s9" class="anchor">
+  <div class="sec-head"><div class="sec-num">9</div><h2>华为：机考算法 + OS/网络硬核基础</h2></div>
+  <p class="sec-desc">操作系统与网络是命门，机考算法门槛。简历筛选率仅约 3%，但实习全年开放、不限年级。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#b71c1c,#d32f2f)">
+      <div class="name"><span class="emo">🔺</span>华为 Huawei</div>
+      <div class="badges"><span class="b">难度 ★★★★</span><span class="b">机考算法</span><span class="b">OS/网络硬核</span><span class="b">全年招实习</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags">
+        <span class="tag-pill r">简历筛选率约 3%</span>
+        <span class="tag-pill">机考 LeetCode 中等+</span>
+        <span class="tag-pill p">Linux 内核相关</span>
+        <span class="tag-pill g">实习不限年级全年开放</span>
+      </div>
+      <p><strong>面试风格</strong>：华为重"硬核基础"，操作系统与计算机网络是高频命门，常结合 Linux 内核实现提问（系统调用、中断处理）。有独立的机考环节（算法为主），强调算法在工程场景的实际价值（如网络协议优化、通信延迟降低）。</p>
+
+      <div class="co-grid">
+        <div class="blk"><h4>① 高频八股</h4><ul>
+          <li><strong>OS</strong>：进程/线程；调度算法（时间片轮转/优先级）；死锁四条件与预防；虚拟内存；页面置换（LRU/FIFO）；Linux 内核（系统调用/中断）</li>
+          <li><strong>网络</strong>：TCP 三次四次（状态迁移/SYN 洪泛/TIME_WAIT）；HTTPS（SSL/TLS）；HTTP/2 多路复用/头部压缩</li>
+          <li><strong>Java 基础</strong>：JVM、并发、集合（通用）</li>
+          <li><strong>算法工程应用</strong>：协议优化、延迟降低方向</li>
+        </ul></div>
+        <div class="blk"><h4>② 机考 / 手撕</h4><ul>
+          <li>机考：LeetCode 中等及以上</li>
+          <li>重手写代码能力</li>
+          <li>DP / 图 / 字符串</li>
+          <li>结合通信/网络场景的算法题</li>
+        </ul></div>
+      </div>
+    </div>
+    <div class="co-foot">
+      <div class="tip-box mine"><div class="t">⚠️ 挂人雷区</div>计网/OS 基础弱（尤其 Linux 内核层）、机考算法没过门槛、项目不规范。</div>
+      <div class="tip-box win"><div class="t">✓ 备考核心</div>背 OS/网络八股（含 Linux 内核）；机考算法刷中等+；项目要规范完整；全年招实习，可多次尝试。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S10 京东·网易·快手 ============ -->
+<section id="s10" class="anchor">
+  <div class="sec-head"><div class="sec-num">10</div><h2>京东 · 网易 · 快手：项目与业务场景导向</h2></div>
+  <p class="sec-desc">这三家整体难度略低，但<strong>项目经验与业务场景匹配度</strong>是核心考察点。</p>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#c0392b,#e74c3c)">
+      <div class="name"><span class="emo">📦</span>京东 JD</div>
+      <div class="badges"><span class="b">难度 ★★★☆☆</span><span class="b">项目导向</span><span class="b">电商场景</span><span class="b">校招 1.8 万</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags"><span class="tag-pill">三轮技术偏宏观</span><span class="tag-pill p">供应链/物流场景绑定</span><span class="tag-pill gold">产研薪酬上调 20%</span></div>
+      <p><strong>风格</strong>：偏宏观，较少落到单点细节；偏好"参与过高并发系统设计"的电商/供应链背景，非电商背景易被标"低匹配度"。</p>
+      <div class="co-grid">
+        <div class="blk"><h4>高频考察</h4><ul>
+          <li>项目细节追问（电商/供应链优先）</li>
+          <li>SpringBoot / Redis / MySQL</li>
+          <li>高并发系统设计</li>
+          <li>Node.js 工程化（凹凸实验室）</li>
+        </ul></div>
+        <div class="blk"><h4>备考核心</h4><ul>
+          <li>准备 1-2 个完整电商业务项目</li>
+          <li>讲清高并发场景</li>
+          <li>门槛相对友好，性价比高</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#1a5c3a,#2a8054)">
+      <div class="name"><span class="emo">🎵</span>网易 NetEase</div>
+      <div class="badges"><span class="b">难度 ★★★☆☆</span><span class="b">基础+工程</span><span class="b">游戏/音乐/教育</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags"><span class="tag-pill">基础扎实</span><span class="tag-pill p">游戏服务器开发</span><span class="tag-pill">综合技术能力</span></div>
+      <p><strong>风格</strong>：注重基础扎实与工程能力。游戏部门会考游戏服务器开发、C++、网络编程（高并发 IO、状态同步）。</p>
+      <div class="co-grid">
+        <div class="blk"><h4>高频考察</h4><ul>
+          <li>Java 基础与高级特性、集合并发、JVM</li>
+          <li>Spring 生态、分布式架构</li>
+          <li>数据库与缓存、消息队列</li>
+          <li>游戏：C++、网络编程、状态同步</li>
+        </ul></div>
+        <div class="blk"><h4>备考核心</h4><ul>
+          <li>巩固 Java 基础与项目</li>
+          <li>投游戏部门补 C++/网络编程</li>
+          <li>整体门槛适中</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="co">
+    <div class="co-head" style="background:linear-gradient(135deg,#ff6a00,#ff8c1a)">
+      <div class="name"><span class="emo">📺</span>快手 Kuaishou</div>
+      <div class="badges"><span class="b">难度 ★★★★</span><span class="b">高并发项目</span><span class="b">流程超长</span></div>
+    </div>
+    <div class="co-body">
+      <div class="tags"><span class="tag-pill r">流程可达 3 个月</span><span class="tag-pill p">直播/短视频高并发</span><span class="tag-pill">推荐系统/实时计算</span></div>
+      <p><strong>风格</strong>：需证明"参与过直播/短视频高并发项目"，非快手的直播项目经验可能不被认可。流程长，考验耐心。</p>
+      <div class="co-grid">
+        <div class="blk"><h4>高频考察</h4><ul>
+          <li>Java 基础与进阶、SpringBoot</li>
+          <li>分布式系统、微服务</li>
+          <li>MySQL/Redis、消息队列</li>
+          <li>推荐算法、实时计算、视频处理</li>
+        </ul></div>
+        <div class="blk"><h4>备考核心</h4><ul>
+          <li>准备高并发项目（直播/秒杀类）</li>
+          <li>了解推荐系统与实时计算</li>
+          <li>做好长周期心态准备</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ S11 维度横向对比 ============ -->
+<section id="s11" class="anchor">
+  <div class="sec-head"><div class="sec-num">11</div><h2>按考察维度横向对比：同一考点各厂怎么问</h2></div>
+  <p class="sec-desc">学生常问"同一知识点不同厂问法差在哪"——下表给出横向对比，帮助举一反三。</p>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="dot" style="background:var(--purple)"></span>维度一：算法手撕</h3>
+    <table>
+      <thead><tr><th style="width:14%">公司</th><th>难度</th><th>风格特点</th><th style="width:30%">代表题型</th></tr></thead>
+      <tbody>
+        <tr><td><strong>字节</strong></td><td>中等偏难</td><td>每场必 1-2 道，要求可运行 + 复杂度分析</td><td>LRU、滑动窗口最大值、拓扑排序</td></tr>
+        <tr><td><strong>拼多多</strong></td><td><span class="freq f5">Hard 为主</span></td><td>笔试 Medium-Hard，面试与笔试相当</td><td>三等分数组、链表解环、非常规排列</td></tr>
+        <tr><td><strong>小红书</strong></td><td>中等偏难</td><td><strong>非常规/构造型题</strong>，不按套路</td><td>中序表达式求值、数据流中位数、大文件中位数</td></tr>
+        <tr><td><strong>腾讯</strong></td><td>中等</td><td>图算法/回溯/DP 比例高</td><td>Dijkstra、N 皇后、背包、LCS</td></tr>
+        <tr><td><strong>美团</strong></td><td>中等</td><td>DP + 限流类手撕</td><td>打家劫舍、LCS、滑动窗口限流</td></tr>
+        <tr><td><strong>华为</strong></td><td>中等+</td><td><strong>独立机考</strong>，重手写</td><td>工程场景算法（协议优化）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="dot" style="background:var(--purple)"></span>维度二：Redis（各家必问，问法不同）</h3>
+    <table>
+      <thead><tr><th style="width:14%">公司</th><th>追问深度</th><th>代表问法</th></tr></thead>
+      <tbody>
+        <tr><td><strong>美团</strong></td><td>★★★★★</td><td>集群分片原理、RedLock、内存评估、数据类型底层（跳表/压缩列表）</td></tr>
+        <tr><td><strong>小红书</strong></td><td>★★★★★</td><td>Redis 挂了怎么办、库存扣减 lua 原子性、hash 槽分配与扩展、哈希环</td></tr>
+        <tr><td><strong>拼多多</strong></td><td>★★★★</td><td>主从一致性、宕机恢复、缓存一致性方案、三问</td></tr>
+        <tr><td><strong>字节</strong></td><td>★★★★</td><td>分布式锁（红锁）、持久化、三问</td></tr>
+        <tr><td><strong>阿里</strong></td><td>★★★★</td><td>集群模式（主从/哨兵/Cluster）、一致性哈希、三问方案</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="dot" style="background:var(--purple)"></span>维度三：系统设计 / 场景题</h3>
+    <table>
+      <thead><tr><th style="width:14%">公司</th><th>占比</th><th>高频题目</th></tr></thead>
+      <tbody>
+        <tr><td><strong>阿里</strong></td><td><span class="freq f5">最高</span></td><td>千万级 QPS 短链、秒杀、多活架构、分布式锁优化对比、混沌工程</td></tr>
+        <tr><td><strong>美团</strong></td><td><span class="freq f4">高</span></td><td>订单超时取消、多商户公平分配、点赞防重、热门排名、限流熔断</td></tr>
+        <tr><td><strong>小红书</strong></td><td><span class="freq f4">高</span></td><td>订机票分布式事务、三层缓存更新、多实例本地缓存同步</td></tr>
+        <tr><td><strong>字节</strong></td><td><span class="freq f4">高</span></td><td>评论系统、秒杀、分布式 TopK、价格计算服务</td></tr>
+        <tr><td><strong>拼多多</strong></td><td><span class="freq f3">中</span></td><td>嵌入项目追问（访问翻倍优化、Redis 宕机兜底）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ S12 跨厂通用 ============ -->
+<section id="s12" class="anchor">
+  <div class="sec-head"><div class="sec-num">12</div><h2>跨厂通用高频题：无论投哪家都得会</h2></div>
+  <p class="sec-desc">以下考点在 11 家大厂中出现率 90%+，是真正的"必会清单"。★ 越多越必背。</p>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="dot" style="background:var(--purple)"></span>通用八股 TOP 20（出现率 90%+）</h3>
+    <div class="alg-grid">
+      <div class="alg"><b>★★★★★ 集合</b>HashMap 1.8 底层 + 扩容 + 红黑树</div>
+      <div class="alg"><b>★★★★★ 集合</b>ConcurrentHashMap 1.7 vs 1.8</div>
+      <div class="alg"><b>★★★★★ JVM</b>运行时数据区（线程共享）</div>
+      <div class="alg"><b>★★★★★ JVM</b>GC 算法 + 新生代/老年代</div>
+      <div class="alg"><b>★★★★★ JVM</b>GC Roots + 可达性分析</div>
+      <div class="alg"><b>★★★★★ 并发</b>synchronized vs ReentrantLock</div>
+      <div class="alg"><b>★★★★★ 并发</b>volatile 作用（可见/有序/非原子）</div>
+      <div class="alg"><b>★★★★★ 并发</b>线程池参数 + 拒绝策略</div>
+      <div class="alg"><b>★★★★★ 并发</b>CAS + ABA + AQS</div>
+      <div class="alg"><b>★★★★★ MySQL</b>索引为何 B+ 树</div>
+      <div class="alg"><b>★★★★★ MySQL</b>事务隔离级别 + MVCC</div>
+      <div class="alg"><b>★★★★★ Redis</b>缓存三问（穿透/雪崩/击穿）</div>
+      <div class="alg"><b>★★★★★ Redis</b>分布式锁实现</div>
+      <div class="alg"><b>★★★★ 网络</b>TCP 三次握手/四次挥手</div>
+      <div class="alg"><b>★★★★ 网络</b>HTTPS 握手 + HTTP/2</div>
+      <div class="alg"><b>★★★★ Spring</b>IOC/AOP + Bean 生命周期</div>
+      <div class="alg"><b>★★★★ 分布式</b>CAP + 分布式事务</div>
+      <div class="alg"><b>★★★★ 分布式</b>分布式 ID（雪花算法）</div>
+      <div class="alg"><b>★★★★ 并发</b>ThreadLocal 原理 + 内存泄漏</div>
+      <div class="alg"><b>★★★★ JVM</b>CMS vs G1 vs ZGC</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0"><span class="dot" style="background:var(--purple)"></span>通用手撕 TOP 15（跨厂高频）</h3>
+    <div class="alg-grid">
+      <div class="alg"><b>★★★★★</b>LRU 缓存（双向链表+HashMap）</div>
+      <div class="alg"><b>★★★★★</b>反转链表（递归+迭代）</div>
+      <div class="alg"><b>★★★★★</b>链表环检测 / 环入口</div>
+      <div class="alg"><b>★★★★★</b>无重复字符最长子串</div>
+      <div class="alg"><b>★★★★★</b>有效的括号（栈）</div>
+      <div class="alg"><b>★★★★</b>三数之和（排序+双指针）</div>
+      <div class="alg"><b>★★★★</b>二叉树层序/左视图遍历</div>
+      <div class="alg"><b>★★★★</b>最近公共祖先</div>
+      <div class="alg"><b>★★★★</b>打家劫舍（DP）</div>
+      <div class="alg"><b>★★★★</b>最长公共子序列（DP）</div>
+      <div class="alg"><b>★★★★</b>快速排序 / 归并排序手写</div>
+      <div class="alg"><b>★★★★</b>线程安全单例（双重检测锁）</div>
+      <div class="alg"><b>★★★</b>滑动窗口最大值</div>
+      <div class="alg"><b>★★★</b>前 K 个高频元素（堆）</div>
+      <div class="alg"><b>★★★</b>课程表（拓扑排序）</div>
+    </div>
+  </div>
+
+  <div class="callout tip"><div class="t">手撕备考铁律</div>
+  <p>所有算法题必须<strong>白板/在线文档手写</strong>，不能只看不练。要求：能讲清思路 → 写出可运行代码 → 分析时间空间复杂度 → 能讨论边界与优化。LeetCode Hot 100 是底线，目标厂是字节/拼多多的再加刷到 200+ 并覆盖 Hard。</p></div>
+</section>
+
+<!-- ============ S13 备考策略 ============ -->
+<section id="s13" class="anchor">
+  <div class="sec-head"><div class="sec-num">13</div><h2>备考策略：按目标厂定制复习时间分配</h2></div>
+  <p class="sec-desc">不同目标厂的复习重心不同，避免"全面铺开却样样不精"。</p>
+
+  <div class="card">
+    <div class="chart-title">图2 · 不同目标厂的备考时间分配建议（%）</div>
+    <div class="chart-cap">基于各厂考察侧重，给出算法 / 八股 / 项目 / 系统设计 四块的时间占比建议</div>
+    <div class="chart-box tall"><canvas id="c2"></canvas></div>
+  </div>
+
+  <h3><span class="dot"></span>分目标厂备考方案</h3>
+  <table>
+    <thead><tr><th style="width:16%">目标厂</th><th>复习重心</th><th style="width:24%">关键动作</th></tr></thead>
+    <tbody>
+      <tr><td><strong>字节 / 拼多多</strong></td><td>算法 40% + 八股 30% + 项目 20% + 设计 10%</td><td>LeetCode 刷 200+（含 Hard）；JUC/JVM 源码精读；项目准备 2 个技术钩子</td></tr>
+      <tr><td><strong>阿里</strong></td><td>系统设计 30% + 项目 30% + 八股 25% + 算法 15%</td><td>系统设计专项（短链/秒杀/多活）；每个项目画架构图+量化指标；分布式方案对比</td></tr>
+      <tr><td><strong>腾讯 / 华为 / 百度</strong></td><td>八股 40% + 算法 30% + 项目 20% + 设计 10%</td><td>OS/网络硬核八股（含冷门考点+Linux内核）；图/回溯/DP 专项；英文自我介绍（腾讯）</td></tr>
+      <tr><td><strong>美团 / 小红书</strong></td><td>八股 30% + 场景设计 30% + 项目 25% + 算法 15%</td><td>Redis/Kafka 深挖；分布式场景题专项；手撕练非常规题（小红书）</td></tr>
+      <tr><td><strong>京东 / 网易 / 快手</strong></td><td>项目 35% + 八股 30% + 算法 25% + 设计 10%</td><td>1-2 个完整业务项目（电商/高并发）；基础巩固；快手准备直播类项目</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout"><div class="t">通用备考公式（实习面试）</div>
+  <p><strong>项目深度(40%) + Java基础&集合&并发(30%) + 算法手撕(20%) + 表达&逻辑(10%)</strong></p>
+  <p>先把项目复盘到能讲 30 分钟 + LeetCode Hot 100 + 牛客 Java 高频 200 题背熟，基本能过大部分实习一面/二面。</p></div>
+
+  <div class="callout gold"><div class="t">给教师的备考组织建议</div>
+  <p><strong>分层投递策略</strong>：建议学生按"冲刺厂（字节/拼多多/阿里）+ 主力厂（腾讯/美团/百度/小红书）+ 保底厂（京东/网易/快手/华为）"三档组合投递，避免 all in 一家。<strong>模拟面试</strong>：用本指南各厂高频题做 15 分钟模拟面，重点练"被追问时能否讲下去"——这是区分及格与优秀的关键。<strong>复盘机制</strong>：每场真实面试后立即复盘记录被问倒的题，补进个人题库，3 场后面试能力会质变。</p></div>
+</section>
+
+<div class="footer">
+  <p>大厂高频面试题集 · 综合 牛客 / 面试鸭 / CSDN / 脉脉 等渠道 2025-2026 真实面经整理</p>
+  <p style="margin-top:6px">数据截至 2026 年 · 供 211 软件工程学院校招备考使用</p>
+</div>
+
+</div>
+
+<script>
+const C=Chart.defaults;C.font.family='"Segoe UI","Microsoft YaHei",sans-serif';C.color='#4a5160';
+const gridLine={color:'rgba(120,130,150,.12)'};
+
+// 图1 各厂四维度侧重
+new Chart(document.getElementById('c1'),{
+  type:'bar',
+  data:{
+    labels:['字节','阿里','百度','腾讯','美团','拼多多','小红书','华为','京东','网易','快手'],
+    datasets:[
+      {label:'基础八股',data:[3.5,4,4.5,5,4,5,3.5,5,3.5,4,3.5],backgroundColor:'#2b5fd6',borderRadius:3,barThickness:14,stack:'a'},
+      {label:'算法手撕',data:[5,3,3.5,4,3.5,5,4.5,4.5,3,3,3.5],backgroundColor:'#e85d4a',borderRadius:3,barThickness:14,stack:'a'},
+      {label:'项目深挖',data:[4.5,4.5,3.5,3.5,4,4.5,5,3,4.5,4,4.5],backgroundColor:'#7b5ea7',borderRadius:3,barThickness:14,stack:'a'},
+      {label:'系统设计',data:[3.5,5,3,3,4.5,3,4.5,3,3.5,3,3.5],backgroundColor:'#1aa39a',borderRadius:3,barThickness:14,stack:'a'}
+    ]
+  },
+  options:{plugins:{legend:{position:'top',labels:{font:{size:12.5},boxWidth:16}},tooltip:{mode:'index'}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{size:11.5}}},y:{stacked:true,grid:gridLine,max:20,ticks:{font:{size:12},callback:v=>v}}}}
+});
+
+// 图2 备考时间分配
+new Chart(document.getElementById('c2'),{
+  type:'bar',
+  data:{
+    labels:['字节/拼多多','阿里','腾讯/华为/百度','美团/小红书','京东/网易/快手'],
+    datasets:[
+      {label:'算法',data:[40,15,30,15,25],backgroundColor:'#e85d4a',borderRadius:4,barThickness:34},
+      {label:'八股',data:[30,25,40,30,30],backgroundColor:'#2b5fd6',borderRadius:4,barThickness:34},
+      {label:'项目',data:[20,30,20,25,35],backgroundColor:'#7b5ea7',borderRadius:4,barThickness:34},
+      {label:'系统设计',data:[10,30,10,30,10],backgroundColor:'#1aa39a',borderRadius:4,barThickness:34}
+    ]
+  },
+  options:{indexAxis:'y',plugins:{legend:{position:'top',labels:{font:{size:12.5},boxWidth:16}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.x+'%'}}},
+    scales:{x:{stacked:true,grid:gridLine,max:100,ticks:{font:{size:12},callback:v=>v+'%'}},y:{stacked:true,grid:{display:false},ticks:{font:{size:12.5}}}}}
+});
+</script>
+</body>
+</html>

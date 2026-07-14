@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>优秀简历示例｜Java 后端开发</title>
+  <style>
+    :root{--text:#111827;--muted:#667085;--blue:#1d4ed8;--line:#e5e7eb;--bg:#f5f7fb;--card:#fff}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;color:var(--text);line-height:1.62}
+    .page{width:min(980px,calc(100% - 36px));margin:28px auto;background:var(--card);box-shadow:0 16px 42px rgba(15,23,42,.10);border-radius:18px;overflow:hidden}
+    .topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 24px;background:#eff6ff;border-bottom:1px solid #bfdbfe;color:#1e3a8a;font-size:14px;font-weight:700}
+    .topbar a{color:#1d4ed8;text-decoration:none}.resume{padding:30px 38px 38px}.header{display:flex;justify-content:space-between;gap:20px;border-bottom:2px solid var(--blue);padding-bottom:18px}
+    h1{margin:0;font-size:34px;letter-spacing:.08em}.target{margin-top:6px;font-size:17px;color:var(--blue);font-weight:800}.contact{text-align:right;color:var(--muted);font-size:14px}.contact a{color:var(--muted)}
+    h2{font-size:18px;margin:22px 0 10px;color:var(--blue);border-bottom:1px solid var(--line);padding-bottom:5px}.line{display:flex;justify-content:space-between;gap:12px;font-weight:800}.sub{color:var(--muted);font-size:14px;margin-top:2px}
+    ul{margin:8px 0 0 0;padding-left:20px} li{margin:6px 0}.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}.tag{display:inline-block;background:#eff6ff;color:#1e40af;border-radius:999px;padding:2px 8px;margin:2px 4px 2px 0;font-size:12px;font-weight:700}
+    .note{background:#f8fafc;border:1px dashed var(--line);border-radius:12px;padding:12px 14px;color:#475467;font-size:14px;margin-top:18px}.print{position:fixed;right:22px;bottom:22px;border:0;border-radius:999px;background:#1d4ed8;color:white;padding:11px 16px;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(29,78,216,.25)}
+    @media(max-width:720px){.header,.line{display:block}.contact{text-align:left;margin-top:12px}.skills{grid-template-columns:1fr}.resume{padding:24px}.topbar{display:block}.topbar span{display:block;margin-bottom:6px}}
+    @media print{body{background:#fff}.page{width:100%;margin:0;box-shadow:none;border-radius:0}.topbar,.print{display:none}.resume{padding:18mm} h2{break-after:avoid} li{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar"><span>优秀简历示例 01｜Java 后端开发方向</span><a href="如何写一份优秀的软件工程简历.html">← 返回简历写作指南</a></div>
+    <main class="resume">
+      <section class="header">
+        <div><h1>张同学</h1><div class="target">求职意向：Java 后端开发工程师｜2026 校招/实习</div></div>
+        <div class="contact">138-0000-0000｜zhangxx@email.com<br/>GitHub：github.com/zhangxx｜博客：blog.xxx.com<br/>北京/杭州/深圳均可</div>
+      </section>
+
+      <h2>教育背景</h2>
+      <div class="line"><span>某 211 大学｜软件工程｜本科</span><span>2022.09—2026.06</span></div>
+      <div class="sub">GPA：3.78/4.00，专业前 10%；核心课程：数据结构 94、操作系统 91、计算机网络 93、数据库系统 95、软件工程 92</div>
+      <div class="sub">荣誉：校一等奖学金 2 次，蓝桥杯 Java B 组省一等奖，优秀学生干部</div>
+
+      <h2>专业技能</h2>
+      <div class="skills">
+        <div><span class="tag">Java</span> 熟悉集合、并发、JVM 内存模型、线程池、锁机制和常见 GC 策略。</div>
+        <div><span class="tag">Spring</span> 熟悉 Spring Boot、Spring MVC、MyBatis，能独立完成 RESTful 接口与鉴权模块开发。</div>
+        <div><span class="tag">MySQL</span> 熟悉索引、事务、锁、执行计划，能基于慢 SQL 日志进行查询优化。</div>
+        <div><span class="tag">Redis</span> 熟悉缓存、分布式锁、限流、布隆过滤器，了解缓存穿透/击穿/雪崩治理。</div>
+        <div><span class="tag">MQ</span> 熟悉 RocketMQ/Kafka 的异步解耦、削峰填谷、消息幂等和补偿机制。</div>
+        <div><span class="tag">工程工具</span> 熟悉 Linux、Docker、Git、Maven、JMeter、Prometheus/Grafana。</div>
+      </div>
+
+      <h2>实习经历</h2>
+      <div class="line"><span>某互联网公司｜后端开发实习生｜会员权益与订单履约系统</span><span>2025.07—2025.10</span></div>
+      <ul>
+        <li>负责会员权益发放链路中的资格校验、权益冻结、异步发放和失败补偿模块，日均处理权益任务约 20 万条。</li>
+        <li>使用 RocketMQ 将下单主链路与权益发放解耦，结合本地消息表和状态机实现最终一致性，异常补偿成功率提升至 99.6%。</li>
+        <li>针对会员资格查询接口慢的问题，分析慢 SQL 和执行计划，新增联合索引并重写分页查询，P95 耗时由 320ms 降至 85ms。</li>
+        <li>为核心接口接入 Prometheus + Grafana 监控，补充错误码与链路日志，定位线上问题平均耗时由约 30 分钟降至 10 分钟以内。</li>
+      </ul>
+
+      <h2>项目经历</h2>
+      <div class="line"><span>高并发校园二手交易平台｜Java / Spring Boot / MySQL / Redis / RocketMQ / Docker</span><span>2025.02—2025.06</span></div>
+      <ul>
+        <li>独立负责商品发布、搜索、下单、支付回调、库存扣减、订单超时关闭等核心模块，完成从需求分析到部署上线的闭环。</li>
+        <li>针对热门商品并发下单超卖问题，采用 Redis 预扣库存 + Lua 原子操作 + MQ 异步落库方案，在 1000 并发压测下库存一致性通过率 100%。</li>
+        <li>设计订单状态机，处理待支付、已支付、已取消、已发货等状态流转；通过幂等表解决支付回调重复通知问题。</li>
+        <li>基于 MySQL 联合索引优化商品搜索与订单列表查询，慢查询数量下降约 70%，接口平均响应时间由 210ms 降至 95ms。</li>
+        <li>使用 Docker Compose 部署 MySQL、Redis、MQ 和后端服务；编写 README、接口文档和压测报告，项目代码提交 120+ 次。</li>
+      </ul>
+
+      <div class="line" style="margin-top:16px"><span>分布式短链生成系统｜Spring Cloud / Redis / MySQL / Sentinel</span><span>2024.09—2024.12</span></div>
+      <ul>
+        <li>设计短链生成、跳转、统计、风控拦截模块，支持按用户维度统计 PV/UV 和地域来源。</li>
+        <li>使用雪花算法生成全局 ID，并通过 Base62 编码生成短码；针对热点短链使用本地缓存 + Redis 两级缓存，降低数据库读压力。</li>
+        <li>对跳转接口接入 Sentinel 限流与降级策略，模拟异常流量下核心跳转接口可用性保持在 99% 以上。</li>
+        <li>通过布隆过滤器拦截不存在短码请求，减少无效 DB 查询；补充单元测试和接口文档，便于团队协作。</li>
+      </ul>
+
+      <h2>竞赛与其他</h2>
+      <ul>
+        <li>蓝桥杯 Java B 组省一等奖；LeetCode 400+ 题，熟悉二分、动态规划、图、并查集等常见题型。</li>
+        <li>CET-6，能阅读英文技术文档；技术博客 18 篇，主题包括 Redis 缓存治理、MySQL 索引优化、JVM 基础。</li>
+      </ul>
+      <div class="note">说明：本简历为教学示例，所有公司名、链接和数据均为虚构。学生应替换为真实经历，且每个指标都要能解释来源。</div>
+    </main>
+  </div>
+  <button class="print" onclick="window.print()">打印 / PDF</button>
+</body>
+</html>

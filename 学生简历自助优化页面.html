@@ -1,0 +1,673 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学生简历自助优化工具｜软件工程大厂求职版</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger: #dc2626;
+      --text: #172033;
+      --muted: #667085;
+      --line: #e5e7eb;
+      --soft: #eef4ff;
+      --radius: 16px;
+      --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background: linear-gradient(135deg, #eff6ff 0%, #f8fafc 45%, #fdf2f8 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    header {
+      padding: 42px 24px 28px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.04em;
+    }
+
+    header p {
+      max-width: 860px;
+      margin: 14px auto 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto 60px;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      letter-spacing: -0.02em;
+    }
+
+    .card h3 {
+      margin: 20px 0 10px;
+      font-size: 17px;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 14px;
+      margin: -6px 0 14px;
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      margin: 16px 0 8px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 13px;
+      font: inherit;
+      outline: none;
+      background: #fff;
+      transition: border 0.15s, box-shadow 0.15s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    textarea {
+      min-height: 300px;
+      resize: vertical;
+      white-space: pre-wrap;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #fff;
+      background: var(--primary);
+      transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.2);
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    button.secondary {
+      color: var(--primary);
+      background: var(--soft);
+      box-shadow: none;
+    }
+
+    button.secondary:hover { background: #dbeafe; }
+
+    button.gray {
+      color: #344054;
+      background: #f2f4f7;
+      box-shadow: none;
+    }
+
+    .score-box {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: center;
+      margin: 8px 0 16px;
+    }
+
+    .score-circle {
+      width: 138px;
+      height: 138px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: conic-gradient(var(--primary) 0deg, var(--primary) 0deg, #e5e7eb 0deg 360deg);
+      position: relative;
+    }
+
+    .score-circle::after {
+      content: "";
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+    }
+
+    .score-num {
+      position: relative;
+      z-index: 1;
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--primary-dark);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #f2f4f7;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 700;
+      margin: 4px 5px 4px 0;
+    }
+
+    .pill.good { background: #dcfce7; color: #166534; }
+    .pill.warn { background: #fef3c7; color: #92400e; }
+    .pill.bad { background: #fee2e2; color: #991b1b; }
+    .pill.blue { background: #dbeafe; color: #1e40af; }
+
+    .result-section {
+      border-top: 1px dashed var(--line);
+      padding-top: 16px;
+      margin-top: 16px;
+    }
+
+    .issue-list, .suggest-list, .template-list {
+      padding-left: 20px;
+      margin: 8px 0 0;
+    }
+
+    .issue-list li, .suggest-list li, .template-list li { margin: 8px 0; }
+
+    .issue-list li::marker { color: var(--danger); }
+    .suggest-list li::marker { color: var(--success); }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+    }
+
+    .check-item {
+      display: grid;
+      grid-template-columns: 24px 1fr auto;
+      gap: 10px;
+      align-items: start;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .check-item input { width: 18px; height: 18px; margin-top: 4px; }
+    .check-item strong { display: block; }
+    .check-item span { color: var(--muted); font-size: 13px; }
+    .check-item em { font-style: normal; color: var(--primary); font-weight: 800; white-space: nowrap; }
+
+    .formula {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 14px;
+      padding: 16px;
+      font-family: Consolas, "Courier New", monospace;
+      overflow-x: auto;
+    }
+
+    .example {
+      border-left: 4px solid var(--primary);
+      background: #f8fafc;
+      border-radius: 0 12px 12px 0;
+      padding: 12px 14px;
+      margin: 12px 0;
+    }
+
+    .example b { color: var(--primary-dark); }
+
+    .keyword-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .mini-title {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .copy-area {
+      min-height: 180px;
+      font-size: 14px;
+      background: #fbfdff;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 0 20px 40px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 960px) {
+      .grid, .row, .score-box, .two-col { grid-template-columns: 1fr; }
+      .score-circle { margin: 0 auto; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      header, .input-card, .btns, footer { display: none !important; }
+      .container { max-width: none; margin: 0; padding: 0; }
+      .grid { display: block; }
+      .card { box-shadow: none; border: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>学生简历自助优化工具</h1>
+    <p>面向软件工程/计算机专业本科生，帮助你按“大厂技术岗”标准检查简历：方向匹配、项目含金量、技能可信度、量化表达与面试可追问性。</p>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <div class="card input-card">
+        <h2>1. 输入你的简历信息</h2>
+        <p class="hint">将简历正文粘贴到下方，也可以只粘贴“专业技能 + 项目经历 + 实习经历”。本页面为本地规则检查，不会上传数据。</p>
+
+        <div class="row">
+          <div>
+            <label for="role">目标岗位</label>
+            <select id="role">
+              <option value="backend">Java/Go 后端开发</option>
+              <option value="ai">AI 应用开发 / 大模型工程</option>
+              <option value="frontend">前端 / 全栈开发</option>
+              <option value="test">测试开发 / 质量工程</option>
+            </select>
+          </div>
+          <div>
+            <label for="school">学校/专业亮点</label>
+            <input id="school" placeholder="例：211软件工程，GPA前15%，蓝桥杯省一" />
+          </div>
+        </div>
+
+        <label for="jd">目标岗位 JD / 企业偏好关键词</label>
+        <input id="jd" placeholder="例：Java、Spring Boot、MySQL、Redis、MQ、高并发、分布式、Linux" />
+
+        <label for="resume">简历正文</label>
+        <textarea id="resume" placeholder="请粘贴你的简历内容，例如：\n教育背景：……\n专业技能：……\n实习经历：……\n项目经历：……"></textarea>
+
+        <div class="btns">
+          <button onclick="analyzeResume()">开始诊断</button>
+          <button class="secondary" onclick="fillDemo()">填入示例</button>
+          <button class="gray" onclick="clearAll()">清空</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2. 诊断结果</h2>
+        <div class="score-box">
+          <div class="score-circle" id="scoreCircle"><span class="score-num" id="scoreNum">--</span></div>
+          <div>
+            <div id="scoreText"><span class="pill blue">等待诊断</span></div>
+            <p class="hint" id="scoreHint">粘贴简历后点击“开始诊断”，系统会给出可修改项和推荐表达。</p>
+          </div>
+        </div>
+
+        <div class="result-section">
+          <h3>岗位关键词匹配</h3>
+          <div id="keywords" class="keyword-cloud"><span class="pill">暂无</span></div>
+        </div>
+
+        <div class="result-section">
+          <h3>主要问题</h3>
+          <ol id="issues" class="issue-list">
+            <li>请先输入简历内容。</li>
+          </ol>
+        </div>
+
+        <div class="result-section">
+          <h3>修改建议</h3>
+          <ol id="suggestions" class="suggest-list">
+            <li>点击诊断后生成建议。</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:22px;">
+      <h2>3. 简历优化检查清单</h2>
+      <p class="hint">建议提交前逐项勾选。若某项无法勾选，请优先修改。</p>
+      <div class="checklist" id="checklist"></div>
+    </section>
+
+    <section class="grid" style="margin-top:22px;">
+      <div class="card">
+        <h2>4. 项目经历改写公式</h2>
+        <div class="formula">为了解决【问题/场景】，我使用【技术/方案】，完成【个人动作】，最终让【指标】从 A 提升/下降到 B。</div>
+
+        <div class="example">
+          <b>弱表达：</b> 使用 Redis 优化系统性能。<br />
+          <b>强表达：</b> 针对热门商品详情页高频访问导致数据库压力大的问题，设计 Redis 缓存 + 逻辑过期方案，将接口 P95 响应时间由 230ms 降至 80ms，并避免缓存击穿。
+        </div>
+
+        <div class="example">
+          <b>弱表达：</b> 负责订单模块开发。<br />
+          <b>强表达：</b> 负责订单创建、支付回调、超时关闭和库存扣减链路，基于订单状态机和幂等表处理重复回调，在 1000 并发压测下未出现超卖和重复扣款。
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>5. 可直接套用的 Bullet 模板</h2>
+        <ul class="template-list" id="templates"></ul>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:22px;">
+      <h2>6. 生成你的“待修改版简历提纲”</h2>
+      <p class="hint">诊断后可复制到 Word/飞书文档中继续修改。注意：不要编造经历，所有数字都要能解释来源。</p>
+      <textarea id="rewrite" class="copy-area" readonly placeholder="点击诊断后生成……"></textarea>
+      <div class="btns">
+        <button onclick="copyRewrite()">复制提纲</button>
+        <button class="secondary" onclick="window.print()">打印/导出 PDF</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    本工具适合课堂简历工作坊、自查和互评使用。评分仅作修改参考，最终以真实岗位 JD 和面试官反馈为准。
+  </footer>
+
+  <script>
+    const roleKeywords = {
+      backend: ["Java", "Go", "Spring", "Spring Boot", "Spring Cloud", "MySQL", "Redis", "MQ", "Kafka", "RocketMQ", "高并发", "分布式", "JVM", "线程池", "缓存", "索引", "事务", "Linux", "Docker", "JMeter"],
+      ai: ["Python", "LLM", "RAG", "Agent", "Prompt", "Embedding", "向量", "Milvus", "FAISS", "LangChain", "LlamaIndex", "FastAPI", "模型", "检索", "rerank", "评测", "Token", "Docker"],
+      frontend: ["JavaScript", "TypeScript", "React", "Vue", "Vite", "Webpack", "Node", "NestJS", "组件", "性能优化", "首屏", "懒加载", "工程化", "监控", "Nginx", "Docker"],
+      test: ["自动化测试", "接口测试", "性能测试", "JMeter", "Postman", "Selenium", "Pytest", "覆盖率", "CI", "CD", "缺陷", "质量", "稳定性", "压测", "监控", "日志"]
+    };
+
+    const roleTemplates = {
+      backend: [
+        "负责【核心模块】设计与开发，基于 Spring Boot + MySQL + Redis 完成【功能】，支撑【用户量/请求量】场景。",
+        "针对【慢 SQL/高并发/数据一致性】问题，通过【索引优化/缓存/消息队列/分布式锁】方案，将【指标】由 A 优化至 B。",
+        "设计【订单/库存/支付】状态机，处理重复请求、异常回滚和补偿任务，保证核心链路幂等与最终一致性。"
+      ],
+      ai: [
+        "负责【文档解析/切分/向量入库/检索增强】模块，构建面向【业务场景】的 RAG 问答系统。",
+        "针对回答不准确问题，采用【混合检索 + rerank + 引用溯源】方案，将 TopK 命中率由 A 提升至 B。",
+        "封装统一 LLM 调用层，支持流式输出、超时重试、Token 统计和多模型切换，降低业务接入成本。"
+      ],
+      frontend: [
+        "负责【页面/模块】开发，沉淀【表单/表格/弹窗/图表】等通用组件，减少重复代码约 X%。",
+        "针对首屏加载慢问题，使用路由懒加载、依赖拆包和资源缓存，将首屏时间由 A 降至 B。",
+        "基于 TypeScript 设计组件协议和类型约束，提升多人协作下的可维护性和接口稳定性。"
+      ],
+      test: [
+        "负责【系统/模块】测试方案设计，覆盖功能、接口、异常、性能和回归场景，输出测试用例 X 条。",
+        "基于 Pytest/JMeter/GitHub Actions 搭建自动化测试流程，将回归测试耗时由 A 降至 B。",
+        "通过日志、链路追踪和监控指标定位【缺陷类型】，推动修复线上/准线上问题 X 个。"
+      ]
+    };
+
+    const checklistItems = [
+      ["一页 A4", "本科生技术岗简历建议控制在一页，删除无关社团和空泛自评。", 8],
+      ["求职意向明确", "标题、技能和项目应服务于同一岗位方向。", 10],
+      ["技能有项目支撑", "不要写无法被项目或面试证明的“精通”。", 12],
+      ["至少两个主项目", "每个主项目应能讲 10—15 分钟。", 12],
+      ["项目有工程难点", "体现缓存、并发、事务、索引、消息队列、部署、监控或性能优化。", 15],
+      ["结果可量化", "写出 QPS、P95、准确率、加载时间、缺陷数、代码提交次数等。", 15],
+      ["个人贡献清楚", "区分个人负责内容和团队整体成果。", 10],
+      ["基础能力可见", "体现数据结构、操作系统、网络、数据库或算法训练。", 8],
+      ["链接和证据完整", "GitHub、演示地址、README、压测截图、竞赛证明等。", 5],
+      ["无明显格式问题", "排版统一、无错别字、时间线合理。", 5]
+    ];
+
+    function initChecklist() {
+      const box = document.getElementById("checklist");
+      box.innerHTML = checklistItems.map((item, idx) => `
+        <label class="check-item">
+          <input type="checkbox" onchange="updateManualScore()" data-score="${item[2]}" />
+          <span><strong>${idx + 1}. ${item[0]}</strong><span>${item[1]}</span></span>
+          <em>${item[2]}分</em>
+        </label>
+      `).join("");
+    }
+
+    function normalize(text) {
+      return (text || "").toLowerCase();
+    }
+
+    function countMatches(text, keywords) {
+      const lower = normalize(text);
+      return keywords.filter(k => lower.includes(k.toLowerCase()));
+    }
+
+    function hasAny(text, arr) {
+      const lower = normalize(text);
+      return arr.some(x => lower.includes(x.toLowerCase()));
+    }
+
+    function analyzeResume() {
+      const role = document.getElementById("role").value;
+      const resume = document.getElementById("resume").value.trim();
+      const jd = document.getElementById("jd").value.trim();
+      const school = document.getElementById("school").value.trim();
+      const fullText = [resume, jd, school].join("\n");
+
+      if (!resume) {
+        alert("请先粘贴简历正文。");
+        return;
+      }
+
+      const keywords = roleKeywords[role];
+      const matched = countMatches(fullText, keywords);
+      const unmatched = keywords.filter(k => !matched.includes(k));
+
+      let score = 35;
+      const issues = [];
+      const suggestions = [];
+
+      // 关键词匹配
+      score += Math.min(20, matched.length * 1.5);
+      if (matched.length < 6) {
+        issues.push("目标岗位关键词覆盖不足，简历看不出你主要投递的技术方向。");
+        suggestions.push("根据岗位 JD 补充强相关技能，并确保这些技能能在实习或项目经历中被证明。");
+      }
+
+      // 量化指标
+      const numberMatches = resume.match(/\d+|%|ms|s|QPS|P95|Top\d|万|千|次|条|个/g) || [];
+      score += Math.min(15, numberMatches.length * 1.2);
+      if (numberMatches.length < 6) {
+        issues.push("量化结果偏少，项目价值不够直观。");
+        suggestions.push("为项目补充真实指标：接口耗时、并发数、准确率、TopK 命中率、首屏时间、代码提交次数、用户量等。");
+      }
+
+      // 项目/实习结构
+      if (hasAny(resume, ["实习", "公司", "研发", "开发实习生"])) score += 8;
+      else {
+        issues.push("没有明显实习经历；如果暂无实习，需要用高质量项目和竞赛弥补。");
+        suggestions.push("将课程设计升级为工程化项目：补 README、架构图、部署文档、压测报告和核心代码链接。");
+      }
+
+      if (hasAny(resume, ["项目", "系统", "平台", "工具"])) score += 8;
+      else {
+        issues.push("项目经历不突出，简历缺少技术能力证明。");
+        suggestions.push("至少准备 2 个主项目，每个项目写清背景、个人职责、技术难点、优化效果和可演示链接。");
+      }
+
+      // 工程关键词
+      const engineering = ["压测", "部署", "Docker", "Linux", "监控", "日志", "索引", "缓存", "并发", "事务", "幂等", "限流", "降级", "CI", "性能"];
+      const engMatched = countMatches(resume, engineering);
+      score += Math.min(12, engMatched.length * 1.5);
+      if (engMatched.length < 4) {
+        issues.push("工程化细节不足，容易被认为只是普通 CRUD 或课程作业。");
+        suggestions.push("在项目中补充工程细节：数据库索引、缓存策略、异常处理、鉴权、部署、监控、压测、CI/CD 等。");
+      }
+
+      // 基础/竞赛
+      if (hasAny(resume, ["数据结构", "操作系统", "计算机网络", "数据库", "算法", "LeetCode", "蓝桥杯", "ACM", "奖学金"])) score += 10;
+      else {
+        issues.push("计算机基础和学习能力展示不足。");
+        suggestions.push("教育背景中补充高分核心课程、算法训练、竞赛、奖学金或课程排名。")
+      }
+
+      // 表达风险
+      if (hasAny(resume, ["精通", "熟练掌握各种", "若干", "等等", "负责相关工作"])) {
+        score -= 6;
+        issues.push("存在空泛或过度表达，如“精通”“若干”“等等”，可能降低可信度。");
+        suggestions.push("把“精通/熟练掌握”改为“熟悉/了解/能够使用”，并用项目结果证明。")
+      }
+
+      // 链接证据
+      if (hasAny(resume, ["github", "gitee", "http", "博客", "演示", "README", "文档"])) score += 5;
+      else {
+        issues.push("缺少代码、作品、文档或演示链接，可信证据不足。");
+        suggestions.push("补充 GitHub/Gitee、在线演示、技术博客、项目 README 或答辩视频链接。")
+      }
+
+      score = Math.max(0, Math.min(100, Math.round(score)));
+      renderScore(score);
+      renderKeywords(matched, unmatched.slice(0, 10));
+      renderList("issues", issues.length ? issues : ["整体结构较完整，下一步重点打磨项目深度和面试可追问细节。"]);
+      renderList("suggestions", suggestions.length ? suggestions : ["保持一页 A4，继续补充可验证指标，并为每个项目准备 2 分钟、5 分钟、15 分钟三个版本的讲解。"]);
+      renderTemplates(role);
+      renderRewrite(role, matched, issues, suggestions);
+    }
+
+    function renderScore(score) {
+      const circle = document.getElementById("scoreCircle");
+      const deg = score * 3.6;
+      let color = "var(--danger)";
+      let label = "需要大幅修改";
+      let cls = "bad";
+      if (score >= 80) { color = "var(--success)"; label = "较有竞争力"; cls = "good"; }
+      else if (score >= 65) { color = "var(--warning)"; label = "可投递但需优化"; cls = "warn"; }
+      circle.style.background = `conic-gradient(${color} 0deg ${deg}deg, #e5e7eb ${deg}deg 360deg)`;
+      document.getElementById("scoreNum").innerText = score;
+      document.getElementById("scoreText").innerHTML = `<span class="pill ${cls}">${label}</span><span class="pill blue">规则评分：${score}/100</span>`;
+      document.getElementById("scoreHint").innerText = score >= 80 ? "建议重点准备项目深挖和算法面试。" : "建议按下方问题逐项修改，尤其是项目难点和量化结果。";
+    }
+
+    function renderKeywords(matched, unmatched) {
+      const box = document.getElementById("keywords");
+      const good = matched.map(k => `<span class="pill good">✓ ${k}</span>`).join("");
+      const bad = unmatched.map(k => `<span class="pill warn">待补：${k}</span>`).join("");
+      box.innerHTML = good + bad || `<span class="pill bad">未匹配到明显关键词</span>`;
+    }
+
+    function renderList(id, arr) {
+      document.getElementById(id).innerHTML = arr.map(x => `<li>${x}</li>`).join("");
+    }
+
+    function renderTemplates(role) {
+      document.getElementById("templates").innerHTML = roleTemplates[role].map(x => `<li>${x}</li>`).join("");
+    }
+
+    function renderRewrite(role, matched, issues, suggestions) {
+      const roleName = document.getElementById("role").selectedOptions[0].text;
+      const school = document.getElementById("school").value.trim() || "【补充：学校、专业、GPA/排名、核心课程、奖学金】";
+      const text = `【求职意向】\n${roleName}\n\n【教育背景】\n${school}\n建议补充：GPA/排名、核心课程分数、奖学金、竞赛、英语能力。\n\n【专业技能】\n已体现关键词：${matched.length ? matched.join("、") : "暂无明显关键词"}\n修改建议：技能不要孤立罗列，每个重要技能最好能在项目或实习中找到证据。\n\n【实习/项目经历改写方向】\n1. 项目背景：这个系统服务谁？解决什么真实问题？\n2. 个人职责：你具体负责哪些模块，不要只写团队成果。\n3. 技术方案：为什么选这个方案？和其他方案相比有什么取舍？\n4. 难点优化：至少写 1—2 个可深挖问题，如并发、缓存、事务、性能、检索准确率、前端首屏、自动化测试等。\n5. 量化结果：补充真实指标，例如 P95、QPS、准确率、TopK、首屏时间、缺陷数、代码提交次数。\n\n【当前主要问题】\n${issues.map((x, i) => `${i + 1}. ${x}`).join("\n")}\n\n【下一步修改建议】\n${suggestions.map((x, i) => `${i + 1}. ${x}`).join("\n")}\n\n【推荐 Bullet 写法】\n${roleTemplates[role].map((x, i) => `${i + 1}. ${x}`).join("\n")}\n`;
+      document.getElementById("rewrite").value = text;
+    }
+
+    function updateManualScore() {
+      const checks = Array.from(document.querySelectorAll(".check-item input"));
+      const total = checks.reduce((sum, c) => sum + (c.checked ? Number(c.dataset.score) : 0), 0);
+      if (document.getElementById("scoreNum").innerText === "--") {
+        renderScore(total);
+        document.getElementById("scoreText").innerHTML += `<span class="pill blue">清单自评分</span>`;
+      }
+    }
+
+    function copyRewrite() {
+      const area = document.getElementById("rewrite");
+      if (!area.value.trim()) {
+        alert("请先点击“开始诊断”。");
+        return;
+      }
+      area.select();
+      document.execCommand("copy");
+      alert("已复制到剪贴板。");
+    }
+
+    function fillDemo() {
+      document.getElementById("role").value = "backend";
+      document.getElementById("school").value = "某211大学 软件工程本科，GPA 3.75/4.00，专业前15%，数据库系统92，计算机网络90";
+      document.getElementById("jd").value = "Java、Spring Boot、MySQL、Redis、MQ、高并发、分布式、Linux、Docker";
+      document.getElementById("resume").value = `教育背景：某211大学 软件工程 本科\n专业技能：熟悉 Java、Spring Boot、MySQL、Redis、Linux、Git。\n项目经历：校园二手交易平台\n负责用户登录、商品发布、订单模块开发。使用 Redis 优化性能，使用 MySQL 存储数据。完成项目部署。\n竞赛：蓝桥杯省赛二等奖，LeetCode 200题。`;
+      analyzeResume();
+    }
+
+    function clearAll() {
+      ["school", "jd", "resume", "rewrite"].forEach(id => document.getElementById(id).value = "");
+      document.getElementById("scoreNum").innerText = "--";
+      document.getElementById("scoreCircle").style.background = "conic-gradient(var(--primary) 0deg, var(--primary) 0deg, #e5e7eb 0deg 360deg)";
+      document.getElementById("scoreText").innerHTML = `<span class="pill blue">等待诊断</span>`;
+      document.getElementById("scoreHint").innerText = "粘贴简历后点击“开始诊断”，系统会给出可修改项和推荐表达。";
+      document.getElementById("keywords").innerHTML = `<span class="pill">暂无</span>`;
+      document.getElementById("issues").innerHTML = `<li>请先输入简历内容。</li>`;
+      document.getElementById("suggestions").innerHTML = `<li>点击诊断后生成建议。</li>`;
+      document.querySelectorAll(".check-item input").forEach(c => c.checked = false);
+    }
+
+    initChecklist();
+    renderTemplates("backend");
+    document.getElementById("role").addEventListener("change", e => renderTemplates(e.target.value));
+  </script>
+</body>
+</html>

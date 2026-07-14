@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>软件工程就业指导 · 资料导航</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --bg-soft: #1e293b;
+    --card: #ffffff;
+    --card-hover: #f8fafc;
+    --ink: #0f172a;
+    --ink-soft: #475569;
+    --muted: #94a3b8;
+    --line: #e2e8f0;
+    --brand: #2563eb;
+    --brand-soft: #dbeafe;
+    --accent: #7c3aed;
+    --accent-soft: #ede9fe;
+    --amber: #d97706;
+    --amber-soft: #fef3c7;
+    --green: #059669;
+    --green-soft: #d1fae5;
+    --shadow: 0 1px 3px rgba(15,23,42,.08), 0 8px 24px rgba(15,23,42,.06);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #f1f5f9 0%, #e2e8f0 100%);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 48px 24px 72px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; }
+
+  /* Header */
+  .hero {
+    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 55%, #7c3aed 100%);
+    border-radius: 20px;
+    padding: 40px 44px;
+    color: #fff;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; right: -60px; top: -60px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: rgba(255,255,255,.08);
+  }
+  .hero::before {
+    content: "";
+    position: absolute; right: 80px; bottom: -90px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: rgba(255,255,255,.06);
+  }
+  .hero h1 { font-size: 28px; letter-spacing: .5px; margin-bottom: 10px; position: relative; z-index: 1; }
+  .hero p { font-size: 15px; opacity: .9; max-width: 620px; line-height: 1.7; position: relative; z-index: 1; }
+  .hero .meta { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .hero .chip { background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.25); padding: 5px 12px; border-radius: 999px; font-size: 13px; }
+
+  /* Toolbar */
+  .toolbar { display: flex; align-items: center; justify-content: space-between; margin: 32px 4px 16px; gap: 16px; flex-wrap: wrap; }
+  .toolbar h2 { font-size: 19px; color: var(--ink); }
+  .toolbar .sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .search {
+    flex: 1; min-width: 220px; max-width: 320px;
+    display: flex; align-items: center; gap: 8px;
+    background: #fff; border: 1px solid var(--line); border-radius: 12px;
+    padding: 9px 14px; box-shadow: var(--shadow);
+  }
+  .search input { border: none; outline: none; font-size: 14px; width: 100%; background: transparent; color: var(--ink); }
+
+  /* Grid */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(15,23,42,.14); border-color: var(--brand); }
+  .card .ico {
+    width: 48px; height: 48px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 17px; margin-bottom: 8px; line-height: 1.4; }
+  .card .desc { font-size: 13.5px; color: var(--ink-soft); line-height: 1.65; flex: 1; }
+  .card .foot { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
+  .card .tag {
+    font-size: 12px; padding: 4px 10px; border-radius: 999px; font-weight: 600;
+  }
+  .card .arrow { font-size: 18px; color: var(--muted); transition: transform .18s ease, color .18s ease; }
+  .card:hover .arrow { transform: translateX(4px); color: var(--brand); }
+  .card .stars { font-size: 12px; color: var(--amber); letter-spacing: 1px; }
+
+  /* category colors */
+  .c-blue  { background: var(--brand-soft);  color: var(--brand); }
+  .c-pur   { background: var(--accent-soft); color: var(--accent); }
+  .c-amber { background: var(--amber-soft);  color: var(--amber); }
+  .c-green { background: var(--green-soft);  color: var(--green); }
+  .t-blue  { background: var(--brand-soft);  color: var(--brand); }
+  .t-pur   { background: var(--accent-soft); color: var(--accent); }
+  .t-amber { background: var(--amber-soft);  color: var(--amber); }
+  .t-green { background: var(--green-soft);  color: var(--green); }
+
+  /* placeholder */
+  .card.placeholder {
+    border: 2px dashed #cbd5e1;
+    background: #f8fafc;
+    box-shadow: none;
+    cursor: default;
+    align-items: center; justify-content: center; text-align: center;
+    min-height: 200px;
+  }
+  .card.placeholder:hover { transform: none; border-color: #94a3b8; box-shadow: none; }
+  .card.placeholder .plus { font-size: 40px; color: #cbd5e1; margin-bottom: 10px; }
+  .card.placeholder .ptext { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .card.placeholder .phint { font-size: 12px; color: #cbd5e1; margin-top: 8px; }
+
+  /* hidden by search */
+  .card.hidden { display: none; }
+
+  /* empty state */
+  .empty { display: none; text-align: center; color: var(--muted); padding: 60px 0; font-size: 15px; }
+
+  /* footer */
+  .foot-note { text-align: center; margin-top: 48px; color: var(--muted); font-size: 12.5px; line-height: 1.8; }
+  .foot-note code { background: #e2e8f0; padding: 2px 7px; border-radius: 6px; font-size: 12px; color: var(--ink-soft); }
+
+  @media (max-width: 560px) {
+    .hero { padding: 28px 24px; }
+    .hero h1 { font-size: 22px; }
+    body { padding: 28px 16px 48px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>🎓 软件工程就业指导 · 资料导航</h1>
+    <p>面向软件工程专业学生的就业赋能资料中心。集中收录简历优化、大厂面试、行业数据等指导材料，供教师授课与学生自主查阅。后续资料将持续补充。</p>
+    <div class="meta">
+      <span class="chip">211 软件工程学院</span>
+      <span class="chip" id="chip-count">已收录 2 份</span>
+      <span class="chip" id="chip-date">更新于 2026-07-14</span>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <div>
+      <h2>资料列表</h2>
+      <div class="sub">点击卡片即可打开对应资料</div>
+    </div>
+    <div class="search">
+      <span>🔍</span>
+      <input id="searchInput" type="text" placeholder="搜索资料标题或分类…" />
+    </div>
+  </div>
+
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty">没有匹配的资料 😶</div>
+
+  <div class="foot-note">
+    维护说明：后续新增资料，只需在 <code>index.html</code> 的 <code>LINKS</code> 数组中添加一项即可自动出现。<br />
+    字段说明：<code>title</code> 标题 · <code>file</code> 文件名 · <code>desc</code> 简介 · <code>cat</code> 分类 · <code>icon</code> 图标 · <code>diff</code> 难度星级(可选)。
+  </div>
+
+</div>
+
+<script>
+  /* =========================================================
+     资料链接数组 —— 后续新增资料只需在此追加一项
+     示例：
+     { title:"XXX", file:"xxx.html", desc:"……", cat:"简历指导", icon:"📄", color:"blue", diff:"★★★☆☆" }
+     ========================================================= */
+  const LINKS = [
+    {
+      title: "校招简历优化指南（必看版）",
+      file: "必看-校招简历优化指南.html",
+      desc: "校招简历逐模块写法速查：命名规范、个人信息/教育/技能/工作/项目/科研/评价七大模块写法，附优化前后对比与实习/无实习双示例。重点标记版，建议优先阅读。",
+      cat: "简历指导",
+      icon: "⭐",
+      color: "amber",
+      diff: "必看首选"
+    },
+    {
+      title: "如何写一份优秀的软件工程简历",
+      file: "如何写一份优秀的软件工程简历.html",
+      desc: "系统讲解软件工程简历写作方法论，是三份优秀简历示例的母文档。覆盖结构框架、措辞技巧、数据量化与常见雷区。",
+      cat: "简历指导",
+      icon: "✍️",
+      color: "blue",
+      diff: "总览教程"
+    },
+    {
+      title: "软件工程专业简历优化指南",
+      file: "软件工程专业简历优化指南.html",
+      desc: "就业市场数据可视化、大厂招聘动态、各方向技术考点、简历 STAR 法则与模板、求职时间线。指导学生写出能过初筛、体现技术深度的简历。",
+      cat: "简历指导",
+      icon: "📊",
+      color: "blue",
+      diff: "入门必读"
+    },
+    {
+      title: "校招简历优化指南（模块详解）",
+      file: "校招简历优化指南.html",
+      desc: "整理自内部校招指导资料：简历命名规范、七大信息模块逐条写法，附大量优化前后对比与实习/无实习双示例范本。",
+      cat: "简历指导",
+      icon: "📋",
+      color: "blue",
+      diff: "实战范本"
+    },
+    {
+      title: "学生简历自助优化工具",
+      file: "学生简历自助优化页面.html",
+      desc: "可交互的简历自助优化工具，学生按提示逐项检查、自评简历，对标大厂求职标准，边写边改。",
+      cat: "工具自助",
+      icon: "🛠️",
+      color: "green",
+      diff: "动手实践"
+    },
+    {
+      title: "大厂高频面试题集",
+      file: "大厂高频面试题集.html",
+      desc: "字节 / 拼多多 / 阿里 / 腾讯 / 美团 / 百度 / 小红书 / 华为 / 京东 / 网易 / 快手 共 11 家大厂面试风格、高频八股、手撕算法、系统设计题与备考策略。",
+      cat: "面试准备",
+      icon: "💡",
+      color: "pur",
+      diff: "进阶核心"
+    },
+    {
+      title: "优秀简历示例 · Java后端开发",
+      file: "优秀简历示例-Java后端开发.html",
+      desc: "某 211 软工本科 Java 后端方向完整简历范本（范本 01），含教育/技能/实习/项目写法示范，可直接对照参考。",
+      cat: "简历示例",
+      icon: "🏆",
+      color: "green",
+      diff: "范本 01"
+    },
+    {
+      title: "优秀简历示例 · AI应用开发",
+      file: "优秀简历示例-AI应用开发.html",
+      desc: "AI 应用开发 / 大模型工程方向简历范本（范本 02），突出 LLM 应用、RAG、Agent、向量检索等技能与项目写法。",
+      cat: "简历示例",
+      icon: "🏆",
+      color: "green",
+      diff: "范本 02"
+    },
+    {
+      title: "优秀简历示例 · 前端全栈开发",
+      file: "优秀简历示例-前端全栈开发.html",
+      desc: "前端 / 全栈开发方向简历范本（范本 03），覆盖框架、工程化、全栈能力与作品集呈现方式。",
+      cat: "简历示例",
+      icon: "🏆",
+      color: "green",
+      diff: "范本 03"
+    }
+  ];
+
+  // 预留占位卡片数量（代表后续待补充的资料位，可按需删改）
+  const PLACEHOLDERS = 2;
+
+  const catClass = {
+    "简历指导": "t-blue",
+    "面试准备": "t-pur",
+    "工具自助": "t-green",
+    "简历示例": "t-amber",
+    "行业数据": "t-green",
+    "算法训练": "t-amber",
+    "项目实战": "t-green",
+    "其他": "t-blue"
+  };
+  const iconClass = { blue:"c-blue", pur:"c-pur", amber:"c-amber", green:"c-green" };
+
+  const grid = document.getElementById("grid");
+  const empty = document.getElementById("empty");
+
+  function render(list) {
+    grid.innerHTML = "";
+    if (list.length === 0) { empty.style.display = "block"; }
+    else { empty.style.display = "none"; }
+
+    list.forEach(item => {
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = item.file;
+      a.setAttribute("data-search", (item.title + " " + item.cat + " " + item.desc).toLowerCase());
+      const tCls = catClass[item.cat] || "t-blue";
+      const iCls = iconClass[item.color] || "c-blue";
+      a.innerHTML = `
+        <div class="ico ${iCls}">${item.icon || "📄"}</div>
+        <h3>${item.title}</h3>
+        <div class="desc">${item.desc}</div>
+        <div class="foot">
+          <span class="tag ${tCls}">${item.cat}</span>
+          <span class="stars">${item.diff ? item.diff : "→"}</span>
+        </div>
+        <div class="arrow" style="position:absolute;top:24px;right:24px;">↗</div>
+      `;
+      grid.appendChild(a);
+    });
+
+    // 占位卡片
+    for (let i = 0; i < PLACEHOLDERS; i++) {
+      const p = document.createElement("div");
+      p.className = "card placeholder";
+      p.innerHTML = `
+        <div class="plus">+</div>
+        <div class="ptext">预留资料位<br/>（待补充）</div>
+        <div class="phint">在 LINKS 数组中添加即可</div>
+      `;
+      grid.appendChild(p);
+    }
+  }
+
+  document.getElementById("chip-count").textContent = "已收录 " + LINKS.length + " 份";
+  render(LINKS);
+
+  document.getElementById("searchInput").addEventListener("input", function(e) {
+    const q = e.target.value.trim().toLowerCase();
+    const cards = grid.querySelectorAll(".card:not(.placeholder)");
+    let visible = 0;
+    cards.forEach(c => {
+      const hit = c.getAttribute("data-search").includes(q);
+      c.classList.toggle("hidden", !hit);
+      if (hit) visible++;
+    });
+    empty.style.display = (visible === 0 && q !== "") ? "block" : "none";
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,783 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>如何写一份优秀的软件工程简历</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --card: #ffffff;
+      --text: #182033;
+      --muted: #667085;
+      --primary: #2563eb;
+      --primary-dark: #1e40af;
+      --accent: #7c3aed;
+      --green: #16a34a;
+      --orange: #f59e0b;
+      --red: #dc2626;
+      --line: #e5e7eb;
+      --soft-blue: #eff6ff;
+      --soft-green: #ecfdf3;
+      --soft-orange: #fffbeb;
+      --soft-red: #fef2f2;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.14), transparent 36%),
+        radial-gradient(circle at top right, rgba(124, 58, 237, 0.13), transparent 32%),
+        var(--bg);
+      line-height: 1.75;
+    }
+
+    a { color: inherit; }
+
+    .hero {
+      padding: 58px 24px 34px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 13px;
+      border: 1px solid rgba(37, 99, 235, 0.18);
+      border-radius: 999px;
+      color: var(--primary-dark);
+      background: rgba(255, 255, 255, 0.78);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(37, 99, 235, 0.08);
+    }
+
+    h1 {
+      margin: 18px auto 12px;
+      max-width: 900px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.12;
+      letter-spacing: -0.05em;
+    }
+
+    .hero p {
+      max-width: 860px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto 70px;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(246, 248, 252, 0.82);
+      backdrop-filter: blur(14px);
+      border-top: 1px solid rgba(229, 231, 235, 0.8);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav-inner {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    .nav a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 800;
+      color: #344054;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
+    .nav a:hover {
+      color: var(--primary-dark);
+      background: var(--soft-blue);
+    }
+
+    .section {
+      margin-top: 24px;
+      background: rgba(255, 255, 255, 0.93);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(22px, 3vw, 34px);
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.035em;
+      line-height: 1.22;
+    }
+
+    .section > p.lead {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fff;
+    }
+
+    .mini-card h3, .mini-card h4 {
+      margin-top: 0;
+    }
+
+    .mini-card p { color: var(--muted); margin-bottom: 0; }
+
+    .tag {
+      display: inline-block;
+      margin: 4px 6px 4px 0;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary-dark);
+      background: var(--soft-blue);
+    }
+
+    .tag.green { color: #166534; background: var(--soft-green); }
+    .tag.orange { color: #92400e; background: var(--soft-orange); }
+    .tag.red { color: #991b1b; background: var(--soft-red); }
+    .tag.purple { color: #5b21b6; background: #f3e8ff; }
+
+    .formula {
+      padding: 18px;
+      border-radius: 16px;
+      background: #0f172a;
+      color: #e2e8f0;
+      font-family: Consolas, "Courier New", monospace;
+      overflow-x: auto;
+      font-size: 15px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+
+    .bad, .good {
+      border-radius: 16px;
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+    }
+
+    .bad { background: var(--soft-red); }
+    .good { background: var(--soft-green); }
+
+    .bad strong { color: var(--red); }
+    .good strong { color: var(--green); }
+
+    .resume-block {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      background: #fff;
+      margin-top: 16px;
+    }
+
+    .resume-title {
+      padding: 15px 18px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .resume-content {
+      padding: 20px;
+    }
+
+    .resume-content h4 {
+      margin: 18px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--primary-dark);
+      font-size: 17px;
+    }
+
+    .resume-content h4:first-child { margin-top: 0; }
+
+    .resume-content ul { margin-top: 6px; }
+    .resume-content li { margin: 6px 0; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 14px;
+      font-size: 15px;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #344054;
+      font-weight: 900;
+    }
+
+    .callout {
+      margin: 16px 0;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: var(--soft-blue);
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .callout.warning {
+      background: var(--soft-orange);
+      border-color: #fde68a;
+      color: #78350f;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 10px;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .checklist li {
+      position: relative;
+      padding: 12px 14px 12px 42px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      position: absolute;
+      left: 14px;
+      top: 12px;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--green);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .timeline {
+      counter-reset: step;
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      counter-increment: step;
+      position: relative;
+      padding: 16px 16px 16px 58px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .step::before {
+      content: counter(step);
+      position: absolute;
+      left: 16px;
+      top: 17px;
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .step strong { display: block; font-size: 17px; }
+    .step span { color: var(--muted); }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+      font-size: 14px;
+    }
+
+    .print-tip {
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .print-tip button {
+      border: 0;
+      border-radius: 999px;
+      padding: 11px 18px;
+      color: #fff;
+      background: var(--primary);
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(37, 99, 235, 0.18);
+    }
+
+    @media (max-width: 900px) {
+      .grid-2, .grid-3, .compare { grid-template-columns: 1fr; }
+      .hero { padding-top: 42px; }
+    }
+
+    @media print {
+      body { background: #fff; }
+      .nav, .print-tip { display: none; }
+      .container { width: 100%; margin: 0; }
+      .section { box-shadow: none; border: 0; break-inside: avoid; }
+      .hero { padding: 20px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="badge">软件工程本科生 · 大厂技术岗简历指南</span>
+    <h1>如何写一份优秀的软件工程简历</h1>
+    <p>这不是一个简历生成工具，而是一份写作指南。请按照页面中的结构、标准、示例和检查清单，逐项优化自己的简历，让面试官快速看到你的岗位匹配度、工程能力和成长潜力。</p>
+    <div class="print-tip"><button onclick="window.print()">打印 / 导出为 PDF</button></div>
+  </header>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#standard">优秀标准</a>
+      <a href="#structure">推荐结构</a>
+      <a href="#method">写作方法</a>
+      <a href="#modules">各模块写法</a>
+      <a href="#examples">优秀示例</a>
+      <a href="#mistakes">常见错误</a>
+      <a href="#checklist">提交清单</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="standard" class="section">
+      <h2>一、什么是优秀简历？</h2>
+      <p class="lead">优秀技术简历的核心不是“内容很多”，而是“证据充分”。面试官通常只用几十秒快速判断：这个学生是否值得约面。</p>
+
+      <div class="grid-3">
+        <div class="mini-card">
+          <h3>1. 方向清楚</h3>
+          <p>简历一眼能看出你投的是后端、AI 应用、前端、测试开发还是基础架构，而不是所有岗位都想投。</p>
+        </div>
+        <div class="mini-card">
+          <h3>2. 项目可信</h3>
+          <p>项目不是简单 CRUD，而是有真实问题、技术方案、个人贡献、难点解决和结果数据。</p>
+        </div>
+        <div class="mini-card">
+          <h3>3. 能被追问</h3>
+          <p>写在简历上的每个技术点，都应该能讲清楚原理、使用场景、为什么这样设计以及踩过什么坑。</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>一句话标准：</strong>一份优秀简历应该让面试官相信：你有扎实基础，做过有难度的项目，并且能用工程化思维解决问题。
+      </div>
+    </section>
+
+    <section id="structure" class="section">
+      <h2>二、推荐简历结构</h2>
+      <p class="lead">本科生技术岗简历建议控制在一页 A4。如果内容非常丰富，最多两页，但第一页必须放最核心的信息。</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>模块</th>
+            <th>建议内容</th>
+            <th>注意事项</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>个人信息</td>
+            <td>姓名、电话、邮箱、GitHub/Gitee、博客、求职意向</td>
+            <td>不要放与求职无关的信息，如身高、民族、详细住址</td>
+          </tr>
+          <tr>
+            <td>教育背景</td>
+            <td>学校、专业、时间、GPA/排名、核心课程、奖学金</td>
+            <td>211、专业排名、核心课程高分可以突出</td>
+          </tr>
+          <tr>
+            <td>专业技能</td>
+            <td>语言、框架、数据库、缓存、中间件、工具</td>
+            <td>不要写“精通一切”，技能必须能被项目证明</td>
+          </tr>
+          <tr>
+            <td>实习经历</td>
+            <td>公司、岗位、时间、业务背景、个人职责、结果</td>
+            <td>有实习时优先放在项目经历前面</td>
+          </tr>
+          <tr>
+            <td>项目经历</td>
+            <td>2 个主项目，每个 4—6 条高质量描述</td>
+            <td>重点写难点、方案、指标，不要堆功能列表</td>
+          </tr>
+          <tr>
+            <td>竞赛/开源/荣誉</td>
+            <td>算法竞赛、软件杯、大创、开源贡献、奖学金</td>
+            <td>与岗位无关的内容放后面或删除</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="method" class="section">
+      <h2>三、技术简历的写作方法</h2>
+      <p class="lead">把“我做了什么”改成“我解决了什么问题，并产生了什么结果”。</p>
+
+      <h3>1. 项目经历万能公式</h3>
+      <div class="formula">在【具体场景】下，为了解决【具体问题】，我负责【个人动作】，采用【技术方案】，最终使【指标】从 A 变为 B。</div>
+
+      <h3>2. 弱表达 vs 强表达</h3>
+      <div class="compare">
+        <div class="bad">
+          <strong>弱表达</strong>
+          <p>负责用户模块开发，使用 Redis 优化性能。</p>
+        </div>
+        <div class="good">
+          <strong>强表达</strong>
+          <p>负责用户登录与会话模块，基于 Redis + JWT 设计分布式登录态，将接口 P95 响应时间由 180ms 降至 70ms，并通过限流策略降低异常登录请求约 35%。</p>
+        </div>
+      </div>
+
+      <div class="compare">
+        <div class="bad">
+          <strong>弱表达</strong>
+          <p>完成校园交易平台后端开发，实现商品和订单功能。</p>
+        </div>
+        <div class="good">
+          <strong>强表达</strong>
+          <p>负责商品发布、下单、库存扣减和订单超时关闭链路，使用 Redis 预扣库存 + Lua 原子操作 + MQ 异步落库解决并发超卖问题，在 1000 并发压测下库存一致性通过率 100%。</p>
+        </div>
+      </div>
+
+      <h3>3. 推荐使用的动词</h3>
+      <p>
+        <span class="tag">设计</span>
+        <span class="tag">实现</span>
+        <span class="tag">优化</span>
+        <span class="tag">重构</span>
+        <span class="tag">封装</span>
+        <span class="tag">接入</span>
+        <span class="tag">定位</span>
+        <span class="tag">压测</span>
+        <span class="tag">部署</span>
+        <span class="tag">沉淀</span>
+      </p>
+
+      <h3>4. 推荐量化指标</h3>
+      <p>
+        <span class="tag green">QPS</span>
+        <span class="tag green">P95/P99 响应时间</span>
+        <span class="tag green">并发数</span>
+        <span class="tag green">慢 SQL 数量</span>
+        <span class="tag green">缓存命中率</span>
+        <span class="tag green">TopK 命中率</span>
+        <span class="tag green">准确率</span>
+        <span class="tag green">首屏加载时间</span>
+        <span class="tag green">测试覆盖率</span>
+        <span class="tag green">代码提交次数</span>
+      </p>
+    </section>
+
+    <section id="modules" class="section">
+      <h2>四、各模块应该怎么写</h2>
+      <p class="lead">请学生逐项对照修改，不要只换模板，而要补充真实经历和可解释的数据。</p>
+
+      <div class="grid-2">
+        <div class="mini-card">
+          <h3>教育背景</h3>
+          <p><strong>推荐写法：</strong></p>
+          <ul>
+            <li>某 211 大学｜软件工程｜本科｜2022.09—2026.06</li>
+            <li>GPA：3.78/4.00，专业前 10%</li>
+            <li>核心课程：数据结构 94、操作系统 91、计算机网络 93、数据库系统 95</li>
+          </ul>
+          <p><strong>重点：</strong>突出学校、专业、排名、核心课程和奖学金。</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>专业技能</h3>
+          <p><strong>推荐写法：</strong></p>
+          <ul>
+            <li>熟悉 Java 基础、集合、并发、JVM，了解线程池和常见锁机制。</li>
+            <li>熟悉 Spring Boot、MyBatis，能独立完成 RESTful 接口开发。</li>
+            <li>熟悉 MySQL 索引、事务、执行计划，能进行基础 SQL 优化。</li>
+          </ul>
+          <p><strong>重点：</strong>不要写“精通”，除非你真的能接受深度追问。</p>
+        </div>
+
+        <div class="mini-card">
+          <h3>实习经历</h3>
+          <p><strong>推荐结构：</strong></p>
+          <ul>
+            <li>业务背景：你所在的系统服务什么业务？</li>
+            <li>个人职责：你负责哪些模块？</li>
+            <li>技术方案：用了什么技术解决什么问题？</li>
+            <li>结果指标：性能、稳定性、效率或业务数据如何变化？</li>
+          </ul>
+        </div>
+
+        <div class="mini-card">
+          <h3>项目经历</h3>
+          <p><strong>推荐结构：</strong></p>
+          <ul>
+            <li>项目名称 + 技术栈 + 时间</li>
+            <li>一句话说明项目背景</li>
+            <li>3—5 条核心贡献</li>
+            <li>至少 1 条难点解决</li>
+            <li>至少 1 条量化结果</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout warning">
+        <strong>提醒：</strong>简历优化不是包装造假。所有数据都应来自真实压测、日志、实验、评测、提交记录或可解释估算。面试官很容易通过追问判断经历是否真实。
+      </div>
+    </section>
+
+    <section id="examples" class="section">
+      <h2>五、优秀简历片段示例</h2>
+      <p class="lead">以下是写法示例，不建议照抄。学生应将其改写为自己的真实项目。</p>
+
+      <div class="grid-3" style="margin:18px 0 22px;">
+        <a class="mini-card" href="优秀简历示例-Java后端开发.html" style="text-decoration:none;display:block;">
+          <h3>完整优秀简历 1</h3>
+          <p><strong>Java 后端开发方向</strong></p>
+          <p>适合投递后端开发、服务端开发、平台研发等岗位，重点展示 Java、Spring、MySQL、Redis、MQ、高并发和工程化能力。</p>
+          <span class="tag">点击查看完整 HTML 简历</span>
+        </a>
+        <a class="mini-card" href="优秀简历示例-AI应用开发.html" style="text-decoration:none;display:block;">
+          <h3>完整优秀简历 2</h3>
+          <p><strong>AI 应用开发 / 大模型工程方向</strong></p>
+          <p>适合投递 AI 应用、RAG、Agent、大模型工程、算法工程化等岗位，重点展示 LLM 应用落地和后端服务化能力。</p>
+          <span class="tag purple">点击查看完整 HTML 简历</span>
+        </a>
+        <a class="mini-card" href="优秀简历示例-前端全栈开发.html" style="text-decoration:none;display:block;">
+          <h3>完整优秀简历 3</h3>
+          <p><strong>前端 / 全栈开发方向</strong></p>
+          <p>适合投递前端开发、全栈开发、中后台研发等岗位，重点展示 TypeScript、组件化、工程化和性能优化能力。</p>
+          <span class="tag green">点击查看完整 HTML 简历</span>
+        </a>
+      </div>
+
+      <div class="resume-block">
+        <div class="resume-title">示例 1：Java 后端开发方向</div>
+        <div class="resume-content">
+          <h4>求职意向</h4>
+          <p>Java 后端开发工程师</p>
+
+          <h4>专业技能</h4>
+          <ul>
+            <li>熟悉 Java 集合、并发、JVM 基础，了解线程池、锁机制和常见 GC 策略。</li>
+            <li>熟悉 Spring Boot、MyBatis、MySQL、Redis、RocketMQ，具备后端接口开发和基础性能优化经验。</li>
+            <li>熟悉 Linux、Docker、Git、Maven、JMeter，能够完成项目部署、日志排查和接口压测。</li>
+          </ul>
+
+          <h4>项目经历：高并发校园二手交易平台</h4>
+          <ul>
+            <li>负责商品发布、商品搜索、订单创建、库存扣减、支付回调和订单超时关闭等核心模块。</li>
+            <li>针对热门商品并发下单可能超卖的问题，采用 Redis 预扣库存 + Lua 原子操作 + MQ 异步落库方案，在 1000 并发压测下库存一致性通过率 100%。</li>
+            <li>设计订单状态机，处理待支付、已支付、已取消、已发货等状态流转，并通过幂等表解决支付回调重复通知问题。</li>
+            <li>基于 MySQL 联合索引优化商品搜索和订单列表查询，慢查询数量下降约 70%，接口平均响应时间由 210ms 降至 95ms。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <div class="resume-title">示例 2：AI 应用开发 / 大模型工程方向</div>
+        <div class="resume-content">
+          <h4>求职意向</h4>
+          <p>AI 应用开发工程师 / 后端开发工程师</p>
+
+          <h4>专业技能</h4>
+          <ul>
+            <li>熟悉 Python、FastAPI、MySQL、Redis，能够将算法能力封装为稳定后端服务。</li>
+            <li>熟悉 LLM API 调用、Prompt 工程、RAG、Embedding、向量检索、rerank 和评测集构建。</li>
+            <li>熟悉 Milvus/FAISS、LangChain、Docker、Linux，具备知识库问答系统开发经验。</li>
+          </ul>
+
+          <h4>项目经历：校园智能就业助手</h4>
+          <ul>
+            <li>面向学院就业辅导场景，构建“岗位解析—简历匹配—面试题生成—就业数据看板”系统。</li>
+            <li>实现岗位 JD 解析模块，抽取岗位方向、技能关键词、学历要求和项目偏好，并与学生简历进行匹配打分。</li>
+            <li>构建 RAG 问答模块，将就业政策、企业宣讲资料和历年面经向量化入库，支持答案引用来源，降低幻觉风险。</li>
+            <li>设计 50 组高频问题评测集，对准确率、拒答率、平均响应时间和 Token 成本进行持续记录和优化。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resume-block">
+        <div class="resume-title">示例 3：前端 / 全栈开发方向</div>
+        <div class="resume-content">
+          <h4>求职意向</h4>
+          <p>前端开发工程师 / 全栈开发工程师</p>
+
+          <h4>专业技能</h4>
+          <ul>
+            <li>熟悉 JavaScript、TypeScript、HTML/CSS，理解事件循环、闭包、模块化和浏览器渲染机制。</li>
+            <li>熟悉 React/Vue、状态管理、组件设计和中后台系统开发。</li>
+            <li>熟悉 Vite/Webpack、代码分割、懒加载、缓存策略和首屏性能优化。</li>
+          </ul>
+
+          <h4>项目经历：低代码课程管理平台</h4>
+          <ul>
+            <li>作为前端负责人，实现拖拽式课程页面搭建、组件配置、预览发布、权限管理和数据统计模块。</li>
+            <li>基于 JSON Schema 设计组件协议，将文本、图片、表格、图表等组件抽象为统一渲染模型，支持 20+ 类组件配置。</li>
+            <li>通过虚拟列表优化大型课程资源列表渲染，10000 条数据场景下滚动保持流畅。</li>
+            <li>使用路由懒加载、依赖拆包和静态资源缓存优化首屏加载，首屏时间由 3.8s 降至 1.9s。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="mistakes" class="section">
+      <h2>六、常见错误与修改方向</h2>
+      <p class="lead">很多学生不是能力差，而是简历表达方式让能力被低估。</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>常见错误</th>
+            <th>为什么扣分</th>
+            <th>如何修改</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>技能写得很满：精通 Java、Python、前端、算法、深度学习</td>
+            <td>不可信，容易被面试官深挖击穿</td>
+            <td>改为“熟悉/了解/掌握基础”，并在项目中证明</td>
+          </tr>
+          <tr>
+            <td>项目只写功能：登录、注册、增删改查</td>
+            <td>看不出工程能力和技术深度</td>
+            <td>补充缓存、并发、事务、索引、部署、监控、压测等内容</td>
+          </tr>
+          <tr>
+            <td>没有数字</td>
+            <td>成果不直观，价值难判断</td>
+            <td>补充真实指标，如响应时间、并发数、准确率、加载时间</td>
+          </tr>
+          <tr>
+            <td>团队成果全部写成个人成果</td>
+            <td>面试追问后容易露馅</td>
+            <td>明确写“我负责的模块”和“团队整体成果”</td>
+          </tr>
+          <tr>
+            <td>一份简历投所有岗位</td>
+            <td>岗位匹配度低</td>
+            <td>针对不同岗位准备不同版本，调整技能和项目顺序</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="checklist" class="section">
+      <h2>七、提交前最终检查清单</h2>
+      <p class="lead">每次投递前，请用这份清单检查一遍。</p>
+
+      <ul class="checklist">
+        <li>是否控制在一页 A4，重点信息是否在第一页上半部分？</li>
+        <li>求职意向是否明确，技能和项目是否围绕同一个岗位方向？</li>
+        <li>教育背景是否突出 211、专业、GPA/排名、核心课程和奖学金？</li>
+        <li>专业技能是否避免“精通一切”，且每个重要技能都有项目支撑？</li>
+        <li>是否至少有两个可以讲 10—15 分钟的主项目？</li>
+        <li>项目是否写清楚个人贡献，而不是只写团队整体成果？</li>
+        <li>每个主项目是否至少包含一个技术难点和一个量化结果？</li>
+        <li>简历中的数字是否真实，并且能解释测试方法和数据来源？</li>
+        <li>是否补充 GitHub/Gitee、项目 README、演示地址、博客或作品截图？</li>
+        <li>是否无错别字、无格式混乱、无时间线矛盾？</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>八、建议学生按 5 步完成优化</h2>
+      <div class="timeline">
+        <div class="step">
+          <strong>第 1 步：确定目标岗位</strong>
+          <span>先选后端、AI 应用、前端、测试开发等方向，不要一份简历投所有岗位。</span>
+        </div>
+        <div class="step">
+          <strong>第 2 步：筛选经历</strong>
+          <span>只保留与目标岗位相关的实习、项目、竞赛和课程，删除弱相关内容。</span>
+        </div>
+        <div class="step">
+          <strong>第 3 步：重写项目经历</strong>
+          <span>按照“场景—问题—动作—方案—结果”的方式改写每条 bullet。</span>
+        </div>
+        <div class="step">
+          <strong>第 4 步：补充证据</strong>
+          <span>准备 README、架构图、压测截图、演示视频、Git 提交记录或竞赛证明。</span>
+        </div>
+        <div class="step">
+          <strong>第 5 步：模拟面试追问</strong>
+          <span>对简历上的每个技术点问自己：为什么用它？有什么缺点？如果流量扩大 10 倍怎么办？</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    本页面可用于软件工程专业简历辅导课、学生自查和同伴互评。请坚持真实、清晰、量化、可追问的原则。
+  </footer>
+</body>
+</html>
+

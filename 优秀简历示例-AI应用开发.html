@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>优秀简历示例｜AI 应用开发</title>
+  <style>
+    :root{--text:#111827;--muted:#667085;--purple:#6d28d9;--line:#e5e7eb;--bg:#f7f5ff;--card:#fff}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",Arial,sans-serif;color:var(--text);line-height:1.62}
+    .page{width:min(980px,calc(100% - 36px));margin:28px auto;background:var(--card);box-shadow:0 16px 42px rgba(15,23,42,.10);border-radius:18px;overflow:hidden}.topbar{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:14px 24px;background:#f3e8ff;border-bottom:1px solid #ddd6fe;color:#4c1d95;font-size:14px;font-weight:700}.topbar a{color:#6d28d9;text-decoration:none}.resume{padding:30px 38px 38px}.header{display:flex;justify-content:space-between;gap:20px;border-bottom:2px solid var(--purple);padding-bottom:18px}h1{margin:0;font-size:34px;letter-spacing:.08em}.target{margin-top:6px;font-size:17px;color:var(--purple);font-weight:800}.contact{text-align:right;color:var(--muted);font-size:14px}.contact a{color:var(--muted)}h2{font-size:18px;margin:22px 0 10px;color:var(--purple);border-bottom:1px solid var(--line);padding-bottom:5px}.line{display:flex;justify-content:space-between;gap:12px;font-weight:800}.sub{color:var(--muted);font-size:14px;margin-top:2px}ul{margin:8px 0 0 0;padding-left:20px}li{margin:6px 0}.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 18px}.tag{display:inline-block;background:#f3e8ff;color:#5b21b6;border-radius:999px;padding:2px 8px;margin:2px 4px 2px 0;font-size:12px;font-weight:700}.note{background:#fafafa;border:1px dashed var(--line);border-radius:12px;padding:12px 14px;color:#475467;font-size:14px;margin-top:18px}.print{position:fixed;right:22px;bottom:22px;border:0;border-radius:999px;background:#6d28d9;color:white;padding:11px 16px;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(109,40,217,.25)}@media(max-width:720px){.header,.line{display:block}.contact{text-align:left;margin-top:12px}.skills{grid-template-columns:1fr}.resume{padding:24px}.topbar{display:block}.topbar span{display:block;margin-bottom:6px}}@media print{body{background:#fff}.page{width:100%;margin:0;box-shadow:none;border-radius:0}.topbar,.print{display:none}.resume{padding:18mm}h2{break-after:avoid}li{break-inside:avoid}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar"><span>优秀简历示例 02｜AI 应用开发 / 大模型工程方向</span><a href="如何写一份优秀的软件工程简历.html">← 返回简历写作指南</a></div>
+    <main class="resume">
+      <section class="header">
+        <div><h1>李同学</h1><div class="target">求职意向：AI 应用开发工程师｜大模型工程｜后端开发</div></div>
+        <div class="contact">139-0000-0000｜lixx@email.com<br/>GitHub：github.com/lixx｜作品演示：demo.xxx.com<br/>上海/杭州/深圳均可</div>
+      </section>
+
+      <h2>教育背景</h2>
+      <div class="line"><span>某 211 大学｜软件工程｜本科</span><span>2022.09—2026.06</span></div>
+      <div class="sub">GPA：3.70/4.00，专业前 15%；核心课程：机器学习 94、自然语言处理 91、数据结构 93、数据库系统 90</div>
+      <div class="sub">荣誉：国家级大学生创新创业训练计划负责人，校一等奖学金，中国大学生服务外包创新创业大赛区域赛二等奖</div>
+
+      <h2>专业技能</h2>
+      <div class="skills">
+        <div><span class="tag">编程/服务</span> 熟悉 Python、Java、FastAPI、Spring Boot，能将算法能力封装为稳定后端服务。</div>
+        <div><span class="tag">LLM 应用</span> 熟悉 LLM API 调用、Prompt 工程、RAG、Agent 工作流、流式输出和 Token 成本统计。</div>
+        <div><span class="tag">检索增强</span> 熟悉 Embedding、向量检索、BM25、混合检索、rerank、引用溯源和评测集构建。</div>
+        <div><span class="tag">数据存储</span> 熟悉 Milvus/FAISS/Elasticsearch、MySQL、Redis，能完成知识库检索和缓存设计。</div>
+        <div><span class="tag">模型基础</span> 了解 Transformers、LoRA、量化、推理加速和常见模型部署流程。</div>
+        <div><span class="tag">工程工具</span> 熟悉 Docker、Linux、GitHub Actions、日志追踪和接口压测。</div>
+      </div>
+
+      <h2>实习经历</h2>
+      <div class="line"><span>某 AI 创业公司｜AI 应用开发实习生｜企业知识库问答系统</span><span>2025.06—2025.09</span></div>
+      <ul>
+        <li>参与企业文档问答系统开发，负责文档解析、标题层级切分、向量入库、检索增强和答案引用溯源模块。</li>
+        <li>针对长文档问答不准确问题，设计“标题层级切分 + 语义切分 + BM25/向量混合检索 + rerank”方案，人工评测 Top3 命中率由 72% 提升至 87%。</li>
+        <li>封装统一 LLM 调用层，支持超时重试、流式输出、Token 统计和多模型切换，降低上层业务接入成本。</li>
+        <li>建立 50 组高频业务问题评测集，记录准确率、拒答率、平均响应时间和 Token 成本，为迭代提供量化依据。</li>
+      </ul>
+
+      <h2>项目经历</h2>
+      <div class="line"><span>校园智能就业助手｜Python / FastAPI / Vue / Milvus / MySQL / Redis / LLM</span><span>2025.01—2025.05</span></div>
+      <ul>
+        <li>作为项目负责人，面向学院就业办构建“岗位解析—简历匹配—面试题生成—就业数据看板”系统，服务软件工程专业学生求职辅导。</li>
+        <li>实现岗位 JD 解析模块，抽取岗位方向、技能关键词、学历要求和项目偏好等字段，并与学生简历进行匹配打分。</li>
+        <li>构建 RAG 问答模块，将学院就业政策、企业宣讲资料、历年面经向量化入库，支持答案引用原文来源，减少幻觉回答。</li>
+        <li>设计简历优化提示词与规则引擎，输出“问题诊断—改写建议—可追问面试题”，教师平均批改单份简历时间从约 20 分钟降至 8 分钟。</li>
+        <li>使用 Redis 缓存高频 JD 解析结果，接口平均响应时间降低约 40%；完成 Docker 部署和使用文档。</li>
+      </ul>
+
+      <div class="line" style="margin-top:16px"><span>代码缺陷自动解释与修复建议工具｜Python / AST / LLM / GitHub Actions</span><span>2024.09—2024.12</span></div>
+      <ul>
+        <li>针对课程项目中常见空指针、资源未关闭、SQL 拼接等问题，构建静态规则扫描 + LLM 解释的代码审查工具。</li>
+        <li>基于 AST 提取函数、变量、调用链等上下文，减少直接喂入整文件造成的 Token 浪费，单次审查成本下降约 35%。</li>
+        <li>接入 GitHub Actions，在 Pull Request 阶段自动输出风险说明、修复建议和参考链接，提升团队 Code Review 效率。</li>
+      </ul>
+
+      <h2>竞赛与其他</h2>
+      <ul>
+        <li>国家级大创项目负责人；服务外包创新创业大赛区域赛二等奖；天池/Kaggle 入门赛 Top 15%。</li>
+        <li>CET-6 520；技术博客 15 篇，主题包括 RAG 检索优化、Prompt 评测、向量数据库实践。</li>
+      </ul>
+      <div class="note">说明：本简历为教学示例，所有公司名、链接和数据均为虚构。学生应替换为真实经历，且每个指标都要能解释来源。</div>
+    </main>
+  </div>
+  <button class="print" onclick="window.print()">打印 / PDF</button>
+</body>
+</html>
