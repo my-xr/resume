@@ -669,5 +669,7 @@
     renderTemplates("backend");
     document.getElementById("role").addEventListener("change", e => renderTemplates(e.target.value));
   </script>
+<style>.wb-home-btn{position:fixed;left:22px;bottom:22px;z-index:9999;display:inline-flex;align-items:center;gap:7px;padding:11px 18px;border:none;border-radius:999px;background:linear-gradient(135deg,#1e293b,#334155);color:#fff;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;box-shadow:0 8px 24px rgba(15,23,42,.25);transition:all .25s;font-family:inherit;line-height:1;backdrop-filter:blur(6px)}.wb-home-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(15,23,42,.35);background:linear-gradient(135deg,#0f172a,#1e293b)}.wb-home-btn:active{transform:translateY(0)}.wb-home-btn svg{width:17px;height:17px;flex-shrink:0}@media(max-width:560px){.wb-home-btn{padding:10px 14px;font-size:13px;gap:5px}}@media print{.wb-home-btn{display:none}}</style>
+<a href="index.html" class="wb-home-btn" aria-label="回到首页"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>回到首页</a>
 </body>
 </html>
