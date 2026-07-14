@@ -1,306 +1,792 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>校招简历优化指南</title>
-<style>
-  :root{
-    --bg:#f1f5f9; --ink:#0f172a; --ink-soft:#475569; --muted:#94a3b8;
-    --line:#e2e8f0; --brand:#2563eb; --brand-soft:#dbeafe;
-    --pur:#7c3aed; --pur-soft:#ede9fe; --red:#dc2626; --red-soft:#fee2e2;
-    --green:#059669; --green-soft:#d1fae5; --amber:#d97706; --amber-soft:#fef3c7;
-    --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.75;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>校招简历优化指南</title>
+    <style>
+      :root {
+        --bg: #f1f5f9;
+        --ink: #0f172a;
+        --ink-soft: #475569;
+        --muted: #94a3b8;
+        --line: #e2e8f0;
+        --brand: #2563eb;
+        --brand-soft: #dbeafe;
+        --pur: #7c3aed;
+        --pur-soft: #ede9fe;
+        --red: #dc2626;
+        --red-soft: #fee2e2;
+        --green: #059669;
+        --green-soft: #d1fae5;
+        --amber: #d97706;
+        --amber-soft: #fef3c7;
+        --shadow:
+          0 1px 3px rgba(15, 23, 42, 0.08), 0 8px 24px rgba(15, 23, 42, 0.06);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Microsoft YaHei", sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.75;
+      }
 
-  /* Hero */
-  .hero{
-    background:linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#7c3aed 100%);
-    color:#fff;padding:48px 40px 40px;position:relative;overflow:hidden;
-  }
-  .hero::after{content:"";position:absolute;right:-50px;top:-60px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);}
-  .hero .tag{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);padding:4px 12px;border-radius:999px;font-size:12.5px;margin-bottom:14px;}
-  .hero h1{font-size:30px;letter-spacing:.5px;position:relative;z-index:1;}
-  .hero p{font-size:14.5px;opacity:.9;margin-top:10px;max-width:680px;position:relative;z-index:1;}
-  .hero .src{font-size:12px;opacity:.7;margin-top:14px;position:relative;z-index:1;}
+      /* Hero */
+      .hero {
+        background: linear-gradient(
+          135deg,
+          #1e3a8a 0%,
+          #2563eb 55%,
+          #7c3aed 100%
+        );
+        color: #fff;
+        padding: 48px 40px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::after {
+        content: "";
+        position: absolute;
+        right: -50px;
+        top: -60px;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.08);
+      }
+      .hero .tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 12.5px;
+        margin-bottom: 14px;
+      }
+      .hero h1 {
+        font-size: 30px;
+        letter-spacing: 0.5px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero p {
+        font-size: 14.5px;
+        opacity: 0.9;
+        margin-top: 10px;
+        max-width: 680px;
+        position: relative;
+        z-index: 1;
+      }
+      .hero .src {
+        font-size: 12px;
+        opacity: 0.7;
+        margin-top: 14px;
+        position: relative;
+        z-index: 1;
+      }
 
-  .container{max-width:1180px;margin:0 auto;padding:32px 24px 72px;display:flex;gap:36px;align-items:flex-start;}
+      .container {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 32px 24px 72px;
+        display: flex;
+        gap: 36px;
+        align-items: flex-start;
+      }
 
-  /* TOC */
-  .toc{position:sticky;top:24px;width:230px;flex-shrink:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 18px;box-shadow:var(--shadow);}
-  .toc h4{font-size:13px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
-  .toc a{display:block;color:var(--ink-soft);text-decoration:none;font-size:13.5px;padding:6px 10px;border-radius:8px;margin-bottom:2px;transition:.15s;}
-  .toc a:hover{background:var(--brand-soft);color:var(--brand);}
-  .toc a.sub{padding-left:24px;font-size:13px;color:var(--muted);}
-  .toc a.sub:hover{color:var(--brand);}
+      /* TOC */
+      .toc {
+        position: sticky;
+        top: 24px;
+        width: 230px;
+        flex-shrink: 0;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px 18px;
+        box-shadow: var(--shadow);
+      }
+      .toc h4 {
+        font-size: 13px;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+      .toc a {
+        display: block;
+        color: var(--ink-soft);
+        text-decoration: none;
+        font-size: 13.5px;
+        padding: 6px 10px;
+        border-radius: 8px;
+        margin-bottom: 2px;
+        transition: 0.15s;
+      }
+      .toc a:hover {
+        background: var(--brand-soft);
+        color: var(--brand);
+      }
+      .toc a.sub {
+        padding-left: 24px;
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .toc a.sub:hover {
+        color: var(--brand);
+      }
 
-  /* Content */
-  .content{flex:1;min-width:0;}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 32px;margin-bottom:22px;box-shadow:var(--shadow);scroll-margin-top:20px;}
-  .card > h2{font-size:21px;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
-  .card > h2 .num{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
-  .card > h3{font-size:16.5px;margin:22px 0 10px;color:var(--ink);padding-left:12px;border-left:4px solid var(--brand);}
-  .card p{color:var(--ink-soft);margin:10px 0;font-size:14.5px;}
-  .card ul,.card ol{margin:10px 0 10px 22px;color:var(--ink-soft);font-size:14.5px;}
-  .card li{margin:6px 0;}
-  .card strong{color:var(--ink);}
-  .card code{background:#f1f5f9;border:1px solid var(--line);padding:1px 6px;border-radius:5px;font-size:13px;font-family:"SFMono-Regular",Consolas,monospace;color:#be123c;}
+      /* Content */
+      .content {
+        flex: 1;
+        min-width: 0;
+      }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 28px 32px;
+        margin-bottom: 22px;
+        box-shadow: var(--shadow);
+        scroll-margin-top: 20px;
+      }
+      .card > h2 {
+        font-size: 21px;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .card > h2 .num {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        flex-shrink: 0;
+      }
+      .card > h3 {
+        font-size: 16.5px;
+        margin: 22px 0 10px;
+        color: var(--ink);
+        padding-left: 12px;
+        border-left: 4px solid var(--brand);
+      }
+      .card p {
+        color: var(--ink-soft);
+        margin: 10px 0;
+        font-size: 14.5px;
+      }
+      .card ul,
+      .card ol {
+        margin: 10px 0 10px 22px;
+        color: var(--ink-soft);
+        font-size: 14.5px;
+      }
+      .card li {
+        margin: 6px 0;
+      }
+      .card strong {
+        color: var(--ink);
+      }
+      .card code {
+        background: #f1f5f9;
+        border: 1px solid var(--line);
+        padding: 1px 6px;
+        border-radius: 5px;
+        font-size: 13px;
+        font-family: "SFMono-Regular", Consolas, monospace;
+        color: #be123c;
+      }
 
-  /* highlight boxes */
-  .box{border-radius:12px;padding:16px 18px;margin:14px 0;font-size:14px;line-height:1.7;}
-  .box.bad{background:var(--red-soft);border-left:4px solid var(--red);}
-  .box.good{background:var(--green-soft);border-left:4px solid var(--green);}
-  .box.tip{background:var(--brand-soft);border-left:4px solid var(--brand);}
-  .box .lbl{font-weight:700;display:block;margin-bottom:6px;}
-  .box.bad .lbl{color:var(--red);}
-  .box.good .lbl{color:var(--green);}
-  .box.tip .lbl{color:var(--brand);}
+      /* highlight boxes */
+      .box {
+        border-radius: 12px;
+        padding: 16px 18px;
+        margin: 14px 0;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .box.bad {
+        background: var(--red-soft);
+        border-left: 4px solid var(--red);
+      }
+      .box.good {
+        background: var(--green-soft);
+        border-left: 4px solid var(--green);
+      }
+      .box.tip {
+        background: var(--brand-soft);
+        border-left: 4px solid var(--brand);
+      }
+      .box .lbl {
+        font-weight: 700;
+        display: block;
+        margin-bottom: 6px;
+      }
+      .box.bad .lbl {
+        color: var(--red);
+      }
+      .box.good .lbl {
+        color: var(--green);
+      }
+      .box.tip .lbl {
+        color: var(--brand);
+      }
 
-  /* example block */
-  .ex{background:#f8fafc;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;}
-  .ex .h{font-size:13px;font-weight:700;color:var(--pur);margin-bottom:10px;display:flex;align-items:center;gap:6px;}
-  .ex ul{margin:6px 0 6px 20px;font-size:13.5px;}
-  .ex .role{font-weight:700;color:var(--ink);font-size:14px;margin-bottom:4px;}
-  .ex .meta{font-size:12.5px;color:var(--muted);margin-bottom:8px;}
+      /* example block */
+      .ex {
+        background: #f8fafc;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin: 14px 0;
+      }
+      .ex .h {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--pur);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .ex ul {
+        margin: 6px 0 6px 20px;
+        font-size: 13.5px;
+      }
+      .ex .role {
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 14px;
+        margin-bottom: 4px;
+      }
+      .ex .meta {
+        font-size: 12.5px;
+        color: var(--muted);
+        margin-bottom: 8px;
+      }
 
-  /* skill list */
-  .skill-list{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:18px 22px;margin:12px 0;font-size:13.5px;line-height:1.9;font-family:"SFMono-Regular",Consolas,monospace;}
-  .skill-list .ln{white-space:pre-wrap;}
-  .skill-list .k{color:#7dd3fc;}     /* 熟悉/熟练 */
-  .skill-list .v{color:#fcd34d;}     /* 技术点 */
+      /* skill list */
+      .skill-list {
+        background: #0f172a;
+        color: #e2e8f0;
+        border-radius: 12px;
+        padding: 18px 22px;
+        margin: 12px 0;
+        font-size: 13.5px;
+        line-height: 1.9;
+        font-family: "SFMono-Regular", Consolas, monospace;
+      }
+      .skill-list .ln {
+        white-space: pre-wrap;
+      }
+      .skill-list .k {
+        color: #7dd3fc;
+      } /* 熟悉/熟练 */
+      .skill-list .v {
+        color: #fcd34d;
+      } /* 技术点 */
 
-  /* pill */
-  .pill{display:inline-block;font-size:12px;padding:3px 10px;border-radius:999px;font-weight:600;margin:2px 4px 2px 0;}
-  .pill.b{background:var(--brand-soft);color:var(--brand);}
-  .pill.p{background:var(--pur-soft);color:var(--pur);}
-  .pill.a{background:var(--amber-soft);color:var(--amber);}
+      /* pill */
+      .pill {
+        display: inline-block;
+        font-size: 12px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-weight: 600;
+        margin: 2px 4px 2px 0;
+      }
+      .pill.b {
+        background: var(--brand-soft);
+        color: var(--brand);
+      }
+      .pill.p {
+        background: var(--pur-soft);
+        color: var(--pur);
+      }
+      .pill.a {
+        background: var(--amber-soft);
+        color: var(--amber);
+      }
 
-  /* closing */
-  .closing{text-align:center;padding:40px 24px;background:linear-gradient(135deg,#1e3a8a,#7c3aed);color:#fff;border-radius:18px;margin-top:8px;}
-  .closing .quote{font-size:18px;line-height:1.9;max-width:640px;margin:0 auto 14px;}
-  .closing .sign{font-size:14px;opacity:.85;}
+      /* closing */
+      .closing {
+        text-align: center;
+        padding: 40px 24px;
+        background: linear-gradient(135deg, #1e3a8a, #7c3aed);
+        color: #fff;
+        border-radius: 18px;
+        margin-top: 8px;
+      }
+      .closing .quote {
+        font-size: 18px;
+        line-height: 1.9;
+        max-width: 640px;
+        margin: 0 auto 14px;
+      }
+      .closing .sign {
+        font-size: 14px;
+        opacity: 0.85;
+      }
 
-  .foot-note{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;line-height:1.8;}
+      .foot-note {
+        text-align: center;
+        color: var(--muted);
+        font-size: 12px;
+        margin-top: 30px;
+        line-height: 1.8;
+      }
 
-  @media(max-width:860px){
-    .container{flex-direction:column;padding:20px 14px 50px;}
-    .toc{position:static;width:100%;}
-    .hero{padding:32px 22px;}
-    .hero h1{font-size:23px;}
-    .card{padding:22px 18px;}
-  }
-</style>
-</head>
-<body>
+      @media (max-width: 860px) {
+        .container {
+          flex-direction: column;
+          padding: 20px 14px 50px;
+        }
+        .toc {
+          position: static;
+          width: 100%;
+        }
+        .hero {
+          padding: 32px 22px;
+        }
+        .hero h1 {
+          font-size: 23px;
+        }
+        .card {
+          padding: 22px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hero">
+      <span class="tag">就业指导 · 内部参考资料</span>
+      <h1>校招简历优化指南</h1>
+      <p>
+        从命名到七大模块的逐条写法，附大量"优化前 /
+        优化后"对比案例。照着改，把一份普通简历变成能让 HR
+        和业务面试官都眼前一亮的简历。
+      </p>
+      <div class="src">内容整理自内部校招简历指导资料（语雀）</div>
+    </header>
 
-<header class="hero">
-  <span class="tag">就业指导 · 内部参考资料</span>
-  <h1>校招简历优化指南</h1>
-  <p>从命名到七大模块的逐条写法，附大量"优化前 / 优化后"对比案例。照着改，把一份普通简历变成能让 HR 和业务面试官都眼前一亮的简历。</p>
-  <div class="src">内容整理自内部校招简历指导资料（语雀）</div>
-</header>
+    <div class="container">
+      <!-- TOC -->
+      <nav class="toc">
+        <h4>目录</h4>
+        <a href="#s1">1 · 简历命名</a>
+        <a href="#s2">2 · 简历中的重要信息</a>
+        <a href="#s21" class="sub">2.1 个人信息</a>
+        <a href="#s22" class="sub">2.2 教育经历</a>
+        <a href="#s23" class="sub">2.3 专业技能</a>
+        <a href="#s24" class="sub">2.4 工作经历</a>
+        <a href="#s25" class="sub">2.5 项目经历</a>
+        <a href="#s26" class="sub">2.6 科研经历</a>
+        <a href="#s27" class="sub">2.7 个人评价</a>
+        <a href="#s3">3 · 寄语</a>
+      </nav>
 
-<div class="container">
+      <!-- Content -->
+      <main class="content">
+        <!-- 1 -->
+        <section class="card" id="s1">
+          <h2><span class="num">1</span>简历命名</h2>
+          <p>
+            很多同学的简历名字是
+            <code>张三简历.pdf</code>，这种命名方式，在人群里 HR
+            能关注到你吗？最容易让 HR 关注的命名格式：
+          </p>
+          <div class="box tip">
+            <span class="lbl">✅ 推荐命名</span
+            ><strong>「名字 - 学校 - 岗位」.pdf</strong>
+          </div>
+          <p>例如：<code>李四 - 某某大学 - 后端开发.pdf</code></p>
+          <div class="box bad">
+            <span class="lbl">⚠️ 注意</span>不要发 Word，一定是
+            <strong>PDF 格式</strong>。Word 在不同电脑上排版会乱，且 HR
+            下载后可能打不开或显示异常。
+          </div>
+        </section>
 
-  <!-- TOC -->
-  <nav class="toc">
-    <h4>目录</h4>
-    <a href="#s1">1 · 简历命名</a>
-    <a href="#s2">2 · 简历中的重要信息</a>
-    <a href="#s21" class="sub">2.1 个人信息</a>
-    <a href="#s22" class="sub">2.2 教育经历</a>
-    <a href="#s23" class="sub">2.3 专业技能</a>
-    <a href="#s24" class="sub">2.4 工作经历</a>
-    <a href="#s25" class="sub">2.5 项目经历</a>
-    <a href="#s26" class="sub">2.6 科研经历</a>
-    <a href="#s27" class="sub">2.7 个人评价</a>
-    <a href="#s3">3 · 寄语</a>
-  </nav>
+        <!-- 2 -->
+        <section class="card" id="s2">
+          <h2><span class="num">2</span>简历中的重要信息</h2>
+          <p>一份完整校招简历通常包含以下模块，按重要程度与出现频率排列：</p>
+          <ol>
+            <li>
+              <strong>个人信息</strong
+              >（照片、姓名、电话、邮件、微信、博客、求职意向等）
+            </li>
+            <li>
+              <strong>教育经历</strong>（学校、专业、时间、绩点、奖学金等）
+            </li>
+            <li><strong>专业技能</strong>（后端 / 前端技术栈）</li>
+            <li>
+              <strong>实习 / 工作经历</strong
+              >（公司名、岗位名、时间、背景、个人工作、成果）
+            </li>
+            <li>
+              <strong>项目经历</strong>（名称、时间、角色、介绍、职责、亮点 /
+              难点）
+            </li>
+            <li><strong>科研经历</strong>（硕士同学可以写）</li>
+            <li><strong>个人评价</strong>（写 3 个点，评价 + 事件佐证）</li>
+          </ol>
 
-  <!-- Content -->
-  <main class="content">
+          <!-- 2.1 -->
+          <h3 id="s21">2.1 个人信息</h3>
+          <p>
+            <strong>7 个核心要素：</strong
+            >姓名、性别、年龄、电话、邮件、求职岗位、工作年限。
+          </p>
+          <p>校招的工作年限可以写：<code>XX 届本科 / 硕士生</code></p>
+          <div class="box tip">
+            <span class="lbl">细节要点</span>
+            <ul style="margin: 6px 0 0 18px">
+              <li>
+                <strong>相片：</strong
+                >可以贴正装照，<strong>不要</strong>生活照。
+              </li>
+              <li>
+                <strong>籍贯 / 所在地：</strong
+                >只考虑本地机会才写；投其他城市不建议写，HR
+                会顾虑你是否真愿意来发展。
+              </li>
+              <li>
+                <strong>政治面貌：</strong
+                >投私企可不写；投国企、银行且是党员，可以写。
+              </li>
+              <li>
+                <strong>期望薪资：</strong>不要写，除了帮 HR
+                筛你之外没什么作用。
+              </li>
+            </ul>
+          </div>
 
-    <!-- 1 -->
-    <section class="card" id="s1">
-      <h2><span class="num">1</span>简历命名</h2>
-      <p>很多同学的简历名字是 <code>张三简历.pdf</code>，这种命名方式，在人群里 HR 能关注到你吗？最容易让 HR 关注的命名格式：</p>
-      <div class="box tip"><span class="lbl">✅ 推荐命名</span><strong>「名字 - 学校 - 岗位」.pdf</strong></div>
-      <p>例如：<code>李四 - 某某大学 - 后端开发.pdf</code></p>
-      <div class="box bad"><span class="lbl">⚠️ 注意</span>不要发 Word，一定是 <strong>PDF 格式</strong>。Word 在不同电脑上排版会乱，且 HR 下载后可能打不开或显示异常。</div>
-    </section>
+          <!-- 2.2 -->
+          <h3 id="s22">2.2 教育经历</h3>
+          <ol>
+            <li>降序排序，先写硕士，再写本科。</li>
+            <li>
+              <strong>211 和 985 大学，可以标出来</strong>，这是你的优势。
+            </li>
+            <li>
+              如果在校成绩不错、拿过奖学金，可以写进教育背景，让 HR
+              一眼知道你是学霸。
+            </li>
+            <li>成绩一般就简洁明了。</li>
+            <li>
+              <strong>「至今」改成未来毕业的具体时间点</strong>，目的是让 HR
+              快速辨认你是哪一届毕业生。
+            </li>
+          </ol>
 
-    <!-- 2 -->
-    <section class="card" id="s2">
-      <h2><span class="num">2</span>简历中的重要信息</h2>
-      <p>一份完整校招简历通常包含以下模块，按重要程度与出现频率排列：</p>
-      <ol>
-        <li><strong>个人信息</strong>（照片、姓名、电话、邮件、微信、博客、求职意向等）</li>
-        <li><strong>教育经历</strong>（学校、专业、时间、绩点、奖学金等）</li>
-        <li><strong>专业技能</strong>（后端 / 前端技术栈）</li>
-        <li><strong>实习 / 工作经历</strong>（公司名、岗位名、时间、背景、个人工作、成果）</li>
-        <li><strong>项目经历</strong>（名称、时间、角色、介绍、职责、亮点 / 难点）</li>
-        <li><strong>科研经历</strong>（硕士同学可以写）</li>
-        <li><strong>个人评价</strong>（写 3 个点，评价 + 事件佐证）</li>
-      </ol>
+          <!-- 2.3 -->
+          <h3 id="s23">2.3 专业技能</h3>
+          <p>先看一个同学的专业技能（原始写法）：</p>
+          <div class="box bad">
+            <span class="lbl">❌ 优化前 · 存在的问题</span>
+            <ul style="margin: 6px 0 0 18px">
+              <li>内容集中在左半边，右半边太空了；</li>
+              <li>
+                专业用词错误：<code>java</code> → <code>Java</code>，<code
+                  >Mysql</code
+                >
+                → <code>MySQL</code>；
+              </li>
+              <li>每个技术点没有罗列详细知识点；</li>
+              <li>
+                排序有点乱，最好按
+                <strong>编程语言 → 后端组件 → 基础知识 → 工具</strong> 排序。
+              </li>
+            </ul>
+          </div>
+          <p>优化后的写法（技术点细化 + 规范命名 + 合理排序）：</p>
+          <div class="skill-list">
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">Java</span
+              >编程语言，掌握集合框架、I/O流、异常、反射等机制；阅读过ArrayList、HashMap源码，了解其扩容机制</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">Java</span
+              >并发容器和锁，如ConcurrentHashMap、CAS、AQS等，掌握多线程、线程池、ThreadLocal等原理</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">Java虚拟机</span
+              >，掌握内存结构、垃圾回收机制、类加载机制等，了解过JVM调优方法</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟练使用</span
+              ><span class="v">SpringBoot、SpringMVC、MyBatis</span
+              >等框架，能独立开发项目，熟悉AOP、IOC等原理</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">MySQL</span
+              >使用和原理，熟悉索引、事务、日志、锁等机制，能对常见SQL调优，了解读写分离、分库分表</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">Redis</span
+              >使用和原理，熟悉数据结构、线程模型、持久化等，熟悉高可用方案与缓存雪崩/穿透/击穿解决方案</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">TCP/IP</span
+              >模型，熟悉HTTP、TCP、UDP等协议，对HTTP/1.1、2.0、3.0版本变化有深入研究</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">操作系统</span
+              >基本原理，熟悉进程、线程、虚拟内存等，熟悉进程间通信、零拷贝、多路复用</span
+            ><br />
+            <span class="ln"
+              ><span class="k">熟悉</span
+              ><span class="v">Linux</span
+              >命令(ps、top、netstat、tail等)，掌握grep、awk、sed三剑客，能独立编写Shell脚本</span
+            >
+          </div>
+          <div class="box tip">
+            <span class="lbl">写法公式</span>熟悉/掌握 +
+            <strong>技术名</strong> + 具体知识点 / 源码 / 原理 /
+            调优经验。避免只写"了解 XXX"这种空话。
+          </div>
 
-      <!-- 2.1 -->
-      <h3 id="s21">2.1 个人信息</h3>
-      <p><strong>7 个核心要素：</strong>姓名、性别、年龄、电话、邮件、求职岗位、工作年限。</p>
-      <p>校招的工作年限可以写：<code>XX 届本科 / 硕士生</code></p>
-      <div class="box tip"><span class="lbl">细节要点</span>
-        <ul style="margin:6px 0 0 18px;">
-          <li><strong>相片：</strong>可以贴正装照，<strong>不要</strong>生活照。</li>
-          <li><strong>籍贯 / 所在地：</strong>只考虑本地机会才写；投其他城市不建议写，HR 会顾虑你是否真愿意来发展。</li>
-          <li><strong>政治面貌：</strong>投私企可不写；投国企、银行且是党员，可以写。</li>
-          <li><strong>期望薪资：</strong>不要写，除了帮 HR 筛你之外没什么作用。</li>
-        </ul>
-      </div>
+          <!-- 2.4 -->
+          <h3 id="s24">2.4 工作经历</h3>
+          <p>
+            工作经历让人快速知道你在公司做了什么，相当于工作履历，<strong>简洁且突出重点</strong>。
+          </p>
+          <p>标准格式：</p>
+          <ul>
+            <li>
+              <strong>【个人工作】</strong>——介绍负责了什么工作、做了什么贡献；
+            </li>
+            <li>
+              <strong>【工作成果】</strong
+              >——性能优化、解决疑难问题、重构系统等可量化成果。
+            </li>
+          </ul>
 
-      <!-- 2.2 -->
-      <h3 id="s22">2.2 教育经历</h3>
-      <ol>
-        <li>降序排序，先写硕士，再写本科。</li>
-        <li><strong>211 和 985 大学，可以标出来</strong>，这是你的优势。</li>
-        <li>如果在校成绩不错、拿过奖学金，可以写进教育背景，让 HR 一眼知道你是学霸。</li>
-        <li>成绩一般就简洁明了。</li>
-        <li><strong>「至今」改成未来毕业的具体时间点</strong>，目的是让 HR 快速辨认你是哪一届毕业生。</li>
-      </ol>
+          <h4 style="margin: 18px 0 6px; font-size: 15px; color: var(--ink)">
+            五大要点
+          </h4>
+          <ol>
+            <li>
+              <strong>量化成果：</strong>用数据体现价值（如"响应时间降低
+              40%""QPS 提升至 1200"）；无实际数据可写"通过 XXX 技术解决 XXX
+              问题"（如"使用 JProfiler 定位内存泄漏"）。
+            </li>
+            <li>
+              <strong>技术关键词：</strong
+              >突出核心技术栈（JVM、多线程）、主流框架（Spring、MyBatis）、中间件（Redis、MQ）。示例："基于
+              Spring Cloud Alibaba 实现服务注册与熔断，保障微服务高可用。"
+            </li>
+            <li>
+              <strong>项目匹配度：</strong
+              >按岗位调整内容。投递后端强调"数据库优化""高并发设计"；投大数据突出"Hadoop/Spark
+              实践"。
+            </li>
+            <li>
+              <strong>学生经历处理：</strong
+              >实习按公司正式项目描述，明确角色（如"独立负责 XXX 模块"）；课程 /
+              实验室项目可包装为"项目经验"。
+            </li>
+            <li>
+              <strong>避免误区：</strong
+              >不写与岗位无关内容（如学生会，除非体现领导力）；"参与"和"主导"要区分清楚，非核心贡献需诚实。
+            </li>
+          </ol>
 
-      <!-- 2.3 -->
-      <h3 id="s23">2.3 专业技能</h3>
-      <p>先看一个同学的专业技能（原始写法）：</p>
-      <div class="box bad"><span class="lbl">❌ 优化前 · 存在的问题</span>
-        <ul style="margin:6px 0 0 18px;">
-          <li>内容集中在左半边，右半边太空了；</li>
-          <li>专业用词错误：<code>java</code> → <code>Java</code>，<code>Mysql</code> → <code>MySQL</code>；</li>
-          <li>每个技术点没有罗列详细知识点；</li>
-          <li>排序有点乱，最好按 <strong>编程语言 → 后端组件 → 基础知识 → 工具</strong> 排序。</li>
-        </ul>
-      </div>
-      <p>优化后的写法（技术点细化 + 规范命名 + 合理排序）：</p>
-      <div class="skill-list">
-<span class="ln"><span class="k">熟悉</span><span class="v">Java</span>编程语言，掌握集合框架、I/O流、异常、反射等机制；阅读过ArrayList、HashMap源码，了解其扩容机制</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">Java</span>并发容器和锁，如ConcurrentHashMap、CAS、AQS等，掌握多线程、线程池、ThreadLocal等原理</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">Java虚拟机</span>，掌握内存结构、垃圾回收机制、类加载机制等，了解过JVM调优方法</span>
-<span class="ln"><span class="k">熟练使用</span><span class="v">SpringBoot、SpringMVC、MyBatis</span>等框架，能独立开发项目，熟悉AOP、IOC等原理</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">MySQL</span>使用和原理，熟悉索引、事务、日志、锁等机制，能对常见SQL调优，了解读写分离、分库分表</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">Redis</span>使用和原理，熟悉数据结构、线程模型、持久化等，熟悉高可用方案与缓存雪崩/穿透/击穿解决方案</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">TCP/IP</span>模型，熟悉HTTP、TCP、UDP等协议，对HTTP/1.1、2.0、3.0版本变化有深入研究</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">操作系统</span>基本原理，熟悉进程、线程、虚拟内存等，熟悉进程间通信、零拷贝、多路复用</span>
-<span class="ln"><span class="k">熟悉</span><span class="v">Linux</span>命令(ps、top、netstat、tail等)，掌握grep、awk、sed三剑客，能独立编写Shell脚本</span>
-      </div>
-      <div class="box tip"><span class="lbl">写法公式</span>熟悉/掌握 + <strong>技术名</strong> + 具体知识点 / 源码 / 原理 / 调优经验。避免只写"了解 XXX"这种空话。</div>
+          <h4 style="margin: 20px 0 8px; font-size: 15px; color: var(--ink)">
+            示例一 · 有实习经历
+          </h4>
+          <div class="ex">
+            <div class="role">XX 科技有限公司 ｜ Java 开发实习生</div>
+            <div class="meta">2023.06 - 2023.09</div>
+            <div class="h">💼 个人工作</div>
+            <ul>
+              <li>
+                参与电商后台系统迭代，负责订单管理模块需求分析、接口设计与代码实现，使用
+                Spring Boot + MyBatis 完成 RESTful API 开发。
+              </li>
+              <li>
+                协助性能优化，通过异步处理（RabbitMQ）将订单超时取消任务响应时间降低
+                <strong>40%</strong>。
+              </li>
+              <li>
+                使用 Jenkins 搭建 CI/CD
+                流水线，实现自动化测试与部署，团队开发效率提升
+                <strong>30%</strong>。
+              </li>
+            </ul>
+            <div class="h">🏆 工作成果</div>
+            <ul>
+              <li>
+                性能优化：Redis 缓存热点数据，QPS 从 500 提升至
+                <strong>1200</strong>。
+              </li>
+              <li>
+                问题解决：定位并修复订单状态同步异常（分布式事务场景），客户投诉率下降
+                <strong>15%</strong>。
+              </li>
+              <li>
+                代码质量：引入 SonarQube 静态扫描，关键 Bug 率下降
+                <strong>20%</strong>。
+              </li>
+            </ul>
+          </div>
 
-      <!-- 2.4 -->
-      <h3 id="s24">2.4 工作经历</h3>
-      <p>工作经历让人快速知道你在公司做了什么，相当于工作履历，<strong>简洁且突出重点</strong>。</p>
-      <p>标准格式：</p>
-      <ul>
-        <li><strong>【个人工作】</strong>——介绍负责了什么工作、做了什么贡献；</li>
-        <li><strong>【工作成果】</strong>——性能优化、解决疑难问题、重构系统等可量化成果。</li>
-      </ul>
+          <h4 style="margin: 20px 0 8px; font-size: 15px; color: var(--ink)">
+            示例二 · 无实习经历
+          </h4>
+          <div class="ex">
+            <div class="role">校园二手交易平台 ｜ Java 后端开发者</div>
+            <div class="meta">2023.03 - 2023.06</div>
+            <div class="h">💼 个人工作</div>
+            <ul>
+              <li>
+                独立开发基于 Spring Boot 的 RESTful
+                API，实现用户注册、商品发布、订单管理，使用 JWT 实现鉴权。
+              </li>
+              <li>
+                设计 MySQL 表结构，通过索引优化，慢 SQL 减少
+                <strong>60%</strong>。
+              </li>
+              <li>
+                使用 Redis 缓存热门商品，QPS 从 200 提升至
+                <strong>800</strong>。
+              </li>
+            </ul>
+            <div class="h">🏆 工作成果</div>
+            <ul>
+              <li>
+                性能优化：线程池异步处理图片上传，吞吐量提升
+                <strong>40%</strong>。
+              </li>
+              <li>问题解决：修复并发场景库存超卖（Redis 分布式锁）。</li>
+              <li>
+                代码质量：Swagger 生成 API 文档，协作效率提升
+                <strong>30%</strong>。
+              </li>
+            </ul>
+          </div>
 
-      <h4 style="margin:18px 0 6px;font-size:15px;color:var(--ink);">五大要点</h4>
-      <ol>
-        <li><strong>量化成果：</strong>用数据体现价值（如"响应时间降低 40%""QPS 提升至 1200"）；无实际数据可写"通过 XXX 技术解决 XXX 问题"（如"使用 JProfiler 定位内存泄漏"）。</li>
-        <li><strong>技术关键词：</strong>突出核心技术栈（JVM、多线程）、主流框架（Spring、MyBatis）、中间件（Redis、MQ）。示例："基于 Spring Cloud Alibaba 实现服务注册与熔断，保障微服务高可用。"</li>
-        <li><strong>项目匹配度：</strong>按岗位调整内容。投递后端强调"数据库优化""高并发设计"；投大数据突出"Hadoop/Spark 实践"。</li>
-        <li><strong>学生经历处理：</strong>实习按公司正式项目描述，明确角色（如"独立负责 XXX 模块"）；课程 / 实验室项目可包装为"项目经验"。</li>
-        <li><strong>避免误区：</strong>不写与岗位无关内容（如学生会，除非体现领导力）；"参与"和"主导"要区分清楚，非核心贡献需诚实。</li>
-      </ol>
+          <!-- 2.5 -->
+          <h3 id="s25">2.5 项目经历</h3>
+          <p>
+            很多同学介绍项目只写"实现了 xxx、xxx、xxx
+            功能"就没了，很难展示亮点。项目经历需要详细介绍<strong>功能、技术点、技术带来的收益</strong>。
+          </p>
+          <div class="box tip">
+            <span class="lbl">标准四段式</span>
+            <ul style="margin: 6px 0 0 18px">
+              <li><strong>【项目介绍】</strong>2-3 句话介绍功能和应用场景；</li>
+              <li>
+                <strong>【技术栈】</strong>罗列涉及技术，如 SpringBoot + MyBatis
+                + MySQL + Redis；
+              </li>
+              <li><strong>【项目实现】</strong>写 3-4 点技术实现；</li>
+              <li>
+                <strong>【项目亮点】</strong>写 3-4 点亮点，优化工作可归类于此。
+              </li>
+            </ul>
+          </div>
+          <p>改进写法（避免"用 xxx 实现 xxx 功能"的平淡描述）：</p>
+          <div class="box good">
+            <span class="lbl">✅ 推荐句式</span
+            ><strong>通过 XXX 技术，解决了 XXX 问题，达到了 XXX 效率。</strong
+            >注重技术实现带来的收益 / 好处。
+          </div>
 
-      <h4 style="margin:20px 0 8px;font-size:15px;color:var(--ink);">示例一 · 有实习经历</h4>
-      <div class="ex">
-        <div class="role">XX 科技有限公司 ｜ Java 开发实习生</div>
-        <div class="meta">2023.06 - 2023.09</div>
-        <div class="h">💼 个人工作</div>
-        <ul>
-          <li>参与电商后台系统迭代，负责订单管理模块需求分析、接口设计与代码实现，使用 Spring Boot + MyBatis 完成 RESTful API 开发。</li>
-          <li>协助性能优化，通过异步处理（RabbitMQ）将订单超时取消任务响应时间降低 <strong>40%</strong>。</li>
-          <li>使用 Jenkins 搭建 CI/CD 流水线，实现自动化测试与部署，团队开发效率提升 <strong>30%</strong>。</li>
-        </ul>
-        <div class="h">🏆 工作成果</div>
-        <ul>
-          <li>性能优化：Redis 缓存热点数据，QPS 从 500 提升至 <strong>1200</strong>。</li>
-          <li>问题解决：定位并修复订单状态同步异常（分布式事务场景），客户投诉率下降 <strong>15%</strong>。</li>
-          <li>代码质量：引入 SonarQube 静态扫描，关键 Bug 率下降 <strong>20%</strong>。</li>
-        </ul>
-      </div>
+          <!-- 2.6 -->
+          <h3 id="s26">2.6 科研经历</h3>
+          <p>
+            需突出<strong>研究能力、技术深度、问题解决能力、成果转化价值</strong>（论文、专利、实际应用等）。
+          </p>
+          <ol>
+            <li>
+              <strong>【研究背景】</strong>（可选，1 句话）说明课题学术 /
+              应用价值。例："针对分布式系统数据一致性性能瓶颈，提出基于 XXX
+              的优化算法。"
+            </li>
+            <li>
+              <strong>【个人贡献】</strong>（重点）明确角色（主导 /
+              参与）、技术方法与创新点。例："设计并实现基于 Paxos
+              的改进协议，Java + Netty 实现节点通信，共识延迟降低 30%。"
+            </li>
+            <li>
+              <strong>【研究成果】</strong>论文 /
+              专利注明平台（CCF-A、SCI）与作者顺序；实际应用注明采用方 / Star
+              数；数据指标注明性能提升百分比。
+            </li>
+          </ol>
 
-      <h4 style="margin:20px 0 8px;font-size:15px;color:var(--ink);">示例二 · 无实习经历</h4>
-      <div class="ex">
-        <div class="role">校园二手交易平台 ｜ Java 后端开发者</div>
-        <div class="meta">2023.03 - 2023.06</div>
-        <div class="h">💼 个人工作</div>
-        <ul>
-          <li>独立开发基于 Spring Boot 的 RESTful API，实现用户注册、商品发布、订单管理，使用 JWT 实现鉴权。</li>
-          <li>设计 MySQL 表结构，通过索引优化，慢 SQL 减少 <strong>60%</strong>。</li>
-          <li>使用 Redis 缓存热门商品，QPS 从 200 提升至 <strong>800</strong>。</li>
-        </ul>
-        <div class="h">🏆 工作成果</div>
-        <ul>
-          <li>性能优化：线程池异步处理图片上传，吞吐量提升 <strong>40%</strong>。</li>
-          <li>问题解决：修复并发场景库存超卖（Redis 分布式锁）。</li>
-          <li>代码质量：Swagger 生成 API 文档，协作效率提升 <strong>30%</strong>。</li>
-        </ul>
-      </div>
+          <!-- 2.7 -->
+          <h3 id="s27">2.7 个人评价</h3>
+          <p>
+            很多同学的个人评价都是空话。优化后应有<strong
+              >评价 + 事件佐证</strong
+            >：
+          </p>
+          <div class="box good">
+            <span class="lbl">✅ 优化后示例</span>
+            <ul style="margin: 6px 0 0 18px">
+              <li>
+                热爱学习，熟读《深入理解 Java 虚拟机》《高性能 MySQL》《TCP/IP
+                详解》等书。
+              </li>
+              <li>
+                文档阅读能力强，曾自主阅读 RabbitMQ 官方文档并运用到项目。
+              </li>
+              <li>学习、抗压能力强，曾为完成前后端需求连续加班 2 周。</li>
+              <li>
+                善于总结，每月写技术博客，已坚持 2 年，累计 100+ 篇、超 20
+                万字。
+              </li>
+              <li>
+                信息检索能力强，常通过 Google / Github / StackOverflow
+                解决问题，如解决过系统 CPU 100% 问题。
+              </li>
+            </ul>
+          </div>
+        </section>
 
-      <!-- 2.5 -->
-      <h3 id="s25">2.5 项目经历</h3>
-      <p>很多同学介绍项目只写"实现了 xxx、xxx、xxx 功能"就没了，很难展示亮点。项目经历需要详细介绍<strong>功能、技术点、技术带来的收益</strong>。</p>
-      <div class="box tip"><span class="lbl">标准四段式</span>
-        <ul style="margin:6px 0 0 18px;">
-          <li><strong>【项目介绍】</strong>2-3 句话介绍功能和应用场景；</li>
-          <li><strong>【技术栈】</strong>罗列涉及技术，如 SpringBoot + MyBatis + MySQL + Redis；</li>
-          <li><strong>【项目实现】</strong>写 3-4 点技术实现；</li>
-          <li><strong>【项目亮点】</strong>写 3-4 点亮点，优化工作可归类于此。</li>
-        </ul>
-      </div>
-      <p>改进写法（避免"用 xxx 实现 xxx 功能"的平淡描述）：</p>
-      <div class="box good"><span class="lbl">✅ 推荐句式</span><strong>通过 XXX 技术，解决了 XXX 问题，达到了 XXX 效率。</strong>注重技术实现带来的收益 / 好处。</div>
+        <!-- 3 -->
+        <section class="closing" id="s3">
+          <div class="quote">
+            🎇 代码如诗，行云流水；<br />算法似剑，所向披靡。<br />愿你以技术为舟，以恒心为桨，<br />在职业海洋中驶向星辰大海。
+          </div>
+          <div class="sign">
+            加油！未来优秀的工程师 ——
+            你的每一份努力都正在为成功铺路，愿你在求职路上披荆斩棘，早日收获理想
+            offer。
+          </div>
+        </section>
 
-      <!-- 2.6 -->
-      <h3 id="s26">2.6 科研经历</h3>
-      <p>需突出<strong>研究能力、技术深度、问题解决能力、成果转化价值</strong>（论文、专利、实际应用等）。</p>
-      <ol>
-        <li><strong>【研究背景】</strong>（可选，1 句话）说明课题学术 / 应用价值。例："针对分布式系统数据一致性性能瓶颈，提出基于 XXX 的优化算法。"</li>
-        <li><strong>【个人贡献】</strong>（重点）明确角色（主导 / 参与）、技术方法与创新点。例："设计并实现基于 Paxos 的改进协议，Java + Netty 实现节点通信，共识延迟降低 30%。"</li>
-        <li><strong>【研究成果】</strong>论文 / 专利注明平台（CCF-A、SCI）与作者顺序；实际应用注明采用方 / Star 数；数据指标注明性能提升百分比。</li>
-      </ol>
-
-      <!-- 2.7 -->
-      <h3 id="s27">2.7 个人评价</h3>
-      <p>很多同学的个人评价都是空话。优化后应有<strong>评价 + 事件佐证</strong>：</p>
-      <div class="box good"><span class="lbl">✅ 优化后示例</span>
-        <ul style="margin:6px 0 0 18px;">
-          <li>热爱学习，熟读《深入理解 Java 虚拟机》《高性能 MySQL》《TCP/IP 详解》等书。</li>
-          <li>文档阅读能力强，曾自主阅读 RabbitMQ 官方文档并运用到项目。</li>
-          <li>学习、抗压能力强，曾为完成前后端需求连续加班 2 周。</li>
-          <li>善于总结，每月写技术博客，已坚持 2 年，累计 100+ 篇、超 20 万字。</li>
-          <li>信息检索能力强，常通过 Google / Github / StackOverflow 解决问题，如解决过系统 CPU 100% 问题。</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 3 -->
-    <section class="closing" id="s3">
-      <div class="quote">🎇 代码如诗，行云流水；<br/>算法似剑，所向披靡。<br/>愿你以技术为舟，以恒心为桨，<br/>在职业海洋中驶向星辰大海。</div>
-      <div class="sign">加油！未来优秀的工程师 —— 你的每一份努力都正在为成功铺路，愿你在求职路上披荆斩棘，早日收获理想 offer。</div>
-    </section>
-
-    <div class="foot-note">
-      本页内容整理自内部校招简历指导资料（语雀），仅供教学与学生指导使用。<br/>
-      配套资料：软件工程专业简历优化指南 · 大厂高频面试题集（见导航首页）。
+        <div class="foot-note">
+          本页内容整理自内部校招简历指导资料（语雀），仅供教学与学生指导使用。<br />
+          配套资料：软件工程专业简历优化指南 · 大厂高频面试题集（见导航首页）。
+        </div>
+      </main>
     </div>
-
-  </main>
-</div>
-
-</body>
+  </body>
 </html>
