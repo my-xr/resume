@@ -1,809 +1,1546 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>互联网优质企业校招求职指南 — 贵大软件学院学长学姐经验精华</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; background: #f5f5f5; color: #333; line-height: 1.8; }
-  .container { max-width: 1100px; margin: 0 auto; background: #fff; padding: 40px 50px; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>互联网优质企业校招求职指南 — 贵大软件学院学长学姐经验精华</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+        background: #f5f5f5;
+        color: #333;
+        line-height: 1.8;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px 50px;
+      }
 
-  h1 { font-size: 28px; color: #1a1a2e; text-align: center; margin-bottom: 6px; }
-  .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 30px; }
-  .source-note { text-align: center; color: #999; font-size: 12px; margin-bottom: 40px; }
+      h1 {
+        font-size: 28px;
+        color: #1a1a2e;
+        text-align: center;
+        margin-bottom: 6px;
+      }
+      .subtitle {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 30px;
+      }
+      .source-note {
+        text-align: center;
+        color: #999;
+        font-size: 12px;
+        margin-bottom: 40px;
+      }
 
-  h2 { font-size: 22px; color: #1a1a2e; margin: 35px 0 15px; padding-left: 14px; border-left: 5px solid #e74c3c; }
-  h3 { font-size: 18px; color: #333; margin: 25px 0 10px; }
-  h4 { font-size: 16px; color: #4a4a4a; margin: 18px 0 8px; }
+      h2 {
+        font-size: 22px;
+        color: #1a1a2e;
+        margin: 35px 0 15px;
+        padding-left: 14px;
+        border-left: 5px solid #e74c3c;
+      }
+      h3 {
+        font-size: 18px;
+        color: #333;
+        margin: 25px 0 10px;
+      }
+      h4 {
+        font-size: 16px;
+        color: #4a4a4a;
+        margin: 18px 0 8px;
+      }
 
-  p { margin-bottom: 10px; font-size: 15px; }
-  ul { margin: 8px 0 12px 22px; }
-  li { margin-bottom: 6px; font-size: 14px; }
+      p {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+      ul {
+        margin: 8px 0 12px 22px;
+      }
+      li {
+        margin-bottom: 6px;
+        font-size: 14px;
+      }
 
-  /* Phase cards */
-  .phase-section { margin: 30px 0; }
-  .phase-header { 
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #fff; padding: 18px 24px; border-radius: 12px; margin-bottom: 20px;
-    display: flex; align-items: center; gap: 15px;
-  }
-  .phase-header .phase-icon { font-size: 32px; }
-  .phase-header .phase-title { font-size: 20px; font-weight: 700; }
-  .phase-header .phase-subtitle { font-size: 13px; opacity: 0.85; }
+      /* Phase cards */
+      .phase-section {
+        margin: 30px 0;
+      }
+      .phase-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #fff;
+        padding: 18px 24px;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .phase-header .phase-icon {
+        font-size: 32px;
+      }
+      .phase-header .phase-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .phase-header .phase-subtitle {
+        font-size: 13px;
+        opacity: 0.85;
+      }
 
-  /* Insight cards */
-  .insight-card {
-    border: 1px solid #e0e0e0; border-radius: 10px; padding: 20px; margin: 14px 0;
-    background: #fafbff;
-  }
-  .insight-card .card-title {
-    font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px;
-    display: flex; align-items: center; gap: 8px;
-  }
-  .insight-card .card-title .tag {
-    display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 600;
-  }
-  .tag-hot { background: #ffebee; color: #c62828; }
-  .tag-tip { background: #e3f2fd; color: #1565c0; }
-  .tag-warn { background: #fff8e1; color: #f57f17; }
-  .tag-data { background: #e8f5e9; color: #2e7d32; }
-  .tag-quote { background: #f3e5f5; color: #7b1fa2; }
+      /* Insight cards */
+      .insight-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 14px 0;
+        background: #fafbff;
+      }
+      .insight-card .card-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .insight-card .card-title .tag {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .tag-hot {
+        background: #ffebee;
+        color: #c62828;
+      }
+      .tag-tip {
+        background: #e3f2fd;
+        color: #1565c0;
+      }
+      .tag-warn {
+        background: #fff8e1;
+        color: #f57f17;
+      }
+      .tag-data {
+        background: #e8f5e9;
+        color: #2e7d32;
+      }
+      .tag-quote {
+        background: #f3e5f5;
+        color: #7b1fa2;
+      }
 
-  .quote-block {
-    background: #f8f9ff; border-left: 3px solid #7b1fa2; padding: 12px 16px; margin: 10px 0;
-    font-size: 14px; color: #555; border-radius: 4px;
-  }
-  .quote-source { font-size: 12px; color: #999; margin-top: 4px; }
+      .quote-block {
+        background: #f8f9ff;
+        border-left: 3px solid #7b1fa2;
+        padding: 12px 16px;
+        margin: 10px 0;
+        font-size: 14px;
+        color: #555;
+        border-radius: 4px;
+      }
+      .quote-source {
+        font-size: 12px;
+        color: #999;
+        margin-top: 4px;
+      }
 
-  .data-bar {
-    display: flex; align-items: center; gap: 8px; margin: 6px 0;
-  }
-  .data-bar .bar-label { font-size: 13px; min-width: 180px; color: #555; }
-  .data-bar .bar-fill {
-    height: 24px; border-radius: 4px; display: flex; align-items: center; padding-left: 8px;
-    font-size: 12px; color: #fff; font-weight: 600;
-  }
+      .data-bar {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 6px 0;
+      }
+      .data-bar .bar-label {
+        font-size: 13px;
+        min-width: 180px;
+        color: #555;
+      }
+      .data-bar .bar-fill {
+        height: 24px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        padding-left: 8px;
+        font-size: 12px;
+        color: #fff;
+        font-weight: 600;
+      }
 
-  .warn-box {
-    background: #fff3e0; border: 1px solid #ffe0b2; border-radius: 8px; padding: 16px; margin: 14px 0;
-  }
-  .warn-box h4 { color: #e65100; margin: 0 0 8px; }
+      .warn-box {
+        background: #fff3e0;
+        border: 1px solid #ffe0b2;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 14px 0;
+      }
+      .warn-box h4 {
+        color: #e65100;
+        margin: 0 0 8px;
+      }
 
-  .key-box {
-    background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 8px; padding: 16px; margin: 14px 0;
-  }
-  .key-box h4 { color: #2e7d32; margin: 0 0 8px; }
+      .key-box {
+        background: #e8f5e9;
+        border: 1px solid #c8e6c9;
+        border-radius: 8px;
+        padding: 16px;
+        margin: 14px 0;
+      }
+      .key-box h4 {
+        color: #2e7d32;
+        margin: 0 0 8px;
+      }
 
-  .tip-list { list-style: none; padding-left: 0; }
-  .tip-list li {
-    padding: 10px 16px; border-bottom: 1px solid #f0f0f0;
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .tip-list li:last-child { border-bottom: none; }
-  .tip-list .tip-num {
-    background: #4a6cf7; color: #fff; width: 28px; height: 28px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700;
-  }
+      .tip-list {
+        list-style: none;
+        padding-left: 0;
+      }
+      .tip-list li {
+        padding: 10px 16px;
+        border-bottom: 1px solid #f0f0f0;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .tip-list li:last-child {
+        border-bottom: none;
+      }
+      .tip-list .tip-num {
+        background: #4a6cf7;
+        color: #fff;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+      }
 
-  .course-table { width: 100%; border-collapse: collapse; margin: 10px 0; }
-  .course-table th { background: #4a6cf7; color: #fff; padding: 10px; font-size: 13px; }
-  .course-table td { padding: 10px; border: 1px solid #e0e0e0; font-size: 13px; }
+      .course-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+      }
+      .course-table th {
+        background: #4a6cf7;
+        color: #fff;
+        padding: 10px;
+        font-size: 13px;
+      }
+      .course-table td {
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        font-size: 13px;
+      }
 
-  .summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; margin: 16px 0; }
-  .summary-card {
-    background: #f5f5f5; border-radius: 8px; padding: 16px;
-  }
-  .summary-card .sc-title { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
-  .summary-card .sc-desc { font-size: 13px; color: #666; }
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+        margin: 16px 0;
+      }
+      .summary-card {
+        background: #f5f5f5;
+        border-radius: 8px;
+        padding: 16px;
+      }
+      .summary-card .sc-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 6px;
+      }
+      .summary-card .sc-desc {
+        font-size: 13px;
+        color: #666;
+      }
 
-  .footer { text-align: center; color: #999; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+      .footer {
+        text-align: center;
+        color: #999;
+        font-size: 12px;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+      }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container { padding: 20px; }
-    h1 { font-size: 22px; }
-    .phase-header { padding: 12px 16px; }
-    .phase-header .phase-title { font-size: 16px; }
-  }
-</style>
-</head>
-<body>
-<div class="container">
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 20px;
+        }
+        h1 {
+          font-size: 22px;
+        }
+        .phase-header {
+          padding: 12px 16px;
+        }
+        .phase-header .phase-title {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 互联网优质企业校招求职指南</h1>
+      <p class="subtitle">
+        贵州大学省级示范性软件学院 · 26届优秀就业毕业生经验精华提炼
+      </p>
+      <p class="source-note">
+        数据来源：16份调研问卷（含5份完整标注 + 13份Q19开放题回答） |
+        统计截止：2026年7月
+      </p>
 
-<h1>🚀 互联网优质企业校招求职指南</h1>
-<p class="subtitle">贵州大学省级示范性软件学院 · 26届优秀就业毕业生经验精华提炼</p>
-<p class="source-note">数据来源：16份调研问卷（含5份完整标注 + 13份Q19开放题回答） | 统计截止：2026年7月</p>
+      <!-- ======================== 第一部分：核心共识 ======================== -->
 
-<!-- ======================== 第一部分：核心共识 ======================== -->
+      <h2>💡 先说结论：6条学长学姐核心共识</h2>
 
-<h2>💡 先说结论：6条学长学姐核心共识</h2>
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="sc-title">1. 暑期实习 = 最佳上岸路径</div>
+          <div class="sc-desc">
+            暑期实习转正是进大厂最简单的方式（杨维强）。多数人认为暑期实习提前批是校招机会最多、上岸难度最低的批次。
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="sc-title">2. 校招准备 = 八股 + 项目 + 算法</div>
+          <div class="sc-desc">
+            罗广总结的"三件套"：计算机基础八股、可讲出亮点难点项目、LeetCode
+            100题。这是最务实的准备框架。
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="sc-title">3. 简历要真实，不要堆砌</div>
+          <div class="sc-desc">
+            不要只堆技术词，写清楚做了什么项目、负责哪块、解决了什么问题、有什么结果（王永杰）。不要吹没接触过的"高端项目"（李道熙）。
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="sc-title">4. 尽早投递，抢占时间窗口</div>
+          <div class="sc-desc">
+            早投早占坑位，越到后面竞争越激烈。笔试过了都不一定有面试机会（江洪）。春秋招不只是学校招聘会，更多是网上渠道（周金明）。
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="sc-title">5. 信息差决定求职成败</div>
+          <div class="sc-desc">
+            用好"搜商"，很多东西区别就在信息差上面（陈孝婧）。多关注岗位要求、找内推、查面试攻略、问学长学姐。
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="sc-title">6. 差异化竞争 = 加分点</div>
+          <div class="sc-desc">
+            加分点就是"只有你有但别人没有的东西"（罗广）。竞赛奖项、独特项目经历、专项技能——找到你的差异化优势。
+          </div>
+        </div>
+      </div>
 
-<div class="summary-grid">
-  <div class="summary-card">
-    <div class="sc-title">1. 暑期实习 = 最佳上岸路径</div>
-    <div class="sc-desc">暑期实习转正是进大厂最简单的方式（杨维强）。多数人认为暑期实习提前批是校招机会最多、上岸难度最低的批次。</div>
-  </div>
-  <div class="summary-card">
-    <div class="sc-title">2. 校招准备 = 八股 + 项目 + 算法</div>
-    <div class="sc-desc">罗广总结的"三件套"：计算机基础八股、可讲出亮点难点项目、LeetCode 100题。这是最务实的准备框架。</div>
-  </div>
-  <div class="summary-card">
-    <div class="sc-title">3. 简历要真实，不要堆砌</div>
-    <div class="sc-desc">不要只堆技术词，写清楚做了什么项目、负责哪块、解决了什么问题、有什么结果（王永杰）。不要吹没接触过的"高端项目"（李道熙）。</div>
-  </div>
-  <div class="summary-card">
-    <div class="sc-title">4. 尽早投递，抢占时间窗口</div>
-    <div class="sc-desc">早投早占坑位，越到后面竞争越激烈。笔试过了都不一定有面试机会（江洪）。春秋招不只是学校招聘会，更多是网上渠道（周金明）。</div>
-  </div>
-  <div class="summary-card">
-    <div class="sc-title">5. 信息差决定求职成败</div>
-    <div class="sc-desc">用好"搜商"，很多东西区别就在信息差上面（陈孝婧）。多关注岗位要求、找内推、查面试攻略、问学长学姐。</div>
-  </div>
-  <div class="summary-card">
-    <div class="sc-title">6. 差异化竞争 = 加分点</div>
-    <div class="sc-desc">加分点就是"只有你有但别人没有的东西"（罗广）。竞赛奖项、独特项目经历、专项技能——找到你的差异化优势。</div>
-  </div>
-</div>
+      <!-- ======================== 第二部分：求职场景全景 ======================== -->
 
-<!-- ======================== 第二部分：求职场景全景 ======================== -->
+      <h2>📍 校招全景：你必须知道的场景与规则</h2>
 
-<h2>📍 校招全景：你必须知道的场景与规则</h2>
+      <h3>一、招聘批次与时间窗口</h3>
 
-<h3>一、招聘批次与时间窗口</h3>
+      <div class="insight-card">
+        <div class="card-title">
+          📅 互联网校招四大批次 <span class="tag tag-data">调研数据</span>
+        </div>
+        <p>互联网校招通常分为4个主要批次，时间从暑假前延续到次年春天：</p>
+        <ul>
+          <li>
+            <strong>暑期实习提前批（3-5月）</strong> —
+            多位学长认为是<strong>上岸关键</strong>，机会最多、转正概率最高
+          </li>
+          <li>
+            <strong>秋招提前批（7-8月）</strong> —
+            提前批不锁简历，挂了不影响正式批（江洪）；部分人认为面试标准更宽松
+          </li>
+          <li>
+            <strong>秋招主批次（9-11月）</strong> — 最多岗位放出，但竞争也最激烈
+          </li>
+          <li>
+            <strong>春招补录（次年2-4月）</strong> — 补录名额少，竞争反而更惨烈
+          </li>
+        </ul>
+        <div class="data-bar">
+          <span class="bar-label">暑期实习提前批</span>
+          <div class="bar-fill" style="width: 40%; background: #2e7d32">
+            1人(20%)
+          </div>
+        </div>
+        <div class="data-bar">
+          <span class="bar-label">秋招提前批</span>
+          <div class="bar-fill" style="width: 40%; background: #4a6cf7">
+            2人(40%)
+          </div>
+        </div>
+        <div class="data-bar">
+          <span class="bar-label">秋招主批次</span>
+          <div class="bar-fill" style="width: 40%; background: #f57f17">
+            2人(40%)
+          </div>
+        </div>
+        <div class="data-bar">
+          <span class="bar-label">春招补录</span>
+          <div class="bar-fill" style="width: 20%; background: #999">
+            1人(20%)
+          </div>
+        </div>
+        <p style="font-size: 12px; color: #999">
+          ※ 基于5份有标注问卷的选择统计，其他10份未标注选择题
+        </p>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">📅 互联网校招四大批次 <span class="tag tag-data">调研数据</span></div>
-  <p>互联网校招通常分为4个主要批次，时间从暑假前延续到次年春天：</p>
-  <ul>
-    <li><strong>暑期实习提前批（3-5月）</strong> — 多位学长认为是<strong>上岸关键</strong>，机会最多、转正概率最高</li>
-    <li><strong>秋招提前批（7-8月）</strong> — 提前批不锁简历，挂了不影响正式批（江洪）；部分人认为面试标准更宽松</li>
-    <li><strong>秋招主批次（9-11月）</strong> — 最多岗位放出，但竞争也最激烈</li>
-    <li><strong>春招补录（次年2-4月）</strong> — 补录名额少，竞争反而更惨烈</li>
-  </ul>
-  <div class="data-bar">
-    <span class="bar-label">暑期实习提前批</span>
-    <div class="bar-fill" style="width:40%; background:#2e7d32;">1人(20%)</div>
-  </div>
-  <div class="data-bar">
-    <span class="bar-label">秋招提前批</span>
-    <div class="bar-fill" style="width:40%; background:#4a6cf7;">2人(40%)</div>
-  </div>
-  <div class="data-bar">
-    <span class="bar-label">秋招主批次</span>
-    <div class="bar-fill" style="width:40%; background:#f57f17;">2人(40%)</div>
-  </div>
-  <div class="data-bar">
-    <span class="bar-label">春招补录</span>
-    <div class="bar-fill" style="width:20%; background:#999;">1人(20%)</div>
-  </div>
-  <p style="font-size:12px;color:#999;">※ 基于5份有标注问卷的选择统计，其他10份未标注选择题</p>
-</div>
+      <div class="key-box">
+        <h4>🔑 核心策略：暑假前就要开始准备</h4>
+        <p>
+          暑期实习（3-5月）是进大厂性价比最高的途径。如果你等到秋招才开始，已经错过了一波最容易上岸的机会。<strong>大三下学期开学就要开始投暑期实习</strong>，实习转正offer比秋招上岸概率高出数倍。
+        </p>
+      </div>
 
-<div class="key-box">
-  <h4>🔑 核心策略：暑假前就要开始准备</h4>
-  <p>暑期实习（3-5月）是进大厂性价比最高的途径。如果你等到秋招才开始，已经错过了一波最容易上岸的机会。<strong>大三下学期开学就要开始投暑期实习</strong>，实习转正offer比秋招上岸概率高出数倍。</p>
-</div>
+      <div class="insight-card">
+        <div class="card-title">
+          ⚡ 提前批 vs 正式批区别 <span class="tag tag-data">调研数据</span>
+        </div>
+        <ul>
+          <li>
+            <strong>提前批不锁简历</strong>（江洪选A）—
+            挂了不影响正式批，可以放心投
+          </li>
+          <li>
+            <strong>提前批机会更多、竞争更小</strong>（查杭选B）—
+            早投早面，岗位池更大
+          </li>
+          <li><strong>提前批面试难度更低</strong>（江洪选C）— 标准相对宽松</li>
+          <li>
+            <strong>两者无明显差异</strong>（杨斌、王永杰选D）— 规则本质上差不多
+          </li>
+        </ul>
+        <p>
+          <strong>结论：</strong
+          >提前批是不亏的选择——挂了不锁简历，过了更早拿offer。建议所有人都参加提前批。
+        </p>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">⚡ 提前批 vs 正式批区别 <span class="tag tag-data">调研数据</span></div>
-  <ul>
-    <li><strong>提前批不锁简历</strong>（江洪选A）— 挂了不影响正式批，可以放心投</li>
-    <li><strong>提前批机会更多、竞争更小</strong>（查杭选B）— 早投早面，岗位池更大</li>
-    <li><strong>提前批面试难度更低</strong>（江洪选C）— 标准相对宽松</li>
-    <li><strong>两者无明显差异</strong>（杨斌、王永杰选D）— 规则本质上差不多</li>
-  </ul>
-  <p><strong>结论：</strong>提前批是不亏的选择——挂了不锁简历，过了更早拿offer。建议所有人都参加提前批。</p>
-</div>
+      <h3>二、招聘流程与卡顿环节</h3>
 
-<h3>二、招聘流程与卡顿环节</h3>
+      <div class="insight-card">
+        <div class="card-title">
+          ⏳ 校招流程"泡池子"最严重的环节
+          <span class="tag tag-warn">避坑提示</span>
+        </div>
+        <p>
+          互联网校招存在"泡池子"（简历投递后长时间无反馈）的问题，学长们认为最卡顿的环节是：
+        </p>
+        <ul>
+          <li>
+            <strong>笔试后等面试邀约</strong>（江洪、王永杰选B）—
+            笔试完等面试通知，可能等1-2周甚至更久
+          </li>
+          <li>
+            <strong>HR面后等offer</strong>（杨斌、查杭选D）— 最后一步反而最漫长
+          </li>
+          <li>
+            <strong>简历筛选阶段</strong>（王永杰选A）—
+            海投简历，筛选本身就是瓶颈
+          </li>
+        </ul>
+        <div class="warn-box">
+          <h4>⚠️ 经验提醒</h4>
+          <p>
+            江洪特别提醒："哪怕笔试过了，都不一定有面试机会。" —
+            <strong
+              >不要以为笔试通过就安全了，继续投其他公司，不要守着一个流程干等。</strong
+            >
+          </p>
+        </div>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">⏳ 校招流程"泡池子"最严重的环节 <span class="tag tag-warn">避坑提示</span></div>
-  <p>互联网校招存在"泡池子"（简历投递后长时间无反馈）的问题，学长们认为最卡顿的环节是：</p>
-  <ul>
-    <li><strong>笔试后等面试邀约</strong>（江洪、王永杰选B）— 笔试完等面试通知，可能等1-2周甚至更久</li>
-    <li><strong>HR面后等offer</strong>（杨斌、查杭选D）— 最后一步反而最漫长</li>
-    <li><strong>简历筛选阶段</strong>（王永杰选A）— 海投简历，筛选本身就是瓶颈</li>
-  </ul>
-  <div class="warn-box">
-    <h4>⚠️ 经验提醒</h4>
-    <p>江洪特别提醒："哪怕笔试过了，都不一定有面试机会。" — <strong>不要以为笔试通过就安全了，继续投其他公司，不要守着一个流程干等。</strong></p>
-  </div>
-</div>
+      <h3>三、笔试规则与淘汰率</h3>
 
-<h3>三、笔试规则与淘汰率</h3>
+      <div class="insight-card">
+        <div class="card-title">
+          📝 笔试淘汰权重：不可忽视的第一关
+          <span class="tag tag-data">调研数据</span>
+        </div>
+        <ul>
+          <li>
+            40%的人认为<strong>较高（40%-60%刷人率）</strong> —
+            笔试是真实淘汰环节
+          </li>
+          <li>
+            20%的人认为<strong>极高（70%以上）</strong> — 某些公司笔试极其严格
+          </li>
+          <li>20%的人认为<strong>一般</strong> — 仅作参考，很少刷人</li>
+        </ul>
+        <p>
+          <strong>笔试补考规则：</strong
+          >多数学长认为<strong>无补考机会，缺考直接淘汰</strong>（60%选择A）。务必按时参加笔试，错过可能就没有第二次机会。
+        </p>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">📝 笔试淘汰权重：不可忽视的第一关 <span class="tag tag-data">调研数据</span></div>
-  <ul>
-    <li>40%的人认为<strong>较高（40%-60%刷人率）</strong> — 笔试是真实淘汰环节</li>
-    <li>20%的人认为<strong>极高（70%以上）</strong> — 某些公司笔试极其严格</li>
-    <li>20%的人认为<strong>一般</strong> — 仅作参考，很少刷人</li>
-  </ul>
-  <p><strong>笔试补考规则：</strong>多数学长认为<strong>无补考机会，缺考直接淘汰</strong>（60%选择A）。务必按时参加笔试，错过可能就没有第二次机会。</p>
-</div>
+      <h3>四、面试环节与淘汰率</h3>
 
-<h3>四、面试环节与淘汰率</h3>
+      <div class="insight-card">
+        <div class="card-title">
+          🎯 哪一轮面试淘汰率最高？ <span class="tag tag-data">调研数据</span>
+        </div>
+        <ul>
+          <li>
+            <strong>笔试环节</strong>（王永杰、江洪选F）—
+            笔试是进入面试前的最大筛选器
+          </li>
+          <li>
+            <strong>技术面-算法编程题</strong>（查杭选A）—
+            算法题是技术面的硬门槛
+          </li>
+          <li>
+            <strong>技术面-基础理论</strong>（杨斌选B）— 八股文基础也很关键
+          </li>
+        </ul>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">🎯 哪一轮面试淘汰率最高？ <span class="tag tag-data">调研数据</span></div>
-  <ul>
-    <li><strong>笔试环节</strong>（王永杰、江洪选F）— 笔试是进入面试前的最大筛选器</li>
-    <li><strong>技术面-算法编程题</strong>（查杭选A）— 算法题是技术面的硬门槛</li>
-    <li><strong>技术面-基础理论</strong>（杨斌选B）— 八股文基础也很关键</li>
-  </ul>
-</div>
+      <div class="insight-card">
+        <div class="card-title">
+          👔 业务面 vs HR面：考察侧重点差异
+          <span class="tag tag-data">100%共识</span>
+        </div>
+        <p>
+          <strong>所有有标注的学生（4人）一致选择：</strong
+          >业务面看能力，HR面看稳定性与薪资匹配度。
+        </p>
+        <ul>
+          <li>
+            <strong>业务面：</strong
+            >重点考察你的技术能力、项目经验、解决问题的思路
+          </li>
+          <li>
+            <strong>HR面：</strong
+            >重点看你的入职意愿是否稳定、薪资期望是否匹配、职业规划是否清晰
+          </li>
+        </ul>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">👔 业务面 vs HR面：考察侧重点差异 <span class="tag tag-data">100%共识</span></div>
-  <p><strong>所有有标注的学生（4人）一致选择：</strong>业务面看能力，HR面看稳定性与薪资匹配度。</p>
-  <ul>
-    <li><strong>业务面：</strong>重点考察你的技术能力、项目经验、解决问题的思路</li>
-    <li><strong>HR面：</strong>重点看你的入职意愿是否稳定、薪资期望是否匹配、职业规划是否清晰</li>
-  </ul>
-</div>
+      <h3>五、测评环节</h3>
 
-<h3>五、测评环节</h3>
+      <div class="insight-card">
+        <div class="card-title">
+          🧪 测评/性格测试的真实作用 <span class="tag tag-data">调研数据</span>
+        </div>
+        <p>测评环节的看法比较分化：</p>
+        <ul>
+          <li>36%认为<strong>淘汰严格，人设不符直接挂</strong></li>
+          <li>27%认为<strong>仅面试参考，不直接淘汰</strong></li>
+          <li>27%认为<strong>走过场，完全不影响</strong></li>
+          <li>9%认为<strong>仅HR面参考</strong></li>
+        </ul>
+        <p>
+          <strong>建议：</strong
+          >认真对待测评，不要敷衍。虽然有些公司确实不怎么参考，但也有公司会据此淘汰。答题时保持一致性，不要前后矛盾。
+        </p>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">🧪 测评/性格测试的真实作用 <span class="tag tag-data">调研数据</span></div>
-  <p>测评环节的看法比较分化：</p>
-  <ul>
-    <li>36%认为<strong>淘汰严格，人设不符直接挂</strong></li>
-    <li>27%认为<strong>仅面试参考，不直接淘汰</strong></li>
-    <li>27%认为<strong>走过场，完全不影响</strong></li>
-    <li>9%认为<strong>仅HR面参考</strong></li>
-  </ul>
-  <p><strong>建议：</strong>认真对待测评，不要敷衍。虽然有些公司确实不怎么参考，但也有公司会据此淘汰。答题时保持一致性，不要前后矛盾。</p>
-</div>
+      <h3>六、群面与背调</h3>
 
-<h3>六、群面与背调</h3>
+      <div class="insight-card">
+        <div class="card-title">
+          👥 群面筛选的核心素质 <span class="tag tag-data">调研数据</span>
+        </div>
+        <ul>
+          <li>
+            <strong>个人领导力与角色适配度</strong>（王永杰、杨斌、江洪选C）—
+            最被看重
+          </li>
+          <li><strong>团队协作与沟通表达</strong>（江洪选A）— 同样重要</li>
+        </ul>
+        <p>
+          <strong>群面技巧：</strong
+          >不需要当最强发言者，但要有自己的角色定位——可以是总结者、时间管理者、或者提出关键观点的人。关键是展现你在团队中的<strong>适配度</strong>。
+        </p>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">👥 群面筛选的核心素质 <span class="tag tag-data">调研数据</span></div>
-  <ul>
-    <li><strong>个人领导力与角色适配度</strong>（王永杰、杨斌、江洪选C）— 最被看重</li>
-    <li><strong>团队协作与沟通表达</strong>（江洪选A）— 同样重要</li>
-  </ul>
-  <p><strong>群面技巧：</strong>不需要当最强发言者，但要有自己的角色定位——可以是总结者、时间管理者、或者提出关键观点的人。关键是展现你在团队中的<strong>适配度</strong>。</p>
-</div>
+      <div class="insight-card">
+        <div class="card-title">
+          🔍 背调影响程度 <span class="tag tag-data">调研数据</span>
+        </div>
+        <p>背调（背景调查）的看法也比较分散：</p>
+        <ul>
+          <li>31%认为<strong>影响极小</strong>，仅做基础核验</li>
+          <li>25%认为<strong>影响极大</strong>，不通过直接取消offer</li>
+          <li>12%认为<strong>校招基本不背调</strong></li>
+        </ul>
+        <div class="warn-box">
+          <h4>⚠️ 重要提醒</h4>
+          <p>
+            <strong>简历必须真实！</strong
+            >即使大部分校招不做深度背调，一旦进入大厂背调环节，虚假信息会被发现并取消offer。这是不可逆的后果。
+          </p>
+          <div class="quote-block">
+            "简历要真实，不要吹一堆根本没有接触过的看似时兴的高端项目，因为企业始终走在前面，哪些看似时兴的人家很可能已经做过。"
+            <div class="quote-source">— 李道熙</div>
+          </div>
+        </div>
+      </div>
 
-<div class="insight-card">
-  <div class="card-title">🔍 背调影响程度 <span class="tag tag-data">调研数据</span></div>
-  <p>背调（背景调查）的看法也比较分散：</p>
-  <ul>
-    <li>31%认为<strong>影响极小</strong>，仅做基础核验</li>
-    <li>25%认为<strong>影响极大</strong>，不通过直接取消offer</li>
-    <li>12%认为<strong>校招基本不背调</strong></li>
-  </ul>
-  <div class="warn-box">
-    <h4>⚠️ 重要提醒</h4>
-    <p><strong>简历必须真实！</strong>即使大部分校招不做深度背调，一旦进入大厂背调环节，虚假信息会被发现并取消offer。这是不可逆的后果。</p>
-    <div class="quote-block">
-      "简历要真实，不要吹一堆根本没有接触过的看似时兴的高端项目，因为企业始终走在前面，哪些看似时兴的人家很可能已经做过。"
-      <div class="quote-source">— 李道熙</div>
+      <!-- ======================== 第三部分：策略与技巧 ======================== -->
+
+      <h2>🛠️ 分阶段策略：从准备到拿offer</h2>
+
+      <!-- Phase 1: 准备期 -->
+      <div class="phase-section">
+        <div class="phase-header">
+          <span class="phase-icon">📚</span>
+          <div>
+            <div class="phase-title">第一阶段：准备期（大三下学期开始）</div>
+            <div class="phase-subtitle">
+              打好基础 · 积累项目 · 刷算法 · 精修简历
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            1️⃣ 计算机基础（八股文）— 你的第一关通行证
+            <span class="tag tag-hot">最关键</span>
+          </div>
+          <div class="quote-block">
+            "校招比较看中基础，无论你技术高度多高，基础知识不行第一面就过不了。"
+            <div class="quote-source">— 罗广</div>
+          </div>
+          <p><strong>必须掌握的基础知识领域：</strong></p>
+          <ul class="tip-list">
+            <li>
+              <span class="tip-num">1</span>
+              <div>
+                <strong>数据结构与算法</strong> —
+                链表、树、图、排序、动态规划等，这是技术面试的硬门槛
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">2</span>
+              <div>
+                <strong>操作系统</strong> — 进程线程、内存管理、死锁、调度算法等
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">3</span>
+              <div>
+                <strong>计算机网络</strong> —
+                TCP/UDP、HTTP、DNS、三次握手四次挥手等
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">4</span>
+              <div>
+                <strong>数据库</strong> — 索引原理、事务、SQL优化、锁机制等
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">5</span>
+              <div>
+                <strong>编程语言基础</strong> —
+                你主用语言的核心特性、底层原理（如Java的JVM、GC）
+              </div>
+            </li>
+          </ul>
+          <div class="key-box">
+            <h4>💡 学长推荐资源</h4>
+            <p>
+              罗广推荐B站算法课：<strong>灵茶山艾力《基础算法精讲》</strong>（搜索"两数之和
+              三数之和"即可找到）。如果懒得自己整理八股，可以去买整理好的八股资料。
+            </p>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            2️⃣ 算法刷题策略 <span class="tag tag-tip">技巧</span>
+          </div>
+          <p>多位学长提到算法准备的重要性：</p>
+          <ul>
+            <li>
+              <strong>目标：</strong>LeetCode 100题（罗广）—
+              不需要刷太多，覆盖常见题型即可
+            </li>
+            <li>
+              <strong>重点：</strong>基础数据结构 > 难题攻坚 —
+              王永杰提醒"不用只盯着难题"
+            </li>
+            <li>
+              <strong>策略：</strong
+              >如果时间不够，先背常见题型的解法模板（罗广说"考到了算运气好"）
+            </li>
+            <li>
+              <strong>时间安排：</strong
+              >杨维强说"尽早刷算法"，大三下学期就开始，不要等到秋招
+            </li>
+          </ul>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            3️⃣ 项目经历 — 面试中最有说服力的武器
+            <span class="tag tag-hot">最关键</span>
+          </div>
+          <div class="quote-block">
+            "简历上不要只堆技术词比如
+            Java、MySQL、Redis、Spring，而是要写清楚你具体做过什么项目、负责哪一块、解决过什么问题、最后有什么结果。"
+            <div class="quote-source">— 王永杰</div>
+          </div>
+          <p><strong>项目准备策略：</strong></p>
+          <ul class="tip-list">
+            <li>
+              <span class="tip-num">1</span>
+              <div>
+                <strong>做1-2个有亮点难点的项目</strong> —
+                可以买课跟着敲，但必须懂技术实现（罗广）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">2</span>
+              <div>
+                <strong>整理成几个能讲清楚的故事</strong> —
+                技术选型为什么这样做、遇到什么难点、踩了什么坑、怎么优化（王永杰）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">3</span>
+              <div>
+                <strong>每天看GitHub热榜</strong> —
+                了解行业趋势，找准方向深入了解（李道熙）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">4</span>
+              <div>
+                <strong>不要吹没接触过的"高端项目"</strong> —
+                企业走在前面，一看就知道你是否真的做过（李道熙）
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            4️⃣ 简历精修 — 拿到面试资格的第一步
+            <span class="tag tip-tip">技巧</span>
+          </div>
+          <p>调研数据显示，最容易被淘汰的简历类型：</p>
+          <ul>
+            <li>
+              <strong>60%选择"无经历"</strong> —
+              缺失实习/项目/竞赛等经历是最致命的
+            </li>
+            <li>
+              <strong>40%选择"岗位不匹配"</strong> — 简历内容与目标岗位不一致
+            </li>
+          </ul>
+          <p><strong>简历撰写要点：</strong></p>
+          <ul class="tip-list">
+            <li>
+              <span class="tip-num">1</span>
+              <div>
+                <strong>按JD修改简历</strong> —
+                每个岗位的招聘JD不同，针对性调整侧重点（胡思雨、李梁柱）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">2</span>
+              <div>
+                <strong>写清项目细节而非堆砌技术词</strong> —
+                "Java、MySQL、Redis"不如"负责XX模块，解决了YY问题，性能提升ZZ%"
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">3</span>
+              <div>
+                <strong>简历要真实</strong> —
+                堆砌虚假高端项目会被面试官一眼看穿（李道熙）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">4</span>
+              <div>
+                <strong>力求先拿到面试资格</strong> —
+                有高级技术和项目就写上去，技术可以再学，面试时能讲明白就行（周金明）
+              </div>
+            </li>
+          </ul>
+          <div class="warn-box">
+            <h4>⚠️ 简历致命伤</h4>
+            <ul>
+              <li>
+                <strong>无任何经历</strong> —
+                这是HR淘汰简历的首要原因，必须尽早积累实习/项目/竞赛
+              </li>
+              <li>
+                <strong>岗位不匹配</strong> —
+                投前端岗不要放一堆后端项目，针对性裁剪简历
+              </li>
+              <li>
+                <strong>堆砌无量化</strong> — "熟悉Java"不如"使用Spring
+                Boot开发XX系统，日均处理YY请求"
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            5️⃣ AI维度 — 新加分方向 <span class="tag tag-data">调研数据</span>
+          </div>
+          <p>问卷Q1关于AI维度的选择：</p>
+          <ul>
+            <li>
+              <strong>80%选择"能回答AI相关知识点和技术的理解"</strong> —
+              不需要实际做AI项目，但需要能讲清楚AI概念
+            </li>
+            <li>
+              <strong>20%选择"有AI相关实习或项目经历"</strong> — 有实际经历更强
+            </li>
+          </ul>
+          <p>
+            <strong>建议：</strong
+            >即使不做AI方向岗位，也要了解AI基本概念（大模型、LLM、RAG、Agent等），面试中能展示你对行业趋势的理解是加分项。
+          </p>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            6️⃣ 加分项排序 <span class="tag tag-data">调研数据</span>
+          </div>
+          <p>大厂应聘加分项（Q2多选统计）：</p>
+          <div class="data-bar">
+            <span class="bar-label">学历背景（211/985等）</span>
+            <div class="bar-fill" style="width: 80%; background: #4a6cf7">
+              4人
+            </div>
+          </div>
+          <div class="data-bar">
+            <span class="bar-label">高质量项目经历</span>
+            <div class="bar-fill" style="width: 60%; background: #2e7d32">
+              3人
+            </div>
+          </div>
+          <div class="data-bar">
+            <span class="bar-label">对口/大厂实习经历</span>
+            <div class="bar-fill" style="width: 40%; background: #f57f17">
+              2人
+            </div>
+          </div>
+          <div class="data-bar">
+            <span class="bar-label">竞赛/证书奖项</span>
+            <div class="bar-fill" style="width: 20%; background: #999">1人</div>
+          </div>
+          <p>
+            <strong>结论：</strong
+            >对贵大同学而言（非985/211头部），<strong>实习经历和高质量项目是最有价值的加分项</strong>，学历背景虽然被看重但我们无法改变，只能在可改变的项目和实习上全力突破。
+          </p>
+          <div class="quote-block">
+            "加分点：只有你有但别人没有的东西"
+            <div class="quote-source">— 罗广</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 2: 投递期 -->
+      <div class="phase-section">
+        <div class="phase-header">
+          <span class="phase-icon">📤</span>
+          <div>
+            <div class="phase-title">
+              第二阶段：投递期（暑期实习3-5月 / 秋招7-9月）
+            </div>
+            <div class="phase-subtitle">多投多面 · 内推优先 · 抢占时间窗口</div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            7️⃣ 投递渠道选择 <span class="tag tag-data">调研数据</span>
+          </div>
+          <ul>
+            <li>
+              <strong>员工精准内推</strong>（王永杰、江洪、杨斌选A）—
+              最推荐！可以查进度，有人帮你跟进
+            </li>
+            <li>
+              <strong>BOSS直聘/牛客等第三方平台</strong>（王永杰、查杭选D）—
+              岗位多，适合海投
+            </li>
+            <li><strong>企业官网/公众号</strong>（查杭选B）— 官方渠道最权威</li>
+            <li>
+              <strong>校园宣讲会</strong> —
+              没有人选这个渠道，说明线下宣讲的实际作用有限
+            </li>
+          </ul>
+          <div class="key-box">
+            <h4>💡 投递优先级</h4>
+            <p>
+              <strong>内推 > 官网直投 > 第三方平台</strong
+              >。内推不仅进度可查，有些公司还有内推免笔试/直通面试的福利。
+            </p>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            8️⃣ 尽早投递 — 校招时间铁律 <span class="tag tag-hot">最关键</span>
+          </div>
+          <div class="quote-block">
+            "尽早投递简历，不要过于拖太后，早投递早占坑位，而且越到后面竞争越激烈，拖太后了哪怕笔试过了，都不一定有面试机会。"
+            <div class="quote-source">— 江洪</div>
+          </div>
+          <div class="quote-block">
+            "春秋招不只是学校的招聘会，更多的是网上的渠道。"
+            <div class="quote-source">— 周金明</div>
+          </div>
+          <ul class="tip-list">
+            <li>
+              <span class="tip-num">1</span>
+              <div>
+                <strong>多投！</strong
+                >全国那么多公司，根本投不完，总会有公司能进面（张旭）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">2</span>
+              <div>
+                <strong>但专注一个岗位方向更好</strong> —
+                避免海投分散精力，同一岗位方向的准备材料可以复用（钱彦侪）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">3</span>
+              <div>
+                <strong>多投多面才算王道</strong> —
+                面试是练出来的，面越多越从容（钱彦侪）
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            9️⃣ 信息获取 — 打破信息差 <span class="tag tip-tip">技巧</span>
+          </div>
+          <div class="quote-block">
+            "用好你的'搜商'，很多东西真的就是区别在信息差上面，多关注岗位要求，积极寻找内推机会。"
+            <div class="quote-source">— 陈孝婧</div>
+          </div>
+          <p><strong>信息获取渠道（Q17数据）：</strong></p>
+          <ul>
+            <li>
+              <strong>网上攻略</strong> — 牛客面经、B站分享、知乎回答是主要来源
+            </li>
+            <li><strong>学长学姐</strong> — 直接问过来人最真实</li>
+            <li>
+              <strong>摸着石头过河</strong> — 很多人实际上就是这样走过来的
+            </li>
+          </ul>
+          <div class="key-box">
+            <h4>💡 推荐信息源</h4>
+            <ul>
+              <li><strong>牛客网</strong> — 求职讨论区、面经区、内推信息</li>
+              <li><strong>B站</strong> — 算法课程、面试技巧分享</li>
+              <li><strong>GitHub</strong> — 看热榜了解行业趋势（李道熙）</li>
+              <li><strong>LinkedIn/脉脉</strong> — 找内推人、看公司评价</li>
+              <li><strong>公司官网/公众号</strong> — 关注招聘动态</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase 3: 面试期 -->
+      <div class="phase-section">
+        <div class="phase-header">
+          <span class="phase-icon">🎯</span>
+          <div>
+            <div class="phase-title">第三阶段：面试期（贯穿整个招聘季）</div>
+            <div class="phase-subtitle">
+              技术面策略 · HR面策略 · 群面技巧 · 面试后跟进
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            🔟 技术面核心策略 <span class="tag tag-hot">最关键</span>
+          </div>
+          <div class="quote-block">
+            "面试不是背八股文，重点是让面试官相信：你基础过关、项目真实、遇到问题能自己想办法解决。"
+            <div class="quote-source">— 王永杰</div>
+          </div>
+          <ul class="tip-list">
+            <li>
+              <span class="tip-num">1</span>
+              <div>
+                <strong>项目必须自己讲得明白</strong> —
+                技术选型为什么这样做、难点在哪、踩了什么坑、怎么优化。不然很容易被追问穿（王永杰）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">2</span>
+              <div>
+                <strong>不会的问题别硬编</strong> —
+                先说自己的理解，再讲分析思路。面试官更看重你的思考方式而非标准答案（王永杰、张旭）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">3</span>
+              <div>
+                <strong>引导面试官问你准备的内容</strong> —
+                面试时想办法把话题引到你熟悉的领域（胡豪）
+              </div>
+            </li>
+            <li>
+              <span class="tip-num">4</span>
+              <div>
+                <strong>面试后认真总结补短板</strong> —
+                每次面试结束花时间完善，提升短板（张旭）
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            1️⃣1️⃣ HR面策略 <span class="tag tag-tip">技巧</span>
+          </div>
+          <p>
+            HR面核心考察<strong>稳定性与薪资匹配度</strong>（100%共识），策略：
+          </p>
+          <ul>
+            <li>
+              <strong>表达清晰的入职意愿</strong> —
+              为什么选这家公司、为什么选这个方向、职业规划
+            </li>
+            <li>
+              <strong>薪资预期要合理</strong> —
+              提前了解该岗位市场薪资水平，不要漫天要价也不要过低
+            </li>
+            <li>
+              <strong>反问环节别浪费</strong> —
+              问团队技术栈、业务方向、新人培养、代码评审、上线流程、加班情况（王永杰）
+            </li>
+          </ul>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            1️⃣2️⃣ 面试后是否主动联系HR？
+            <span class="tag tag-data">看法分化</span>
+          </div>
+          <p>关于面试后主动联系HR问进度，看法不一：</p>
+          <ul>
+            <li>
+              40%认为<strong>有正向帮助</strong>（王永杰、查杭）—
+              可以加快流程推进
+            </li>
+            <li>
+              40%认为<strong>无任何作用</strong>（杨斌、江洪）— 流程固定不受影响
+            </li>
+            <li>
+              20%认为<strong>有负面影响</strong>（江洪还选了C）— 可能引起反感
+            </li>
+          </ul>
+          <p>
+            <strong>建议：</strong
+            >适度跟进——可以在合理时间（面试后3-5天）礼貌询问一次，但不要频繁催促。
+          </p>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            1️⃣3️⃣ 多公司面试准备方法 <span class="tag tag-data">调研数据</span>
+          </div>
+          <p>Q12关于不同公司准备方法：</p>
+          <ul>
+            <li>
+              60%认为<strong>有一定差异但核心大体一致</strong> —
+              八股+项目+算法的框架可通用
+            </li>
+            <li>
+              40%认为<strong>几乎无差异</strong> — 准备一套内容可通用所有大厂
+            </li>
+          </ul>
+          <p>
+            <strong>结论：</strong
+            >打好基础三件套，可以覆盖大部分公司的面试需求。不同公司的侧重点差异主要体现在：业务方向不同需调整项目讲解重点、算法难度不同需针对性练习。
+          </p>
+        </div>
+      </div>
+
+      <!-- Phase 4: 实习期 -->
+      <div class="phase-section">
+        <div class="phase-header">
+          <span class="phase-icon">💼</span>
+          <div>
+            <div class="phase-title">第四阶段：实习期 & offer决策</div>
+            <div class="phase-subtitle">实习转正 · offer谈判 · 薪资确认</div>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            1️⃣4️⃣ 暑期实习转正 — 进大厂最简单的方式
+            <span class="tag tag-hot">最关键</span>
+          </div>
+          <div class="quote-block">
+            "暑期实习必须参加，暑期实习转正是进大厂最简单的方式。"
+            <div class="quote-source">— 杨维强</div>
+          </div>
+          <div class="quote-block">
+            "实习大于一切"
+            <div class="quote-source">— 钱彦侪</div>
+          </div>
+          <p>
+            <strong>实习质量比数量更重要</strong
+            >（杨维强）。一个对口的大厂实习远比三个不对口的小公司实习有说服力。
+          </p>
+          <div class="key-box">
+            <h4>💡 实习策略</h4>
+            <ul>
+              <li>大三暑假前就投暑期实习，争取拿到转正offer</li>
+              <li>实习期间积极表现，主动承担有技术含量的任务</li>
+              <li>
+                拿到转正offer后，秋招可以继续面试更好的机会（有了保底更从容）
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="insight-card">
+          <div class="card-title">
+            1️⃣5️⃣ offer阶段注意事项 <span class="tag tag-tip">技巧</span>
+          </div>
+          <p>王永杰提醒，拿到offer后要确认：</p>
+          <ul>
+            <li><strong>薪资构成</strong> — base + bonus + 签字费 + 期权等</li>
+            <li>
+              <strong>试用期条款</strong> — 试用期时长、薪资折扣、转正标准
+            </li>
+            <li>
+              <strong>岗位方向</strong> — 确认入职后具体做什么，避免被调剂
+            </li>
+            <li><strong>工作城市</strong> — 确认办公地点，是否支持异地</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ======================== 第四部分：课程建议 ======================== -->
+
+      <h2>📖 课程与知识体系建议</h2>
+
+      <p>
+        基于调研问卷和学长经验，以下是软件工程专业学生在校招中最需要掌握的课程与知识体系：
+      </p>
+
+      <table class="course-table">
+        <tr>
+          <th>优先级</th>
+          <th>课程/知识领域</th>
+          <th>校招考察频率</th>
+          <th>学长提到的场景</th>
+          <th>学习建议</th>
+        </tr>
+        <tr>
+          <td style="background: #ffebee; color: #c62828; font-weight: 700">
+            ⭐⭐⭐ 必修
+          </td>
+          <td><strong>数据结构与算法</strong></td>
+          <td>极高 — 几乎所有技术面必考</td>
+          <td>
+            罗广："刷LeetCode
+            100题"；王永杰："基础数据结构很常问"；查杭选"技术面算法编程题淘汰率最高"
+          </td>
+          <td>LeetCode 100题 + B站灵茶山艾力算法课；手写代码练习</td>
+        </tr>
+        <tr>
+          <td style="background: #ffebee; color: #c62828; font-weight: 700">
+            ⭐⭐⭐ 必修
+          </td>
+          <td><strong>操作系统</strong></td>
+          <td>高 — 八股文核心板块</td>
+          <td>
+            王永杰："操作系统很常问"；罗广："计算机基础不行第一面就过不了"
+          </td>
+          <td>进程线程、内存管理、死锁、调度；理解而非死背</td>
+        </tr>
+        <tr>
+          <td style="background: #ffebee; color: #c62828; font-weight: 700">
+            ⭐⭐⭐ 必修
+          </td>
+          <td><strong>计算机网络</strong></td>
+          <td>高 — 八股文核心板块</td>
+          <td>王永杰："网络很常问"</td>
+          <td>TCP/UDP、HTTP、三次握手四次挥手、DNS；画图理解流程</td>
+        </tr>
+        <tr>
+          <td style="background: #fff8e1; color: #f57f17; font-weight: 700">
+            ⭐⭐ 重点
+          </td>
+          <td><strong>数据库</strong></td>
+          <td>高 — 后端岗几乎必考</td>
+          <td>王永杰："数据库很常问"</td>
+          <td>索引原理、事务ACID、SQL优化、锁机制</td>
+        </tr>
+        <tr>
+          <td style="background: #fff8e1; color: #f57f17; font-weight: 700">
+            ⭐⭐ 重点
+          </td>
+          <td><strong>编程语言深修</strong></td>
+          <td>高 — 你主用语言必须深入</td>
+          <td>
+            王永杰："Java、MySQL、Redis、Spring"不要只堆关键词；罗广："要懂技术实现"
+          </td>
+          <td>选一门主语言深入底层原理（如Java学JVM/GC，C++学内存管理）</td>
+        </tr>
+        <tr>
+          <td style="background: #e3f2fd; color: #1565c0; font-weight: 700">
+            ⭐ 加分
+          </td>
+          <td><strong>AI/大模型基础概念</strong></td>
+          <td>中等 — 趋势性考察</td>
+          <td>80%选择"能回答AI相关知识点和技术的理解"</td>
+          <td>了解LLM、RAG、Agent、微调等概念；能在面试中讨论AI趋势</td>
+        </tr>
+        <tr>
+          <td style="background: #e3f2fd; color: #1565c0; font-weight: 700">
+            ⭐ 加分
+          </td>
+          <td><strong>软件工程/系统设计</strong></td>
+          <td>中等 — 高级岗位/二面考察</td>
+          <td>王永杰："技术选型、难点、踩坑、优化点"</td>
+          <td>理解设计模式、微服务架构、系统设计题思路</td>
+        </tr>
+        <tr>
+          <td style="background: #f3e5f5; color: #7b1fa2; font-weight: 700">
+            ✨ 差异化
+          </td>
+          <td><strong>竞赛/开源/独特项目</strong></td>
+          <td>低频但强加分</td>
+          <td>罗广："加分点=只有你有但别人没有的"；查杭选D"竞赛/证书奖项"</td>
+          <td>
+            参加ACM/蓝桥杯等竞赛；贡献GitHub开源项目；做有技术深度的个人项目
+          </td>
+        </tr>
+      </table>
+
+      <!-- ======================== 第五部分：心态与避坑 ======================== -->
+
+      <h2>🧠 心态调整 & 避坑指南</h2>
+
+      <div class="insight-card">
+        <div class="card-title">
+          🧘 心态管理 <span class="tag tag-tip">技巧</span>
+        </div>
+        <div class="quote-block">
+          "把战线拉长，把心态放稳"
+          <div class="quote-source">— 胡豪</div>
+        </div>
+        <ul>
+          <li>
+            <strong>校招是一场长跑</strong> —
+            从暑期实习到春招补录可能持续一年，不要因为一两次失败就崩溃
+          </li>
+          <li>
+            <strong>面试失败是常态</strong> —
+            大厂通过率通常在5%-15%，被拒是正常的，继续投继续面
+          </li>
+          <li>
+            <strong>每次面试后认真总结</strong> —
+            补短板比自我否定有用得多（张旭）
+          </li>
+          <li>
+            <strong>有保底更从容</strong> —
+            拿到一个offer后再面试其他公司心态会好很多
+          </li>
+        </ul>
+      </div>
+
+      <div class="warn-box">
+        <h4>⚠️ 必须避开的5个大坑</h4>
+        <ul>
+          <li>
+            <strong>❌ 简历堆砌虚假项目</strong> —
+            企业比学生更懂技术前沿，一看就穿。面试追问时会彻底暴露（李道熙、王永杰）
+          </li>
+          <li>
+            <strong>❌ 面试遇到不会的硬编</strong> —
+            直接说"这个我不太熟悉，但我的理解是…"比瞎编好得多（王永杰、张旭）
+          </li>
+          <li>
+            <strong>❌ 拖到秋招才开始投</strong> —
+            暑期实习和提前批是上岸最容易的窗口，错过就错过（江洪、杨维强）
+          </li>
+          <li>
+            <strong>❌ 只盯着学校招聘会</strong> —
+            网上渠道远比校内招聘会多（周金明），内推、牛客、BOSS才是主流
+          </li>
+          <li>
+            <strong>❌ 笔试缺考或敷衍</strong> —
+            多数公司无补考机会，缺考直接淘汰；测评也要认真做，有些公司真的会据此淘汰
+          </li>
+        </ul>
+      </div>
+
+      <!-- ======================== 第六部分：行动清单 ======================== -->
+
+      <h2>📋 行动清单：你的校招时间表</h2>
+
+      <table class="course-table">
+        <tr>
+          <th style="width: 120px">时间节点</th>
+          <th style="width: 140px">关键行动</th>
+          <th>具体事项</th>
+        </tr>
+        <tr>
+          <td>
+            <strong>大三上学期<br />(9-12月)</strong>
+          </td>
+          <td>打好基础</td>
+          <td>
+            ① 系统复习数据结构/算法/OS/网络/数据库<br />② 开始刷LeetCode<br />③
+            做1-2个有亮点的项目<br />④ 每天看GitHub热榜了解趋势
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>大三寒假<br />(1-2月)</strong>
+          </td>
+          <td>冲刺准备</td>
+          <td>
+            ① 完成LeetCode 100题<br />② 整理八股笔记<br />③
+            精修简历（按不同岗位准备不同版本）<br />④ 搜集内推信息、面经
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>大三下学期初<br />(3-5月)</strong>
+          </td>
+          <td>暑期实习</td>
+          <td>
+            ① 投暑期实习（重点！）<br />② 通过内推渠道投递<br />③
+            面试后总结补短板<br />④ 暑期实习争取转正offer
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>暑假-秋招提前批<br />(7-8月)</strong>
+          </td>
+          <td>提前批冲刺</td>
+          <td>
+            ① 参加秋招提前批（挂了不锁简历）<br />② 继续刷算法+补八股<br />③
+            针对不同公司调整简历侧重点
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>秋招主批次<br />(9-11月)</strong>
+          </td>
+          <td>全面投递</td>
+          <td>
+            ① 多投多面，不限于学校招聘会<br />② 每次面试后认真总结<br />③
+            offer确认薪资/试用期/岗位方向/城市
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <strong>春招补录<br />(次年2-4月)</strong>
+          </td>
+          <td>最后冲刺</td>
+          <td>
+            ① 关注补录信息（名额少竞争激烈）<br />②
+            已有保底offer的同学可以冲刺更好的
+          </td>
+        </tr>
+      </table>
+
+      <!-- ======================== 第七部分：学长语录精华 ======================== -->
+
+      <h2>💬 学长学姐语录精华</h2>
+
+      <div class="insight-card">
+        <div class="card-title">🏆 最佳回答 TOP 5</div>
+
+        <div class="quote-block" style="border-left-color: #2e7d32">
+          <strong>王永杰</strong>（最全面）：<br />
+          "简历上不要只堆技术词……面试不是背八股文，重点是让面试官相信：你基础过关、项目真实、遇到问题能自己想办法解决。反问环节也别浪费，可以问团队技术栈、业务方向、新人培养。offer阶段要确认薪资、试用期、岗位方向和工作城市。"
+          <div class="quote-source">
+            — Q19回答，涵盖简历→技术面→反问→offer全流程
+          </div>
+        </div>
+
+        <div class="quote-block" style="border-left-color: #4a6cf7">
+          <strong>罗广</strong>（最务实）：<br />
+          "校招比较看中基础……八股（重点计算机基础）、项目（可以去买课跟着敲，但是要懂技术实现）、算法（leetcode100）。加分点：只有你有但别人没有的东西。"
+          <div class="quote-source">— Q19回答，给出了具体可操作的准备框架</div>
+        </div>
+
+        <div class="quote-block" style="border-left-color: #f57f17">
+          <strong>李道熙</strong>（最深刻）：<br />
+          "简历要真实，不要吹一堆根本没有接触过的看似时兴的高端项目，因为企业始终走在前面。每天去看看GitHub热榜看看都是什么方面的，了解行业趋势。"
+          <div class="quote-source">
+            — Q19回答，从信息不对称角度给出独到见解
+          </div>
+        </div>
+
+        <div class="quote-block" style="border-left-color: #7b1fa2">
+          <strong>杨维强</strong>（最精炼）：<br />
+          "尽早刷算法；实习质量更重要；暑期实习必须参加，暑期实习转正是进大厂最简单的方式。"
+          <div class="quote-source">— Q19回答，每条都是核心洞察</div>
+        </div>
+
+        <div class="quote-block" style="border-left-color: #e65100">
+          <strong>张旭</strong>（最实用）：<br />
+          "1、多投，总会有公司能进面 2、面试结束认真总结补短板
+          3、不会的直接说不要瞎编"
+          <div class="quote-source">— Q19回答，三条简洁有力的实战建议</div>
+        </div>
+      </div>
+
+      <div class="insight-card">
+        <div class="card-title">📌 其他精彩观点</div>
+
+        <div class="quote-block">
+          "把战线拉长，把心态放稳，面试多想办法引导面试官问你准备的内容"
+          <div class="quote-source">— 胡豪（高级面试技巧）</div>
+        </div>
+
+        <div class="quote-block">
+          "用好你的'搜商'，很多东西真的就是区别在信息差上面"
+          <div class="quote-source">— 陈孝婧（战略层面洞察）</div>
+        </div>
+
+        <div class="quote-block">
+          "简历可以根据招聘的JD进行相应的修改，面试前可以上网查询该公司相应岗位的面试经验"
+          <div class="quote-source">— 胡思雨（针对性策略）</div>
+        </div>
+
+        <div class="quote-block">
+          "实习大于一切 / 多投多面才算王道 / 专注于一个岗位更好"
+          <div class="quote-source">— 钱彦侪（三个核心观点）</div>
+        </div>
+
+        <div class="quote-block">
+          "针对不同岗位可以对自己简历个性化定制，可以更改侧重点等"
+          <div class="quote-source">— 李梁柱（简历定制化）</div>
+        </div>
+      </div>
+
+      <!-- ======================== 数据说明 ======================== -->
+
+      <h2>📊 数据说明</h2>
+
+      <div class="insight-card">
+        <div class="card-title">关于本指南的数据基础</div>
+        <p>
+          本指南基于贵州大学省级示范性软件学院软件工程专业26届16位优秀就业毕业生提交的调研问卷，包含：
+        </p>
+        <ul>
+          <li>
+            <strong>5份完整标注的问卷</strong
+            >（王永杰、杨斌、查杭、江洪、周金明）— 提供了选择题的定量数据
+          </li>
+          <li><strong>13份Q19开放题回答</strong> — 提供了定性经验洞察</li>
+          <li>
+            <strong>3份严重不完整的问卷</strong>（李状状、金振国、查杭缺Q19）—
+            未纳入核心统计
+          </li>
+        </ul>
+        <p>
+          <strong>局限性说明：</strong
+          >由于10位同学未按规范标注选择题选项，选择题的定量数据仅基于5份有效样本，统计结果仅供参考。Q19开放题的回答质量参差不齐（5人优秀、6人中等、1人较差、3人未答），本指南优先引用高质量回答中的经验。
+        </p>
+        <p>
+          <strong>问卷结构问题：</strong
+          >原问卷Q10/Q11合并、Q14/Q14-sub合并、Q17/Q17-sub合并，导致部分题目的选项混在一起。本指南在引用数据时已尽量做合理拆分解读。
+        </p>
+      </div>
     </div>
-  </div>
-</div>
-
-<!-- ======================== 第三部分：策略与技巧 ======================== -->
-
-<h2>🛠️ 分阶段策略：从准备到拿offer</h2>
-
-<!-- Phase 1: 准备期 -->
-<div class="phase-section">
-<div class="phase-header">
-  <span class="phase-icon">📚</span>
-  <div>
-    <div class="phase-title">第一阶段：准备期（大三下学期开始）</div>
-    <div class="phase-subtitle">打好基础 · 积累项目 · 刷算法 · 精修简历</div>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">1️⃣ 计算机基础（八股文）— 你的第一关通行证 <span class="tag tag-hot">最关键</span></div>
-  <div class="quote-block">
-    "校招比较看中基础，无论你技术高度多高，基础知识不行第一面就过不了。"
-    <div class="quote-source">— 罗广</div>
-  </div>
-  <p><strong>必须掌握的基础知识领域：</strong></p>
-  <ul class="tip-list">
-    <li><span class="tip-num">1</span> <div><strong>数据结构与算法</strong> — 链表、树、图、排序、动态规划等，这是技术面试的硬门槛</div></li>
-    <li><span class="tip-num">2</span> <div><strong>操作系统</strong> — 进程线程、内存管理、死锁、调度算法等</div></li>
-    <li><span class="tip-num">3</span> <div><strong>计算机网络</strong> — TCP/UDP、HTTP、DNS、三次握手四次挥手等</div></li>
-    <li><span class="tip-num">4</span> <div><strong>数据库</strong> — 索引原理、事务、SQL优化、锁机制等</div></li>
-    <li><span class="tip-num">5</span> <div><strong>编程语言基础</strong> — 你主用语言的核心特性、底层原理（如Java的JVM、GC）</div></li>
-  </ul>
-  <div class="key-box">
-    <h4>💡 学长推荐资源</h4>
-    <p>罗广推荐B站算法课：<strong>灵茶山艾力《基础算法精讲》</strong>（搜索"两数之和 三数之和"即可找到）。如果懒得自己整理八股，可以去买整理好的八股资料。</p>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">2️⃣ 算法刷题策略 <span class="tag tag-tip">技巧</span></div>
-  <p>多位学长提到算法准备的重要性：</p>
-  <ul>
-    <li><strong>目标：</strong>LeetCode 100题（罗广）— 不需要刷太多，覆盖常见题型即可</li>
-    <li><strong>重点：</strong>基础数据结构 > 难题攻坚 — 王永杰提醒"不用只盯着难题"</li>
-    <li><strong>策略：</strong>如果时间不够，先背常见题型的解法模板（罗广说"考到了算运气好"）</li>
-    <li><strong>时间安排：</strong>杨维强说"尽早刷算法"，大三下学期就开始，不要等到秋招</li>
-  </ul>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">3️⃣ 项目经历 — 面试中最有说服力的武器 <span class="tag tag-hot">最关键</span></div>
-  <div class="quote-block">
-    "简历上不要只堆技术词比如 Java、MySQL、Redis、Spring，而是要写清楚你具体做过什么项目、负责哪一块、解决过什么问题、最后有什么结果。"
-    <div class="quote-source">— 王永杰</div>
-  </div>
-  <p><strong>项目准备策略：</strong></p>
-  <ul class="tip-list">
-    <li><span class="tip-num">1</span> <div><strong>做1-2个有亮点难点的项目</strong> — 可以买课跟着敲，但必须懂技术实现（罗广）</div></li>
-    <li><span class="tip-num">2</span> <div><strong>整理成几个能讲清楚的故事</strong> — 技术选型为什么这样做、遇到什么难点、踩了什么坑、怎么优化（王永杰）</div></li>
-    <li><span class="tip-num">3</span> <div><strong>每天看GitHub热榜</strong> — 了解行业趋势，找准方向深入了解（李道熙）</div></li>
-    <li><span class="tip-num">4</span> <div><strong>不要吹没接触过的"高端项目"</strong> — 企业走在前面，一看就知道你是否真的做过（李道熙）</div></li>
-  </ul>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">4️⃣ 简历精修 — 拿到面试资格的第一步 <span class="tag tip-tip">技巧</span></div>
-  <p>调研数据显示，最容易被淘汰的简历类型：</p>
-  <ul>
-    <li><strong>60%选择"无经历"</strong> — 缺失实习/项目/竞赛等经历是最致命的</li>
-    <li><strong>40%选择"岗位不匹配"</strong> — 简历内容与目标岗位不一致</li>
-  </ul>
-  <p><strong>简历撰写要点：</strong></p>
-  <ul class="tip-list">
-    <li><span class="tip-num">1</span> <div><strong>按JD修改简历</strong> — 每个岗位的招聘JD不同，针对性调整侧重点（胡思雨、李梁柱）</div></li>
-    <li><span class="tip-num">2</span> <div><strong>写清项目细节而非堆砌技术词</strong> — "Java、MySQL、Redis"不如"负责XX模块，解决了YY问题，性能提升ZZ%"</div></li>
-    <li><span class="tip-num">3</span> <div><strong>简历要真实</strong> — 堆砌虚假高端项目会被面试官一眼看穿（李道熙）</div></li>
-    <li><span class="tip-num">4</span> <div><strong>力求先拿到面试资格</strong> — 有高级技术和项目就写上去，技术可以再学，面试时能讲明白就行（周金明）</div></li>
-  </ul>
-  <div class="warn-box">
-    <h4>⚠️ 简历致命伤</h4>
-    <ul>
-      <li><strong>无任何经历</strong> — 这是HR淘汰简历的首要原因，必须尽早积累实习/项目/竞赛</li>
-      <li><strong>岗位不匹配</strong> — 投前端岗不要放一堆后端项目，针对性裁剪简历</li>
-      <li><strong>堆砌无量化</strong> — "熟悉Java"不如"使用Spring Boot开发XX系统，日均处理YY请求"</li>
-    </ul>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">5️⃣ AI维度 — 新加分方向 <span class="tag tag-data">调研数据</span></div>
-  <p>问卷Q1关于AI维度的选择：</p>
-  <ul>
-    <li><strong>80%选择"能回答AI相关知识点和技术的理解"</strong> — 不需要实际做AI项目，但需要能讲清楚AI概念</li>
-    <li><strong>20%选择"有AI相关实习或项目经历"</strong> — 有实际经历更强</li>
-  </ul>
-  <p><strong>建议：</strong>即使不做AI方向岗位，也要了解AI基本概念（大模型、LLM、RAG、Agent等），面试中能展示你对行业趋势的理解是加分项。</p>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">6️⃣ 加分项排序 <span class="tag tag-data">调研数据</span></div>
-  <p>大厂应聘加分项（Q2多选统计）：</p>
-  <div class="data-bar">
-    <span class="bar-label">学历背景（211/985等）</span>
-    <div class="bar-fill" style="width:80%; background:#4a6cf7;">4人</div>
-  </div>
-  <div class="data-bar">
-    <span class="bar-label">高质量项目经历</span>
-    <div class="bar-fill" style="width:60%; background:#2e7d32;">3人</div>
-  </div>
-  <div class="data-bar">
-    <span class="bar-label">对口/大厂实习经历</span>
-    <div class="bar-fill" style="width:40%; background:#f57f17;">2人</div>
-  </div>
-  <div class="data-bar">
-    <span class="bar-label">竞赛/证书奖项</span>
-    <div class="bar-fill" style="width:20%; background:#999;">1人</div>
-  </div>
-  <p><strong>结论：</strong>对贵大同学而言（非985/211头部），<strong>实习经历和高质量项目是最有价值的加分项</strong>，学历背景虽然被看重但我们无法改变，只能在可改变的项目和实习上全力突破。</p>
-  <div class="quote-block">
-    "加分点：只有你有但别人没有的东西"
-    <div class="quote-source">— 罗广</div>
-  </div>
-</div>
-</div>
-
-<!-- Phase 2: 投递期 -->
-<div class="phase-section">
-<div class="phase-header">
-  <span class="phase-icon">📤</span>
-  <div>
-    <div class="phase-title">第二阶段：投递期（暑期实习3-5月 / 秋招7-9月）</div>
-    <div class="phase-subtitle">多投多面 · 内推优先 · 抢占时间窗口</div>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">7️⃣ 投递渠道选择 <span class="tag tag-data">调研数据</span></div>
-  <ul>
-    <li><strong>员工精准内推</strong>（王永杰、江洪、杨斌选A）— 最推荐！可以查进度，有人帮你跟进</li>
-    <li><strong>BOSS直聘/牛客等第三方平台</strong>（王永杰、查杭选D）— 岗位多，适合海投</li>
-    <li><strong>企业官网/公众号</strong>（查杭选B）— 官方渠道最权威</li>
-    <li><strong>校园宣讲会</strong> — 没有人选这个渠道，说明线下宣讲的实际作用有限</li>
-  </ul>
-  <div class="key-box">
-    <h4>💡 投递优先级</h4>
-    <p><strong>内推 > 官网直投 > 第三方平台</strong>。内推不仅进度可查，有些公司还有内推免笔试/直通面试的福利。</p>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">8️⃣ 尽早投递 — 校招时间铁律 <span class="tag tag-hot">最关键</span></div>
-  <div class="quote-block">
-    "尽早投递简历，不要过于拖太后，早投递早占坑位，而且越到后面竞争越激烈，拖太后了哪怕笔试过了，都不一定有面试机会。"
-    <div class="quote-source">— 江洪</div>
-  </div>
-  <div class="quote-block">
-    "春秋招不只是学校的招聘会，更多的是网上的渠道。"
-    <div class="quote-source">— 周金明</div>
-  </div>
-  <ul class="tip-list">
-    <li><span class="tip-num">1</span> <div><strong>多投！</strong>全国那么多公司，根本投不完，总会有公司能进面（张旭）</div></li>
-    <li><span class="tip-num">2</span> <div><strong>但专注一个岗位方向更好</strong> — 避免海投分散精力，同一岗位方向的准备材料可以复用（钱彦侪）</div></li>
-    <li><span class="tip-num">3</span> <div><strong>多投多面才算王道</strong> — 面试是练出来的，面越多越从容（钱彦侪）</div></li>
-  </ul>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">9️⃣ 信息获取 — 打破信息差 <span class="tag tip-tip">技巧</span></div>
-  <div class="quote-block">
-    "用好你的'搜商'，很多东西真的就是区别在信息差上面，多关注岗位要求，积极寻找内推机会。"
-    <div class="quote-source">— 陈孝婧</div>
-  </div>
-  <p><strong>信息获取渠道（Q17数据）：</strong></p>
-  <ul>
-    <li><strong>网上攻略</strong> — 牛客面经、B站分享、知乎回答是主要来源</li>
-    <li><strong>学长学姐</strong> — 直接问过来人最真实</li>
-    <li><strong>摸着石头过河</strong> — 很多人实际上就是这样走过来的</li>
-  </ul>
-  <div class="key-box">
-    <h4>💡 推荐信息源</h4>
-    <ul>
-      <li><strong>牛客网</strong> — 求职讨论区、面经区、内推信息</li>
-      <li><strong>B站</strong> — 算法课程、面试技巧分享</li>
-      <li><strong>GitHub</strong> — 看热榜了解行业趋势（李道熙）</li>
-      <li><strong>LinkedIn/脉脉</strong> — 找内推人、看公司评价</li>
-      <li><strong>公司官网/公众号</strong> — 关注招聘动态</li>
-    </ul>
-  </div>
-</div>
-</div>
-
-<!-- Phase 3: 面试期 -->
-<div class="phase-section">
-<div class="phase-header">
-  <span class="phase-icon">🎯</span>
-  <div>
-    <div class="phase-title">第三阶段：面试期（贯穿整个招聘季）</div>
-    <div class="phase-subtitle">技术面策略 · HR面策略 · 群面技巧 · 面试后跟进</div>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">🔟 技术面核心策略 <span class="tag tag-hot">最关键</span></div>
-  <div class="quote-block">
-    "面试不是背八股文，重点是让面试官相信：你基础过关、项目真实、遇到问题能自己想办法解决。"
-    <div class="quote-source">— 王永杰</div>
-  </div>
-  <ul class="tip-list">
-    <li><span class="tip-num">1</span> <div><strong>项目必须自己讲得明白</strong> — 技术选型为什么这样做、难点在哪、踩了什么坑、怎么优化。不然很容易被追问穿（王永杰）</div></li>
-    <li><span class="tip-num">2</span> <div><strong>不会的问题别硬编</strong> — 先说自己的理解，再讲分析思路。面试官更看重你的思考方式而非标准答案（王永杰、张旭）</div></li>
-    <li><span class="tip-num">3</span> <div><strong>引导面试官问你准备的内容</strong> — 面试时想办法把话题引到你熟悉的领域（胡豪）</div></li>
-    <li><span class="tip-num">4</span> <div><strong>面试后认真总结补短板</strong> — 每次面试结束花时间完善，提升短板（张旭）</div></li>
-  </ul>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">1️⃣1️⃣ HR面策略 <span class="tag tag-tip">技巧</span></div>
-  <p>HR面核心考察<strong>稳定性与薪资匹配度</strong>（100%共识），策略：</p>
-  <ul>
-    <li><strong>表达清晰的入职意愿</strong> — 为什么选这家公司、为什么选这个方向、职业规划</li>
-    <li><strong>薪资预期要合理</strong> — 提前了解该岗位市场薪资水平，不要漫天要价也不要过低</li>
-    <li><strong>反问环节别浪费</strong> — 问团队技术栈、业务方向、新人培养、代码评审、上线流程、加班情况（王永杰）</li>
-  </ul>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">1️⃣2️⃣ 面试后是否主动联系HR？ <span class="tag tag-data">看法分化</span></div>
-  <p>关于面试后主动联系HR问进度，看法不一：</p>
-  <ul>
-    <li>40%认为<strong>有正向帮助</strong>（王永杰、查杭）— 可以加快流程推进</li>
-    <li>40%认为<strong>无任何作用</strong>（杨斌、江洪）— 流程固定不受影响</li>
-    <li>20%认为<strong>有负面影响</strong>（江洪还选了C）— 可能引起反感</li>
-  </ul>
-  <p><strong>建议：</strong>适度跟进——可以在合理时间（面试后3-5天）礼貌询问一次，但不要频繁催促。</p>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">1️⃣3️⃣ 多公司面试准备方法 <span class="tag tag-data">调研数据</span></div>
-  <p>Q12关于不同公司准备方法：</p>
-  <ul>
-    <li>60%认为<strong>有一定差异但核心大体一致</strong> — 八股+项目+算法的框架可通用</li>
-    <li>40%认为<strong>几乎无差异</strong> — 准备一套内容可通用所有大厂</li>
-  </ul>
-  <p><strong>结论：</strong>打好基础三件套，可以覆盖大部分公司的面试需求。不同公司的侧重点差异主要体现在：业务方向不同需调整项目讲解重点、算法难度不同需针对性练习。</p>
-</div>
-</div>
-
-<!-- Phase 4: 实习期 -->
-<div class="phase-section">
-<div class="phase-header">
-  <span class="phase-icon">💼</span>
-  <div>
-    <div class="phase-title">第四阶段：实习期 & offer决策</div>
-    <div class="phase-subtitle">实习转正 · offer谈判 · 薪资确认</div>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">1️⃣4️⃣ 暑期实习转正 — 进大厂最简单的方式 <span class="tag tag-hot">最关键</span></div>
-  <div class="quote-block">
-    "暑期实习必须参加，暑期实习转正是进大厂最简单的方式。"
-    <div class="quote-source">— 杨维强</div>
-  </div>
-  <div class="quote-block">
-    "实习大于一切"
-    <div class="quote-source">— 钱彦侪</div>
-  </div>
-  <p><strong>实习质量比数量更重要</strong>（杨维强）。一个对口的大厂实习远比三个不对口的小公司实习有说服力。</p>
-  <div class="key-box">
-    <h4>💡 实习策略</h4>
-    <ul>
-      <li>大三暑假前就投暑期实习，争取拿到转正offer</li>
-      <li>实习期间积极表现，主动承担有技术含量的任务</li>
-      <li>拿到转正offer后，秋招可以继续面试更好的机会（有了保底更从容）</li>
-    </ul>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">1️⃣5️⃣ offer阶段注意事项 <span class="tag tag-tip">技巧</span></div>
-  <p>王永杰提醒，拿到offer后要确认：</p>
-  <ul>
-    <li><strong>薪资构成</strong> — base + bonus + 签字费 + 期权等</li>
-    <li><strong>试用期条款</strong> — 试用期时长、薪资折扣、转正标准</li>
-    <li><strong>岗位方向</strong> — 确认入职后具体做什么，避免被调剂</li>
-    <li><strong>工作城市</strong> — 确认办公地点，是否支持异地</li>
-  </ul>
-</div>
-</div>
-
-<!-- ======================== 第四部分：课程建议 ======================== -->
-
-<h2>📖 课程与知识体系建议</h2>
-
-<p>基于调研问卷和学长经验，以下是软件工程专业学生在校招中最需要掌握的课程与知识体系：</p>
-
-<table class="course-table">
-  <tr>
-    <th>优先级</th>
-    <th>课程/知识领域</th>
-    <th>校招考察频率</th>
-    <th>学长提到的场景</th>
-    <th>学习建议</th>
-  </tr>
-  <tr>
-    <td style="background:#ffebee;color:#c62828;font-weight:700;">⭐⭐⭐ 必修</td>
-    <td><strong>数据结构与算法</strong></td>
-    <td>极高 — 几乎所有技术面必考</td>
-    <td>罗广："刷LeetCode 100题"；王永杰："基础数据结构很常问"；查杭选"技术面算法编程题淘汰率最高"</td>
-    <td>LeetCode 100题 + B站灵茶山艾力算法课；手写代码练习</td>
-  </tr>
-  <tr>
-    <td style="background:#ffebee;color:#c62828;font-weight:700;">⭐⭐⭐ 必修</td>
-    <td><strong>操作系统</strong></td>
-    <td>高 — 八股文核心板块</td>
-    <td>王永杰："操作系统很常问"；罗广："计算机基础不行第一面就过不了"</td>
-    <td>进程线程、内存管理、死锁、调度；理解而非死背</td>
-  </tr>
-  <tr>
-    <td style="background:#ffebee;color:#c62828;font-weight:700;">⭐⭐⭐ 必修</td>
-    <td><strong>计算机网络</strong></td>
-    <td>高 — 八股文核心板块</td>
-    <td>王永杰："网络很常问"</td>
-    <td>TCP/UDP、HTTP、三次握手四次挥手、DNS；画图理解流程</td>
-  </tr>
-  <tr>
-    <td style="background:#fff8e1;color:#f57f17;font-weight:700;">⭐⭐ 重点</td>
-    <td><strong>数据库</strong></td>
-    <td>高 — 后端岗几乎必考</td>
-    <td>王永杰："数据库很常问"</td>
-    <td>索引原理、事务ACID、SQL优化、锁机制</td>
-  </tr>
-  <tr>
-    <td style="background:#fff8e1;color:#f57f17;font-weight:700;">⭐⭐ 重点</td>
-    <td><strong>编程语言深修</strong></td>
-    <td>高 — 你主用语言必须深入</td>
-    <td>王永杰："Java、MySQL、Redis、Spring"不要只堆关键词；罗广："要懂技术实现"</td>
-    <td>选一门主语言深入底层原理（如Java学JVM/GC，C++学内存管理）</td>
-  </tr>
-  <tr>
-    <td style="background:#e3f2fd;color:#1565c0;font-weight:700;">⭐ 加分</td>
-    <td><strong>AI/大模型基础概念</strong></td>
-    <td>中等 — 趋势性考察</td>
-    <td>80%选择"能回答AI相关知识点和技术的理解"</td>
-    <td>了解LLM、RAG、Agent、微调等概念；能在面试中讨论AI趋势</td>
-  </tr>
-  <tr>
-    <td style="background:#e3f2fd;color:#1565c0;font-weight:700;">⭐ 加分</td>
-    <td><strong>软件工程/系统设计</strong></td>
-    <td>中等 — 高级岗位/二面考察</td>
-    <td>王永杰："技术选型、难点、踩坑、优化点"</td>
-    <td>理解设计模式、微服务架构、系统设计题思路</td>
-  </tr>
-  <tr>
-    <td style="background:#f3e5f5;color:#7b1fa2;font-weight:700;">✨ 差异化</td>
-    <td><strong>竞赛/开源/独特项目</strong></td>
-    <td>低频但强加分</td>
-    <td>罗广："加分点=只有你有但别人没有的"；查杭选D"竞赛/证书奖项"</td>
-    <td>参加ACM/蓝桥杯等竞赛；贡献GitHub开源项目；做有技术深度的个人项目</td>
-  </tr>
-</table>
-
-<!-- ======================== 第五部分：心态与避坑 ======================== -->
-
-<h2>🧠 心态调整 & 避坑指南</h2>
-
-<div class="insight-card">
-  <div class="card-title">🧘 心态管理 <span class="tag tag-tip">技巧</span></div>
-  <div class="quote-block">
-    "把战线拉长，把心态放稳"
-    <div class="quote-source">— 胡豪</div>
-  </div>
-  <ul>
-    <li><strong>校招是一场长跑</strong> — 从暑期实习到春招补录可能持续一年，不要因为一两次失败就崩溃</li>
-    <li><strong>面试失败是常态</strong> — 大厂通过率通常在5%-15%，被拒是正常的，继续投继续面</li>
-    <li><strong>每次面试后认真总结</strong> — 补短板比自我否定有用得多（张旭）</li>
-    <li><strong>有保底更从容</strong> — 拿到一个offer后再面试其他公司心态会好很多</li>
-  </ul>
-</div>
-
-<div class="warn-box">
-  <h4>⚠️ 必须避开的5个大坑</h4>
-  <ul>
-    <li><strong>❌ 简历堆砌虚假项目</strong> — 企业比学生更懂技术前沿，一看就穿。面试追问时会彻底暴露（李道熙、王永杰）</li>
-    <li><strong>❌ 面试遇到不会的硬编</strong> — 直接说"这个我不太熟悉，但我的理解是…"比瞎编好得多（王永杰、张旭）</li>
-    <li><strong>❌ 拖到秋招才开始投</strong> — 暑期实习和提前批是上岸最容易的窗口，错过就错过（江洪、杨维强）</li>
-    <li><strong>❌ 只盯着学校招聘会</strong> — 网上渠道远比校内招聘会多（周金明），内推、牛客、BOSS才是主流</li>
-    <li><strong>❌ 笔试缺考或敷衍</strong> — 多数公司无补考机会，缺考直接淘汰；测评也要认真做，有些公司真的会据此淘汰</li>
-  </ul>
-</div>
-
-<!-- ======================== 第六部分：行动清单 ======================== -->
-
-<h2>📋 行动清单：你的校招时间表</h2>
-
-<table class="course-table">
-  <tr>
-    <th style="width:120px;">时间节点</th>
-    <th style="width:140px;">关键行动</th>
-    <th>具体事项</th>
-  </tr>
-  <tr>
-    <td><strong>大三上学期<br>(9-12月)</strong></td>
-    <td>打好基础</td>
-    <td>① 系统复习数据结构/算法/OS/网络/数据库<br>② 开始刷LeetCode<br>③ 做1-2个有亮点的项目<br>④ 每天看GitHub热榜了解趋势</td>
-  </tr>
-  <tr>
-    <td><strong>大三寒假<br>(1-2月)</strong></td>
-    <td>冲刺准备</td>
-    <td>① 完成LeetCode 100题<br>② 整理八股笔记<br>③ 精修简历（按不同岗位准备不同版本）<br>④ 搜集内推信息、面经</td>
-  </tr>
-  <tr>
-    <td><strong>大三下学期初<br>(3-5月)</strong></td>
-    <td>暑期实习</td>
-    <td>① 投暑期实习（重点！）<br>② 通过内推渠道投递<br>③ 面试后总结补短板<br>④ 暑期实习争取转正offer</td>
-  </tr>
-  <tr>
-    <td><strong>暑假-秋招提前批<br>(7-8月)</strong></td>
-    <td>提前批冲刺</td>
-    <td>① 参加秋招提前批（挂了不锁简历）<br>② 继续刷算法+补八股<br>③ 针对不同公司调整简历侧重点</td>
-  </tr>
-  <tr>
-    <td><strong>秋招主批次<br>(9-11月)</strong></td>
-    <td>全面投递</td>
-    <td>① 多投多面，不限于学校招聘会<br>② 每次面试后认真总结<br>③ offer确认薪资/试用期/岗位方向/城市</td>
-  </tr>
-  <tr>
-    <td><strong>春招补录<br>(次年2-4月)</strong></td>
-    <td>最后冲刺</td>
-    <td>① 关注补录信息（名额少竞争激烈）<br>② 已有保底offer的同学可以冲刺更好的</td>
-  </tr>
-</table>
-
-<!-- ======================== 第七部分：学长语录精华 ======================== -->
-
-<h2>💬 学长学姐语录精华</h2>
-
-<div class="insight-card">
-  <div class="card-title">🏆 最佳回答 TOP 5</div>
-
-  <div class="quote-block" style="border-left-color:#2e7d32;">
-    <strong>王永杰</strong>（最全面）：<br>
-    "简历上不要只堆技术词……面试不是背八股文，重点是让面试官相信：你基础过关、项目真实、遇到问题能自己想办法解决。反问环节也别浪费，可以问团队技术栈、业务方向、新人培养。offer阶段要确认薪资、试用期、岗位方向和工作城市。"
-    <div class="quote-source">— Q19回答，涵盖简历→技术面→反问→offer全流程</div>
-  </div>
-
-  <div class="quote-block" style="border-left-color:#4a6cf7;">
-    <strong>罗广</strong>（最务实）：<br>
-    "校招比较看中基础……八股（重点计算机基础）、项目（可以去买课跟着敲，但是要懂技术实现）、算法（leetcode100）。加分点：只有你有但别人没有的东西。"
-    <div class="quote-source">— Q19回答，给出了具体可操作的准备框架</div>
-  </div>
-
-  <div class="quote-block" style="border-left-color:#f57f17;">
-    <strong>李道熙</strong>（最深刻）：<br>
-    "简历要真实，不要吹一堆根本没有接触过的看似时兴的高端项目，因为企业始终走在前面。每天去看看GitHub热榜看看都是什么方面的，了解行业趋势。"
-    <div class="quote-source">— Q19回答，从信息不对称角度给出独到见解</div>
-  </div>
-
-  <div class="quote-block" style="border-left-color:#7b1fa2;">
-    <strong>杨维强</strong>（最精炼）：<br>
-    "尽早刷算法；实习质量更重要；暑期实习必须参加，暑期实习转正是进大厂最简单的方式。"
-    <div class="quote-source">— Q19回答，每条都是核心洞察</div>
-  </div>
-
-  <div class="quote-block" style="border-left-color:#e65100;">
-    <strong>张旭</strong>（最实用）：<br>
-    "1、多投，总会有公司能进面 2、面试结束认真总结补短板 3、不会的直接说不要瞎编"
-    <div class="quote-source">— Q19回答，三条简洁有力的实战建议</div>
-  </div>
-</div>
-
-<div class="insight-card">
-  <div class="card-title">📌 其他精彩观点</div>
-
-  <div class="quote-block">
-    "把战线拉长，把心态放稳，面试多想办法引导面试官问你准备的内容"
-    <div class="quote-source">— 胡豪（高级面试技巧）</div>
-  </div>
-
-  <div class="quote-block">
-    "用好你的'搜商'，很多东西真的就是区别在信息差上面"
-    <div class="quote-source">— 陈孝婧（战略层面洞察）</div>
-  </div>
-
-  <div class="quote-block">
-    "简历可以根据招聘的JD进行相应的修改，面试前可以上网查询该公司相应岗位的面试经验"
-    <div class="quote-source">— 胡思雨（针对性策略）</div>
-  </div>
-
-  <div class="quote-block">
-    "实习大于一切 / 多投多面才算王道 / 专注于一个岗位更好"
-    <div class="quote-source">— 钱彦侪（三个核心观点）</div>
-  </div>
-
-  <div class="quote-block">
-    "针对不同岗位可以对自己简历个性化定制，可以更改侧重点等"
-    <div class="quote-source">— 李梁柱（简历定制化）</div>
-  </div>
-</div>
-
-<!-- ======================== 数据说明 ======================== -->
-
-<h2>📊 数据说明</h2>
-
-<div class="insight-card">
-  <div class="card-title">关于本指南的数据基础</div>
-  <p>本指南基于贵州大学省级示范性软件学院软件工程专业26届16位优秀就业毕业生提交的调研问卷，包含：</p>
-  <ul>
-    <li><strong>5份完整标注的问卷</strong>（王永杰、杨斌、查杭、江洪、周金明）— 提供了选择题的定量数据</li>
-    <li><strong>13份Q19开放题回答</strong> — 提供了定性经验洞察</li>
-    <li><strong>3份严重不完整的问卷</strong>（李状状、金振国、查杭缺Q19）— 未纳入核心统计</li>
-  </ul>
-  <p><strong>局限性说明：</strong>由于10位同学未按规范标注选择题选项，选择题的定量数据仅基于5份有效样本，统计结果仅供参考。Q19开放题的回答质量参差不齐（5人优秀、6人中等、1人较差、3人未答），本指南优先引用高质量回答中的经验。</p>
-  <p><strong>问卷结构问题：</strong>原问卷Q10/Q11合并、Q14/Q14-sub合并、Q17/Q17-sub合并，导致部分题目的选项混在一起。本指南在引用数据时已尽量做合理拆分解读。</p>
-</div>
-
-<div class="footer">
-  本指南由WorkBuddy基于16份调研问卷数据分析生成 · 贵州大学省级示范性软件学院 · 2026年7月<br>
-  致谢：感谢16位学长学姐分享的真实求职经验，这些经验将帮助更多贵大软件学子走向更好的职业未来。
-</div>
-
-</div>
-</body>
+  </body>
+  <footer class="footer">
+    致谢：感谢16位学长学姐分享的真实求职经验，这些经验将帮助更多贵大软件学子走向更好的职业未来。
+  </footer>
+  <style>
+    .wb-home-btn {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 18px;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #1e293b, #334155);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+      transition: all 0.25s;
+      font-family: inherit;
+      line-height: 1;
+      backdrop-filter: blur(6px);
+    }
+    .wb-home-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.35);
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+    .wb-home-btn:active {
+      transform: translateY(0);
+    }
+    .wb-home-btn svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 560px) {
+      .wb-home-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+        gap: 5px;
+      }
+    }
+    @media print {
+      .wb-home-btn {
+        display: none;
+      }
+    }
+  </style>
+  <a href="index.html" class="wb-home-btn" aria-label="回到首页"
+    ><svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M3 10.5 12 3l9 7.5" />
+      <path d="M5 9.5V21h14V9.5" />
+      <path d="M9.5 21v-6h5v6" /></svg
+    >回到首页</a
+  >
 </html>
